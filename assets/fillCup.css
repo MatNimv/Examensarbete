@@ -1,0 +1,52 @@
+*{
+    --baseBlueC: #9DA2CD;
+    --basePurpleC: #A139D2;
+    --baseGreenC: #9DCDA9;
+}
+
+.fillAdvergameWrapper{
+    width: 95%;
+    height: 90%;
+    display:flex;
+    flex-direction: column;
+    background-color: var(--baseBlueC);
+}
+#topElements{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30%;
+    align-items: center;
+}
+#topElements > div, #topElements > button{
+    height: 50px;
+}
+#bottomElements{
+    height: 70%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#cup{
+    width: 170px;
+    height: 270px;
+    border: 10px solid var(--basePurpleC);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding-bottom: 1000px solid black;
+    position:relative;
+}
+.fill{
+    background-color: steelblue;
+    transition: height 0s linear 0s;
+    transform-origin: 50% 0%;
+    width: 100%;
+
+    position:absolute;
+    bottom:0px;
+
+    /*transform: scale3d(var(--scale-value), var(--scale-value), 1);
+    transition: transform cubic-bezier(0.175, 0.885, 0.32, 1.275) .2s;
+
+    --scale-value: 1;*/
+}

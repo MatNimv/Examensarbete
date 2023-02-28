@@ -1,3 +1,9 @@
+<?php 
+error_reporting(-1);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,26 +14,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/style.css" >
-    <link rel="stylesheet" href="/assets/landing.css" >
-    <title>MeTube</title>
+    <link rel="stylesheet" href="/assets/video.css" >
+    <link rel="stylesheet" href="/assets/fillCup.css" >
+    <title>Metube</title>
 </head>
 <body>
-    <header>
+<header>
         <div>MeTube</div>
         <div id="searchBar"></div>
         <div id="profile"></div>
     </header>
 
     <main>
-        <div id="allCategoriesWrapper">
-            <h4>Categories</h4>
+    <div id="mainVideo">
+        <div id="videoNGame"></div>
+        <div id="videoInfo">
+            <h3>Title</h3>
+            <div id="profile">
+                <div id="user"></div>
+                <div>Subscribe</div>
+                <div>
+                    <div>LIKE</div>
+                    <div>NO LIKE</div>
+                </div>
+            </div>
         </div>
+    </div>
         <div id="allVideosWrapper"></div>
     </main>
     <footer>
         <span>Alice & Matilda 2023</span>
     </footer>
-
-    <script type="module" src="index.js"></script>
+    <script type="module" src="video.js"></script>
+    <script type="module" src="includes/fillCup.js"></script>
 </body>
 </html>
