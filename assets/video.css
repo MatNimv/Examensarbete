@@ -54,3 +54,35 @@ main{
 #videoInfo{
     gap: 30px;
 }
+
+/* SPELET */
+
+.topStart{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+.middleStart{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+}
+#leaderBoardWrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+#userList{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+.bottomStart{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}

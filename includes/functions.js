@@ -25,3 +25,4 @@ export function categoryDOM(title){
     document.querySelector("#allCategoriesWrapper").append(categoryWrapper);
 }
 
+

@@ -65,6 +65,7 @@
 
     position:absolute;
     bottom:0px;
+    z-index: 99;
 }
 .line{
     background-color: transparent;
@@ -73,6 +74,7 @@
 
     position:absolute;
     bottom:0px;
+    z-index: 101;
 }
 .turnPointsDIV{
     display:flex;
@@ -91,5 +93,8 @@
     justify-content: center;
     align-items: center;
 }
-
+.nextBtn{
+    z-index: 100;
+    pointer-events: all;
+}
 

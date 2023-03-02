@@ -1,8 +1,14 @@
 <?php 
 error_reporting(-1);
 
+require_once "includes/functions.php";
 
+$users = loadJson("db/fillUsers.json");
 ?>
+
+<script>
+    let jsonarray = <?php echo json_encode($users); ?>
+</script>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -40,7 +40,6 @@ let videoInfo = [
         videoTitle: "Meditate like Aloy",
     },
 ]
-console.log(videoInfo);
 
 //initialize alla videor på framsidan
 for (let index = 0; index < videoInfo.length; index++) {
