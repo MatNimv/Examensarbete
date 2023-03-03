@@ -1,12 +1,12 @@
-import { videoDOM, categoryDOM } from "./includes/functions.js";
+import { videoDOM, categoryDOM, isEven } from "./includes/functions.js";
+
+//kod för endast landingpage.
 
 //ARRAYS
-//alla videor med titel, användarebild, och thumbnail
+//alla videor med titel
 let videoInfo = [
     {
         videoTitle: "How to play Horizon and not die all the time",
-        videoUserPic: "/assets/images/userPics/zoomanka.jpg",
-        videoThumbnail: "/assets/images/userPics/zoomanka.jpg"
     },
     {
         videoTitle: "Meditate like Dobby",
@@ -55,8 +55,21 @@ let categories = [
 //initialize alla videor på framsidan
 for (let index = 0; index < videoInfo.length; index++) {
     const element = videoInfo[index];
+    let link = "";
 
-    videoDOM(element.videoTitle, `assets/images/thumbnails/thumb${index}.png`, `assets/images/userPics/user${index}.png`);
+    let checkEvenNum = isEven(index);
+
+    //varannan video ska ha en annorlunda länk
+    if (checkEvenNum === true){
+        link = "video.php?link=1";
+    }else {
+        link = "video.php?link=2";
+    }
+
+    videoDOM(element.videoTitle, 
+        `assets/images/thumbnails/thumb${index}.png`, 
+        `assets/images/userPics/user${index}.png`,
+        link);
     index + 1;
 }
 

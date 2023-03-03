@@ -4,10 +4,30 @@ error_reporting(-1);
 require_once "includes/functions.php";
 
 $users = loadJson("db/fillUsers.json");
+
+//beroende på vilken getparameter ska en av spelen laddas in på vardera sida
+if (isset($_GET)){
+    $whichGameJS = "";
+    $whichGameCSS = "";
+    $whichLinkToSend = "";
+    if($_GET["link"] == 1){
+        echo ( $_GET)["link"];
+        $whichGameJS = '<script type="module" src="includes/fillCup.js"></script>';
+        $whichGameCSS = '<link rel="stylesheet" href="/assets/fillCup.css">';
+        $whichLinkToSend = 2;
+    } else {
+        $whichGameJS = '<script type="module" src="includes/whackABoot.js"></script>';
+        $whichGameCSS = '<link rel="stylesheet" href="/assets/whackABoot.css">';
+        $whichLinkToSend = 1;
+    }
+}
 ?>
 
 <script>
     let jsonarray = <?php echo json_encode($users); ?>
+</script>
+<script>
+    let linkToSend = <?php echo $whichLinkToSend; ?>
 </script>
 
 <!DOCTYPE html>
@@ -21,7 +41,8 @@ $users = loadJson("db/fillUsers.json");
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/style.css" >
     <link rel="stylesheet" href="/assets/video.css" >
-    <link rel="stylesheet" href="/assets/fillCup.css" >
+    <?php echo $whichGameCSS ?>
+    
     <title>Metube</title>
 </head>
 <body>
@@ -52,6 +73,6 @@ $users = loadJson("db/fillUsers.json");
         <span>Alice & Matilda 2023</span>
     </footer>
     <script type="module" src="video.js"></script>
-    <script type="module" src="includes/fillCup.js"></script>
-</body>
+    <?php echo $whichGameJS; ?>
+    
 </html>

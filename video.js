@@ -1,10 +1,10 @@
-//kod angående fill the cup advergame
+//kod angående de två advergamesen. 
+//främst de statiska elementen på videosidan.
 import { videoDOM } from "./includes/functions.js";
+let whichLink = linkToSend;
 let videoInfo = [
     {
         videoTitle: "How to play Horizon and not die all the time",
-        videoUserPic: "/assets/images/userPics/zoomanka.jpg",
-        videoThumbnail: "/assets/images/userPics/zoomanka.jpg"
     },
     {
         videoTitle: "Meditate like Dobby",
@@ -45,6 +45,9 @@ let videoInfo = [
 for (let index = 0; index < videoInfo.length; index++) {
     const element = videoInfo[index];
 
-    videoDOM(element.videoTitle, `assets/images/thumbnails/thumb${index}.png`, `assets/images/userPics/user${index}.png`);
+    videoDOM(element.videoTitle, `assets/images/thumbnails/thumb${index}.png`, 
+    `assets/images/userPics/user${index}.png`,
+    `video.php?link=${whichLink}`);
     index + 1;
 }
+

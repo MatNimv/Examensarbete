@@ -4,14 +4,6 @@
     --baseGreenC: #9DCDA9;
 }
 
-.fillAdvergameWrapper{
-    width: 95%;
-    height: 90%;
-    display:flex;
-    flex-direction: column;
-    background-color: var(--baseBlueC);
-    position:relative;
-}
 #topElements{
     display:flex;
     flex-direction: row;

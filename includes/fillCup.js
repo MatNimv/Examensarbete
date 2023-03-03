@@ -1,3 +1,5 @@
+//kod för advergamet fill the cup, eller fill thermos.
+
 let userPoints = 0;
 let whichTurn = 0;
 let clicks = 0;
@@ -135,6 +137,7 @@ function fillTheCup(speed, goal, fillColor){
     })
 
         //stannar om vätskan blir mer än koppens höjd
+        //offsetheight ska ändras om koppens höjd ändras.
         setInterval(() => {
             if(fill.offsetHeight === 270){
                 clearInterval(intervalFill);
@@ -392,22 +395,36 @@ function startPage(){
         elementsDOM();
         pickTurn();
     })
-
-
 }
+
+function sortByProperty(a, b){
+    if ( a.points < b.points ){
+        return 1;
+      }
+      if ( a.points > b.points ){
+        return -1;
+      }
+      return 0;
+    }
 
 function leaderboardDIV(){
     let userList = document.querySelector("#userList");
-    let index = 0;
 
-    users.forEach(element => {
-        index = index + 1
+    let sortedUsers = users.sort(sortByProperty);
+    
+    for (let index = 1; index < 11; index++) {
+        const element = sortedUsers[index];
+        
         let userDIV = document.createElement("div");
         userDIV.classList.add("userDIV");
-        userDIV.innerHTML = index + ". " + element.userName;
 
+        if(element === undefined){
+            userDIV.innerHTML = `<span class="userName">${index}. </span><span class="userPoints"></span> `;
+        }else {
+            userDIV.innerHTML = `<span class="userName">${index}. ${element.userName}: </span class="userPoints"><span> ${element.points}</span>`; 
+        }
         userList.append(userDIV);
-    });
+    }
 }
 
 
