@@ -3,6 +3,7 @@
 let userPoints = 0;
 let whichTurn = 0;
 let clicks = 0;
+let userMedals = 0;
 //från php
 let users = jsonarray;
 
@@ -32,7 +33,7 @@ let turns = [
         //medelsnabb
         speed: 30,
         goal: 150,
-        fillColor: "lightbrown",
+        fillColor: "bisque",
         fill: "tea"
     },
     {
@@ -45,7 +46,6 @@ let turns = [
 ]
 
 startPage();
-
 
 function pickTurn(){
     //5 banor.
@@ -75,7 +75,7 @@ function pickTurn(){
             //medelsnabb
             speed: 30,
             goal: 150,
-            fillColor: "lightbrown",
+            fillColor: "bisque",
             fill: "tea"
         },
         {
@@ -92,30 +92,36 @@ function pickTurn(){
         userPoints = 0;
         whichTurn = 0;
         clicks = 0;
+        userMedals = 0;
         turns = [...backupTurns];
     }
-
         let randomTurn = turns[Math.floor(Math.random()*turns.length)];
-
         //banan körs
         //snabbhet av vätskan, var linjen är, och vätskans färg
-        fillTheCup(randomTurn.speed, randomTurn.goal, randomTurn.fillColor);
+        fillTheCup(randomTurn.speed, randomTurn.goal, randomTurn.fillColor, randomTurn.fill);
         
         //ta bort banan från listan
         let removeTurn = turns.findIndex(obj => obj.fillColor === randomTurn.fillColor);
         turns.splice(removeTurn, 1);
     }
 
-
 //param1: hur snabbt vätskan fylls på. Ju högre tal, desto segare
 //param2: var "målet" är. 150 är i mitten av koppen ungefär
 //param3: färgen på vätskan som fylls på
-function fillTheCup(speed, goal, fillColor){
+//param4: namnet på färgen/vätskan
+function fillTheCup(speed, goal, fillColor, fillText){
     let FILLbtn = document.querySelector("#fill");
     let fill = document.querySelector(".fill");
     let line = document.querySelector(".line");
     let intervalFill;
 
+    //ingrediens
+    let ingredientsDIV = document.querySelector("#ingredients");
+    let ingredientsText = document.querySelector("#fillText");
+    ingredientsText.innerHTML = fillText;
+    ingredientsDIV.style.backgroundColor = fillColor;
+
+    //linjen av koppen
     fill.style.height = "0px";
     fill.style.backgroundColor = fillColor;
     line.style.bottom = "0px";
@@ -171,13 +177,13 @@ function checkResults(fill, goal){
     let line = document.querySelector(".line");
     let lineNumber = line.style.bottom.replaceAll("px", "");
     goal = lineNumber;
-    console.log("goal", goal);
 
         if(fill > goal){
         //fyllningen är mer än linjen
         let difference = fill - goal;
         if(difference === 0){
             plusPoints = 100;
+            userMedals = userMedals + 1;
         }else if (difference >= 51){
             plusPoints = 10;
         }else if (difference === 40){
@@ -196,6 +202,7 @@ function checkResults(fill, goal){
         if(difference === 0){
             //exakt på linjen. Högst poäng
             plusPoints = 100;
+            userMedals = userMedals + 1;
         }else if (difference >= 51){
             plusPoints = 10;
         }else if (difference === 40){
@@ -213,14 +220,40 @@ function checkResults(fill, goal){
     userPoints = userPoints + plusPoints;
     updateUserPoints(userPoints);
     showTurnPoints(plusPoints);
-    updateProgressBar(userPoints);  
+    updateProgressBar(userPoints);
+    updateMedals(userMedals);
 
     return plusPoints;
 }
 
 function updateUserPoints(userPoints){
-    let pointsDIV = document.querySelector("#points");
-    pointsDIV.innerHTML = userPoints;
+    let turnPointsDIV = document.querySelector(".turnPointsDIV");
+    let userPointsSPAN = document.querySelector("span");
+    userPointsSPAN.classList.add("userPoints");
+
+    userPointsSPAN.innerHTML = userPoints;
+
+    turnPointsDIV.append(userPointsSPAN);
+}
+
+function updateMedals(nmOfMedals){
+    let medalContainer = document.querySelector("#medalContainer");
+    medalContainer.innerHTML = "";
+
+    if(userMedals === 4){
+        //gör inget, högst 3 medaljer
+        return;
+    } else {
+        for (let index = 0; index < nmOfMedals; index++) {
+            //annars lägg till en medalj
+            let oneMedal = document.createElement("div");
+
+            oneMedal.innerHTML = "<img src='../assets/images/userPics/user4.png' class='medalPic'>";
+            oneMedal.classList.add("oneMedal");
+
+            medalContainer.append(oneMedal);
+        }
+    }
 }
 
 function showTurnPoints(points){
@@ -248,11 +281,17 @@ function elementsDOM(){
     fillAdvergameWrapper.innerHTML = `
         <div class="turnPointsDIV"></div>
         <div id="topElements">
-            <div id="ingredients"></div>
+            <div id="ingredients">
+                <span id="fillText"></span>
+                <span>Fill</span>
+            </div>
             <div id="progressContainer">
                 <div id="progressBar"></div>
+                <span>Your progress</span>
             </div>
-            <div id="points"></div>
+            <div id="medalContainer">
+                <span>Your Medals</span>
+            </div>
         </div>
         <div id="bottomElements">
             <div class="btnContainer">
@@ -271,7 +310,6 @@ function nextTurn(){
     //nästa bana. Om användaren kört 5st 
     //avslutas spelet.
     whichTurn = whichTurn + 1;
-    console.log(whichTurn);
     if(whichTurn === 5){
         //ta fram leaderboard o sånt
         theEnd();
@@ -300,10 +338,7 @@ function theEnd(){
         </div>
         <div class="middleEnd">
             <h4>YOUR RESULTS</h4>
-            <div>
-                <div class="medal"></div>
-                <div class="medal"></div>
-                <div class="medal"></div>
+            <div id="medalContainer">
             </div>
         </div>
         <div class="bottomEnd">
@@ -316,6 +351,8 @@ function theEnd(){
             <button class="again">PLAY AGAIN</button>
         </div>
     `;
+
+    updateMedals(userMedals);
 
     document.querySelector("#sendName").addEventListener("click", () => {
         let empty = true;
@@ -350,7 +387,7 @@ function theEnd(){
         setTimeout(() => {
             //väntar lite innan användaren skickas till startpage
             startPage();
-        }, 2500);
+        }, 2000);
         }
     })
 
@@ -358,7 +395,6 @@ function theEnd(){
         //kom till startsidan
         startPage();
     })
-
 }
 
 function startPage(){

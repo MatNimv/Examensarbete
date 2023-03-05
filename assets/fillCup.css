@@ -10,29 +10,60 @@
     justify-content: space-around;
     height: 30%;
     align-items: center;
-}
-#topElements > div, #topElements > button{
+} #topElements > button{
     height: 50px;
 }
 #ingredients{
-    width: 100px;
+    width: 110px;
+    height: 110px;
+    border-radius: 70px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
 }
-#points{
-    width: 100px;
+#ingredients > span:last-child{
+    position: absolute;
+    top: 110px;
+    right: 42px;
+}
+
+#medalContainer{
+    width: 150px;
     height: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    border: 2px solid var(--basePurpleC);
+    position: relative;
+}
+#medalContainer > span{
+    position:absolute;
+    top: 70px;
+    right: 20px;
+}
+.medalPic{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
 }
 #progressContainer{
-    height:100%;
+    height:50px;
     width:500px;
     border: 5px solid var(--baseGreenC);
     border-radius: 10px;
     position:relative;
+}
+#progressContainer > span{
+    position: absolute;
+    top: 60px;
+    right: 180px;;
 }
 #progressBar{
     position:absolute;
     left:0px;
     height:100%;
     background-color: var(--baseGreenC);
+    height: 50px;
 }
 #bottomElements{
     height: 70%;
@@ -84,6 +115,10 @@
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.userPoints{
+    position:absolute;
+    top: 65px;
 }
 .nextBtn{
     z-index: 100;

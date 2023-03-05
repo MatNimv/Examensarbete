@@ -11,7 +11,6 @@ if (isset($_GET)){
     $whichGameCSS = "";
     $whichLinkToSend = "";
     if($_GET["link"] == 1){
-        echo ( $_GET)["link"];
         $whichGameJS = '<script type="module" src="includes/fillCup.js"></script>';
         $whichGameCSS = '<link rel="stylesheet" href="/assets/fillCup.css">';
         $whichLinkToSend = 2;
