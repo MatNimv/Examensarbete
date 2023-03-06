@@ -1,3 +1,4 @@
+import { whackAMole, whackElementsDOM } from "./whackABoot.js";
 //kod för advergamet fill the cup, eller fill thermos.
 
 let userPoints = 0;
@@ -45,7 +46,10 @@ let turns = [
 
 ]
 
-startPage();
+startPage("Fill The Cup", 
+"Fill the mug with enough ingredients and win points",
+"cup"
+);
 
 function pickTurn(){
     //5 banor.
@@ -386,18 +390,24 @@ function theEnd(){
 
         setTimeout(() => {
             //väntar lite innan användaren skickas till startpage
-            startPage();
+            startPage("Fill The Cup", 
+            "Fill the mug with enough ingredients and win points",
+            "cup"
+            );
         }, 2000);
         }
     })
 
     document.querySelector(".again").addEventListener("click", () => {
         //kom till startsidan
-        startPage();
+        startPage("Fill The Cup", 
+        "Fill the mug with enough ingredients and win points",
+        "cup"
+        );
     })
 }
 
-function startPage(){
+export function startPage(game, description, gameThing){
     let videoNGameDIV = document.querySelector("#videoNGame");
     videoNGameDIV.innerHTML = "";
     let fillAdvergameWrapper = document.createElement("div");
@@ -406,19 +416,19 @@ function startPage(){
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
-            <h2>MUG GAME</h2>
-            <h5>Fill the mug with enough ingredients and win points</h5>
+            <h2>${game}</h2>
+            <h5>${description}</h5>
         </div>
         <div class="middleStart">
             <div id="leaderboardWrapper">
                 <h5>TOP TEN PLAYERS</h5>
                 <div id="userList"></div>
             </div>
-            <div id="cup"></div>
+            <div id="${gameThing}"></div>
             <div></div>
         </div>
         <div class="bottomStart">
-            <h3>PRESS <button id="start">HERE</button> TO START</h3>
+            <h3>LET'S GET <button id="start">STARTED</button></h3>
         </div>
     `;
 
@@ -429,7 +439,13 @@ function startPage(){
     //and so it begins
     document.querySelector("#start").addEventListener("click", () => {
         elementsDOM();
-        pickTurn();
+        if (game === "Fill The Cup"){
+            pickTurn();
+        } else {
+            whackElementsDOM();
+            whackAMole();
+        }
+        
     })
 }
 
@@ -443,7 +459,7 @@ function sortByProperty(a, b){
       return 0;
     }
 
-function leaderboardDIV(){
+export function leaderboardDIV(){
     let userList = document.querySelector("#userList");
 
     let sortedUsers = users.sort(sortByProperty);

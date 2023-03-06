@@ -30,5 +30,3 @@ export function categoryDOM(title){
 export function isEven(n) {
    return n % 2 == 0;
 }
-
-

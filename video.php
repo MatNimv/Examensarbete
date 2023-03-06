@@ -3,8 +3,6 @@ error_reporting(-1);
 
 require_once "includes/functions.php";
 
-$users = loadJson("db/fillUsers.json");
-
 //beroende på vilken getparameter ska en av spelen laddas in på vardera sida
 if (isset($_GET)){
     $whichGameJS = "";
@@ -14,10 +12,12 @@ if (isset($_GET)){
         $whichGameJS = '<script type="module" src="includes/fillCup.js"></script>';
         $whichGameCSS = '<link rel="stylesheet" href="/assets/fillCup.css">';
         $whichLinkToSend = 2;
+        $users = loadJson("db/fillUsers.json");
     } else {
         $whichGameJS = '<script type="module" src="includes/whackABoot.js"></script>';
         $whichGameCSS = '<link rel="stylesheet" href="/assets/whackABoot.css">';
         $whichLinkToSend = 1;
+        $users = loadJson("db/whackUsers.json");
     }
 }
 ?>
