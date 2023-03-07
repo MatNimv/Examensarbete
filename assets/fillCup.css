@@ -1,8 +1,22 @@
 *{
-    --baseBlueC: #9DA2CD;
-    --basePurpleC: #A139D2;
-    --baseGreenC: #9DCDA9;
+    --baseBlueC: #3D479D;
+    --accentBlueC: #B2EEDF;
+    --objectsBlueC: #7683f586;
+
+    --breadFontC: white;
+
+    --mainTitle:'Rubik Moonrocks', regular;
+    --instructionFont:'Rubik', sans-serif;
 }
+
+/*
+font-family: 'Rubik', sans-serif;
+font-family: 'Rubik Beastly', cursive;
+font-family: 'Rubik Bubbles', cursive;
+font-family: 'Rubik Dirt', cursive;
+font-family: 'Rubik Mono One', sans-serif;
+font-family: 'Rubik Moonrocks', cursive;
+*/
 
 #topElements{
     display:flex;
@@ -13,6 +27,14 @@
 } #topElements > button{
     height: 50px;
 }
+
+.mugGameTitle {
+    font-family: var(--mainTitle);
+    color: var(--baseBlueC);
+    font-size: 50px;
+    margin: 10px;
+}
+
 #ingredients{
     width: 110px;
     height: 110px;
@@ -33,7 +55,7 @@
     height: 70px;
     display: grid;
     grid-template-columns: repeat(3, 50px);
-    border: 2px solid var(--basePurpleC);
+    border: 2px solid var(--baseBlueC);
     position: relative;
 }
 #medalContainer > span{
@@ -47,9 +69,9 @@
     border-radius: 50px;
 }
 #progressContainer{
-    height:50px;
+    height:10px;
     width:500px;
-    border: 5px solid var(--baseGreenC);
+    border: 5px solid var(--accentBlueC);
     border-radius: 10px;
     position:relative;
 }
@@ -62,26 +84,27 @@
     position:absolute;
     left:0px;
     height:100%;
-    background-color: var(--baseGreenC);
-    height: 50px;
+    background-color: var(--accentBlueC);
 }
 #bottomElements{
     height: 70%;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
 }
 #cup{
     width: 170px;
     height: 270px;
-    border: 10px solid var(--basePurpleC);
-    margin-bottom: 20px;
+    border: 10px solid var(--objectsBlueC);
+    margin-bottom: 10px;
     border-radius: 10px;
     padding-bottom: 1000px solid black;
-    position:relative;
+    position: relative;
+    grid-area: 2/2/2/2;
 }
 .fill{
-    background-color: steelblue;
+    background-color: var(--baseBlueC);
     transition: height 0s linear 0s;
     transform-origin: 50% 0%;
     width: 100%;
@@ -110,18 +133,64 @@
 }
 .oneTurnPoints{
     position: absolute;
-    width: 100px;
-    height: 100px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    left: 170px;
+
+    font-size: 60px;
+    font-family:'Rubik Mono One', sans-serif;
+    color: var(--breadFontC); /*ANIMATION PÅ POÄNG SOM DYKER UPP HÄR*/
 }
 .userPoints{
     position:absolute;
-    top: 65px;
+    top: 30px;
+    color: var(--breadFontC);
+    font-family: var(--mainTitle);
+    font-size: 25px;
 }
 .nextBtn{
     z-index: 100;
     pointer-events: all;
+    position: absolute;
+    top: 150px;
+    background-color: var(--baseBlueC);
+    font-size: 20px;
+    font-family:'Rubik Mono One', sans-serif;
+    color: var(--breadFontC);
 }
 
+.bottomStart {
+    font-family:'Rubik Mono One', sans-serif;
+}
+
+#start {
+    font-family:'Rubik Mono One', sans-serif;
+    color: white;
+    background-color: #3D479D;
+    font-size: 20px;
+}
+
+.topten {
+    font-family:'Rubik Beastly', regular;
+}
+
+#fill {
+    background-color: var(--baseBlueC);
+    font-family:'Rubik Mono One', sans-serif;
+    color: var(--breadFontC);
+    font-size: 20px;
+}
+
+#ingredients {
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    border: 2px solid var(--accentBlueC);
+}
+
+#fillText {
+    color: var(--breadFontC);
+    font-family:'Rubik', sans-serif;
+}
+
+.btnContainer {
+    grid-area: 2/1/2/1;
+}

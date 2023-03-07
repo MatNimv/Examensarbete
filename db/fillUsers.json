@@ -1,15 +1,23 @@
 [
     {
-        "userName": "sten",
-        "points": 30
+        "userName": "Alic",
+        "points": 340
+    },
+    {
+        "userName": "Aliceeee",
+        "points": 340
+    },
+    {
+        "userName": "stork",
+        "points": 326
     },
     {
         "userName": "sven",
         "points": 300
     },
     {
-        "userName": "stork",
-        "points": 326
+        "userName": "Alice is da best",
+        "points": 290
     },
     {
         "userName": "greg",
@@ -20,11 +28,11 @@
         "points": 150
     },
     {
-        "userName": "Alic",
-        "points": 340
+        "userName": "sten",
+        "points": 30
     },
     {
-        "userName": "Aliceeee",
-        "points": 340
+        "userName": "matt",
+        "points": 390
     }
 ]

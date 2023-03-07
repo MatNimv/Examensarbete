@@ -13,34 +13,39 @@ let turns = [
         speed: 20,
         goal: 200,
         fillColor: "brown",
-        fill: "coffee"
+        fill: "coffee",
+        fillImage: "coffee.png"
     },
     {
         //långsam. tjock smörja
         speed: 50,
         goal: 100,
         fillColor: "purple",
-        fill: "blueberry soup"
+        fill: "boba",
+        fillImage: "boba.png"
     },
     {
         //medelsnabb
         speed: 30,
         goal: 260,
-        fillColor: "steelblue",
-        fill: "water"
+        fillColor: "beige",
+        fill: "milk",
+        fillImage: "milk.png"
     },
     {
         //medelsnabb
         speed: 30,
         goal: 150,
         fillColor: "bisque",
-        fill: "tea"
+        fill: "tea",
+        fillImage: "tea-bag.png"
     },
     {
         speed: 20,
         goal: 90,
-        fillColor: "yellow",
-        fill: "gingershot"
+        fillColor: "white",
+        fill: "sugar",
+        fillImage: "sugar.png"
     },
 
 ]
@@ -55,34 +60,39 @@ function pickTurn(){
             speed: 20,
             goal: 200,
             fillColor: "brown",
-            fill: "coffee"
+            fill: "coffee",
+            fillImage: "coffee.png"
         },
         {
             //långsam. tjock smörja
             speed: 50,
             goal: 100,
             fillColor: "purple",
-            fill: "blueberry soup"
+            fill: "boba",
+            fillImage: "boba.png"
         },
         {
             //medelsnabb
             speed: 30,
             goal: 260,
-            fillColor: "steelblue",
-            fill: "water"
+            fillColor: "beige",
+            fill: "milk",
+            fillImage: "milk.png"
         },
         {
             //medelsnabb
             speed: 30,
             goal: 150,
             fillColor: "bisque",
-            fill: "tea"
+            fill: "tea",
+            fillImage: "tea-bag.png"
         },
         {
             speed: 20,
             goal: 90,
-            fillColor: "yellow",
-            fill: "gingershot"
+            fillColor: "white",
+            fill: "sugar",
+            fillImage: "sugar.png"
         },
     
     ]
@@ -98,7 +108,7 @@ function pickTurn(){
         let randomTurn = turns[Math.floor(Math.random()*turns.length)];
         //banan körs
         //snabbhet av vätskan, var linjen är, och vätskans färg
-        fillTheCup(randomTurn.speed, randomTurn.goal, randomTurn.fillColor, randomTurn.fill);
+        fillTheCup(randomTurn.speed, randomTurn.goal, randomTurn.fillColor, randomTurn.fill, randomTurn.fillImage);
         
         //ta bort banan från listan
         let removeTurn = turns.findIndex(obj => obj.fillColor === randomTurn.fillColor);
@@ -109,8 +119,8 @@ function pickTurn(){
 //param2: var "målet" är. 150 är i mitten av koppen ungefär
 //param3: färgen på vätskan som fylls på
 //param4: namnet på färgen/vätskan
-function fillTheCup(speed, goal, fillColor, fillText){
-    let FILLbtn = document.querySelector("#fill");
+function fillTheCup(speed, goal, fillColor, fillText, fillImage){
+    let FILLbtn = document.querySelector("#cup");
     let fill = document.querySelector(".fill");
     let line = document.querySelector(".line");
     let intervalFill;
@@ -119,7 +129,7 @@ function fillTheCup(speed, goal, fillColor, fillText){
     let ingredientsDIV = document.querySelector("#ingredients");
     let ingredientsText = document.querySelector("#fillText");
     ingredientsText.innerHTML = fillText;
-    ingredientsDIV.style.backgroundColor = fillColor;
+    ingredientsDIV.style.backgroundImage = `url(assets/images/fill/${fillImage})`;
 
     //linjen av koppen
     fill.style.height = "0px";
@@ -231,7 +241,7 @@ function updateUserPoints(userPoints){
     let userPointsSPAN = document.querySelector("span");
     userPointsSPAN.classList.add("userPoints");
 
-    userPointsSPAN.innerHTML = userPoints;
+    userPointsSPAN.innerHTML = `TOTAL: ${userPoints}`;
 
     turnPointsDIV.append(userPointsSPAN);
 }
@@ -282,12 +292,11 @@ function elementsDOM(){
         <div class="turnPointsDIV"></div>
         <div id="topElements">
             <div id="ingredients">
+                <span></span>
                 <span id="fillText"></span>
-                <span>Fill</span>
             </div>
             <div id="progressContainer">
                 <div id="progressBar"></div>
-                <span>Your progress</span>
             </div>
             <div id="medalContainer">
                 <span>Your Medals</span>
@@ -295,7 +304,6 @@ function elementsDOM(){
         </div>
         <div id="bottomElements">
             <div class="btnContainer">
-                <button id="fill">POUR!</button>
             </div>
             <div id="cup">
                 <div class="fill"></div>
@@ -334,7 +342,7 @@ function theEnd(){
 
     gameDIV.innerHTML = `
         <div class="topEnd">
-            <h2>MUG GAME</h2>
+            <h2">MUG GAME</h2>
         </div>
         <div class="middleEnd">
             <h4>YOUR RESULTS</h4>
@@ -406,12 +414,12 @@ function startPage(){
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
-            <h2>MUG GAME</h2>
-            <h5>Fill the mug with enough ingredients and win points</h5>
+            <h2 class="mugGameTitle">FILL THERMOS</h2>
+            <h5 class="mugGameInstructions">Fill the mug with enough ingredients and win points</h5>
         </div>
         <div class="middleStart">
             <div id="leaderboardWrapper">
-                <h5>TOP TEN PLAYERS</h5>
+                <h5 class="topten">TOP TEN PLAYERS</h5>
                 <div id="userList"></div>
             </div>
             <div id="cup"></div>

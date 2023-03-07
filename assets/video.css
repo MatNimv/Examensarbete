@@ -1,7 +1,11 @@
 *{
-    --baseBlueC: #9DA2CD;
-    --basePurpleC: #A139D2;
-    --baseGreenC: #9DCDA9;
+    --baseBlueC: #3D479D;
+    --accentBlueC: #B2EEDF;
+    --objectsBlueC: #7683f59c;
+   
+    --breadFontC: white;
+
+    --instructionFont:'Rubik', sans-serif;
 }
 
 main{
@@ -33,7 +37,9 @@ main{
     height: 100%;
     display:flex;
     flex-direction: column;
-    background-color: var(--baseBlueC);
+    background-image: url(/assets/images/fill/fillCupBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
     position:relative;
 }
 #allVideosWrapper{
@@ -82,15 +88,38 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    
+    color: var(--breadFontC);
+    font-family: var(--instructionFont);
+    background-color: var(--objectsBlueC); /*INTE RÄTT FÄRG ÄNNU*/
+    border-radius: 10px;
+    border: 2px solid var(--accentBlueC);
+    padding: 10px;
 }
 #userList{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    line-height: 25px;
 }
 .bottomStart{
     display:flex;
     justify-content: center;
     align-items:center;
+
+    color: white;
+}
+
+.topten{
+    margin: 5px;
+    color: var(--breadFontC);
+    font-size: 20px;
+}
+
+.mugGameInstructions {
+    font-family: var(--instructionFont);
+    font-size: 15px;
+    color: var(--breadFontC);
+    margin-top: 10px;
 }
