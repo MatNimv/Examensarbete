@@ -1,6 +1,8 @@
 body{
     margin:0px;
     font-family: 'Golos Text', sans-serif, medium;
+    display: flex;
+    flex-direction: column;
 }
 
 /*  font-family: 'Golos Text', sans-serif;
@@ -10,7 +12,7 @@ header{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 90px;
+    height: 70px;
     align-items: center;
 }
 header > div:first-child{
@@ -21,6 +23,8 @@ header > div:first-child{
     margin-left: 10px;
     border-radius: 5px;
     font-size: larger;
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
 }
 #searchBar{
     width:400px;
@@ -39,23 +43,13 @@ header > div:first-child{
     margin-right: 10px;
 }
 footer{
-    height: 70px;
-    width:100%;
     background-color: rgb(236, 233, 233);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-}
-
-a {
-    text-decoration: none;
-}
-
-.videoTitle {
-    color: black;
+    height: 38px;
     font-size: 13px;
-    font-weight: bold;
 }
 
 #mainTitle {
@@ -66,3 +60,15 @@ a {
 .videoUser {
     margin-right: 10px;
 }
+
+.videoTitle {
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+

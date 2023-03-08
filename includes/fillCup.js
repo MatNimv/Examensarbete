@@ -341,7 +341,7 @@ function theEnd(){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
 
     gameDIV.innerHTML = `
-    <div class="endWrapper">
+    <div class="endWrapper snowfall">
         <div class="topEnd">
             <h2 class="companyEndName">CUPCIUS</h2>
             <p class="companyEndLink">Visit our site to buy our reusable cup LINK</p>

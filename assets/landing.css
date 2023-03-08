@@ -10,7 +10,7 @@ main{
 }
 #allVideosWrapper{
     display: grid;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(4, 20%);
     width: 80%;
     margin: 50px 0px 0px 0px;
@@ -26,7 +26,7 @@ main{
 
 .thumbnail > img{
     width:100%;
-    height:190px;
+    height:160px;
     border-radius: 5px;
 }
 .videoUser > img{
@@ -48,7 +48,28 @@ main{
     display:flex;
     gap: 30px;
     font-size: 13px;
+    width: 143px;
 }
 h4{margin-top: 45px;}
 #allCategoriesWrapper > h4,
 #allCategoriesWrapper > div{margin-left: 20px;}
+
+#mainTitle {
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+}
+
+.videoUser {
+    margin-right: 10px;
+}
+
+.videoTitle {
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
