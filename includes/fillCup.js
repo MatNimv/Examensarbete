@@ -357,7 +357,7 @@ function theEnd(){
             <button id="sendName">ADD</button>
         </div>
         <div>
-            <h5>OR PLAY AGAIN</h5>
+            <h5 class="orPlayAgain">OR</h5>
             <button class="again">PLAY AGAIN</button>
         </div>
     </div>

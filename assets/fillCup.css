@@ -56,11 +56,11 @@ font-family: 'Rubik Moonrocks', cursive;
     right: 42px;
 }
 
-#medalContainer{
+#medalContainer{ /*FIXA KLART MEDALJERNA */
     width: 150px;
     height: 70px;
     grid-area: 2/3/2/3;
-    background-color: var(--objectsBlueC);
+   
     position: relative;
 
     display: grid;
@@ -233,5 +233,11 @@ font-family: 'Rubik Moonrocks', cursive;
 }
 
 .again {
+    background-color: var(--baseBlueC);
+    border: 1px solid var(--accentBlueC);
+}
+
+.addName {
+    border: 1px solid var(--baseBlueC);
     background-color: var(--objectsBlueC);
 }

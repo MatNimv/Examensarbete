@@ -139,21 +139,31 @@ main{
     font-family:'Rubik Mono One', sans-serif;
     color: var(--breadFontC);
     border-radius: 5px;
-    border: 1px solid var(--accentBlueC);
     padding: 5px;
 }
 
 .addName {
-    border: none;
-    background-color: var(--objectsBlueC);
     border-radius: 5px;
 }
 
 .yourResults {
     color: var(--breadFontC);
     font-family:'Rubik Beastly', cursive;
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
 
 .enterNameText{
-    color: var(--objectsBlueC);
+    color: var(--breadFontC);
+    font-family: var(--instructionFont);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.orPlayAgain {
+    font-style: var(--instructionFont);
+    font-weight: bold;
+    color: var(--breadFontC);
+    text-align: center;
 }
