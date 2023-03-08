@@ -1,7 +1,7 @@
 *{
     --baseBlueC: #3D479D;
     --accentBlueC: #B2EEDF;
-    --objectsBlueC: #7683f586;
+    --objectsBlueC: #7683F5;
 
     --breadFontC: white;
 
@@ -26,6 +26,12 @@ font-family: 'Rubik Moonrocks', cursive;
     align-items: center;
 } #topElements > button{
     height: 50px;
+}
+
+.fillAdvergameWrapper {
+    background-image: url(/assets/images/fill/fillCupBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .mugGameTitle {
@@ -53,10 +59,14 @@ font-family: 'Rubik Moonrocks', cursive;
 #medalContainer{
     width: 150px;
     height: 70px;
-    display: grid;
-    grid-template-columns: repeat(3, 50px);
-    border: 2px solid var(--baseBlueC);
+    grid-area: 2/3/2/3;
+    background-color: var(--objectsBlueC);
     position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+
+
 }
 #medalContainer > span{
     position:absolute;
@@ -64,9 +74,7 @@ font-family: 'Rubik Moonrocks', cursive;
     right: 20px;
 }
 .medalPic{
-    width: 100%;
     height: 100%;
-    border-radius: 50px;
 }
 #progressContainer{
     height:10px;
@@ -155,6 +163,9 @@ font-family: 'Rubik Moonrocks', cursive;
     font-size: 20px;
     font-family:'Rubik Mono One', sans-serif;
     color: var(--breadFontC);
+    border-radius: 10px;
+    border: 1px solid var(--accentBlueC);
+    padding: 5px;
 }
 
 .bottomStart {
@@ -184,6 +195,7 @@ font-family: 'Rubik Moonrocks', cursive;
     background-repeat: no-repeat;
 
     border: 2px solid var(--accentBlueC);
+    background-color: var(--objectsBlueC);
 }
 
 #fillText {
@@ -193,4 +205,33 @@ font-family: 'Rubik Moonrocks', cursive;
 
 .btnContainer {
     grid-area: 2/1/2/1;
+}
+
+.medalPic {
+    height: 10%;
+}
+
+.endWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topEnd {
+    text-align: center;
+}
+
+.companyEndName {
+    font-family:'Rubik Moonrocks', cursive;
+    font-size: 26px;
+    color: var(--baseBlueC);
+}
+
+.bottomEnd {
+    text-align: center;
+}
+
+.again {
+    background-color: var(--objectsBlueC);
 }

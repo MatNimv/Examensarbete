@@ -258,7 +258,7 @@ function updateMedals(nmOfMedals){
             //annars lägg till en medalj
             let oneMedal = document.createElement("div");
 
-            oneMedal.innerHTML = "<img src='../assets/images/userPics/user4.png' class='medalPic'>";
+            oneMedal.innerHTML = "<img src='../assets/images/fill/star-medal.png' class='medalPic'>";
             oneMedal.classList.add("oneMedal");
 
             medalContainer.append(oneMedal);
@@ -299,7 +299,7 @@ function elementsDOM(){
                 <div id="progressBar"></div>
             </div>
             <div id="medalContainer">
-                <span>Your Medals</span>
+                <span></span>
             </div>
         </div>
         <div id="bottomElements">
@@ -341,16 +341,18 @@ function theEnd(){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
 
     gameDIV.innerHTML = `
+    <div class="endWrapper">
         <div class="topEnd">
-            <h2">MUG GAME</h2>
+            <h2 class="companyEndName">CUPCIUS</h2>
+            <p class="companyEndLink">Visit our site to buy our reusable cup LINK</p>
         </div>
         <div class="middleEnd">
-            <h4>YOUR RESULTS</h4>
+            <h4 class="yourResults">YOUR RESULTS</h4>
             <div id="medalContainer">
             </div>
         </div>
         <div class="bottomEnd">
-            <h5>ENTER NAME HERE TO LEADERBOARD: </h5>
+            <h5 class="enterNameText">ENTER NAME HERE TO JOIN THE LEADERBOARD: </h5>
             <input class="addName" type="text"> 
             <button id="sendName">ADD</button>
         </div>
@@ -358,6 +360,7 @@ function theEnd(){
             <h5>OR PLAY AGAIN</h5>
             <button class="again">PLAY AGAIN</button>
         </div>
+    </div>
     `;
 
     updateMedals(userMedals);
