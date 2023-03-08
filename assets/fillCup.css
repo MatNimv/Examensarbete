@@ -143,10 +143,39 @@ font-family: 'Rubik Moonrocks', cursive;
     position: absolute;
     left: 170px;
 
-    font-size: 60px;
-    font-family:'Rubik Mono One', sans-serif;
-    color: var(--breadFontC); /*ANIMATION PÅ POÄNG SOM DYKER UPP HÄR*/
+    font-size: 30px;
+    font-family: 'Rubik Beastly', cursive;
+    color: var(--breadFontC); 
+    animation: text 1.5s ease-in; /*FIXA BRA ANIMATION PÅ POÄNG SOM DYKER UPP HÄR*/
 }
+
+@keyframes text {
+    30% {
+        font-size: 35px;
+    }
+    40% {
+        font-size: 40px;
+    }
+    50% { 
+        font-size: 45px;
+    }
+    60% { 
+        font-size: 50px;
+    }
+    70% { 
+        font-size: 55px;
+    }
+    80% { 
+        font-size: 60px;
+    }
+    90% { 
+        font-size: 65px;
+    }
+    100% {
+        font-size: 70px;
+    }
+
+  }
 .userPoints{
     position:absolute;
     top: 30px;
@@ -175,8 +204,10 @@ font-family: 'Rubik Moonrocks', cursive;
 #start {
     font-family:'Rubik Mono One', sans-serif;
     color: white;
-    background-color: #3D479D;
+    background-color: var(--baseBlueC);
     font-size: 20px;
+    border: 2px solid var(--accentBlueC);
+    border-radius: 5px;
 }
 
 .topten {

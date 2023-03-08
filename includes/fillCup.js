@@ -273,13 +273,13 @@ function showTurnPoints(points){
     turnPointsDIV.classList.add("turnPointsDIV");
 
     oneTurnPoints.innerHTML = "";
-    oneTurnPoints.innerHTML = points;
+    oneTurnPoints.innerHTML = `+${points}`;
 
     turnPointsDIV.append(oneTurnPoints);
 
     setTimeout(() => {
         oneTurnPoints.remove();
-    }, 2500);
+    }, 1500);
 
 }
 
