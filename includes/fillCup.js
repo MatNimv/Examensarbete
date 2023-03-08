@@ -352,8 +352,8 @@ function theEnd(){
             </div>
         </div>
         <div class="bottomEnd">
-            <h5 class="enterNameText">ENTER NAME HERE TO JOIN THE LEADERBOARD: </h5>
-            <input class="addName" type="text"> 
+            <h5 class="enterNameText">JOIN THE LEADERBOARD</h5>
+            <input class="addName" type="text" value="ENTER NAME HERE"> 
             <button id="sendName">ADD</button>
         </div>
         <div>
@@ -418,7 +418,7 @@ function startPage(){
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
             <h2 class="mugGameTitle">FILL THERMOS</h2>
-            <h5 class="mugGameInstructions">Fill the mug with enough ingredients and win points</h5>
+            <h5 class="mugGameInstructions">Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!</h5>
         </div>
         <div class="middleStart">
             <div id="leaderboardWrapper">

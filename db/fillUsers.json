@@ -1,5 +1,9 @@
 [
     {
+        "userName": "matt",
+        "points": 390
+    },
+    {
         "userName": "Alic",
         "points": 340
     },
@@ -32,7 +36,7 @@
         "points": 30
     },
     {
-        "userName": "matt",
-        "points": 390
+        "userName": "ENTER NAME HERE",
+        "points": 440
     }
 ]

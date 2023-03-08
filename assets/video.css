@@ -123,11 +123,12 @@ main{
 
 #sendName {
     background-color: var(--baseBlueC);
-    border: 1px solid var(--accentBlueC);
+    border: 2px solid var(--accentBlueC);
     font-family:'Rubik Mono One', sans-serif;
     color: var(--breadFontC);
     border-radius: 5px;
-    padding: 5px;
+    padding: 7px;
+    margin-left: 7px;
 }
 
 .companyEndLink {
@@ -136,10 +137,11 @@ main{
 }
 
 .again {
-    font-family:'Rubik Mono One', sans-serif;
+    font-family: 'Rubik Mono One', sans-serif;
     color: var(--breadFontC);
     border-radius: 5px;
     padding: 5px;
+    font-size: 22px;
 }
 
 .addName {
@@ -156,14 +158,27 @@ main{
 
 .enterNameText{
     color: var(--breadFontC);
-    font-family: var(--instructionFont);
+    font-family: 'Rubik Mono One', sans-serif;
     font-weight: bold;
     font-size: 20px;
+    margin: 0px;
+    margin-right: 10px;
 }
 
 .orPlayAgain {
-    font-style: var(--instructionFont);
+    font-family: 'Rubik Mono One', sans-serif;
     font-weight: bold;
     color: var(--breadFontC);
     text-align: center;
+    margin: 20px;
+    font-size: 27px;
+}
+
+.middleEnd {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }

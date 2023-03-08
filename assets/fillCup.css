@@ -226,7 +226,7 @@ font-family: 'Rubik Moonrocks', cursive;
     background-repeat: no-repeat;
 
     border: 2px solid var(--accentBlueC);
-    background-color: var(--objectsBlueC);
+    background-color: #7683f585;
 }
 
 #fillText {
@@ -247,6 +247,7 @@ font-family: 'Rubik Moonrocks', cursive;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .topEnd {
@@ -255,22 +256,28 @@ font-family: 'Rubik Moonrocks', cursive;
 
 .companyEndName {
     font-family:'Rubik Moonrocks', cursive;
-    font-size: 26px;
+    font-size: 30px;
     color: var(--baseBlueC);
+    margin-top: 0px;
 }
 
 .bottomEnd {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .again {
     background-color: var(--baseBlueC);
-    border: 1px solid var(--accentBlueC);
+    border: 2px solid var(--accentBlueC);
 }
 
 .addName {
     border: 1px solid var(--baseBlueC);
     background-color: var(--objectsBlueC);
+    color: var(--breadFontC);
+    font-family: var(--instructionFont);
+    padding: 8px;
 }
 
 
