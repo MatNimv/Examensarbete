@@ -86,19 +86,19 @@ main{
     justify-content: center;
     align-items:center;
     
-    color: var(--breadFontC);
-    font-family: var(--instructionFont);
-    background-color: var(--objectsBlueC); /*INTE RÄTT FÄRG ÄNNU*/
-    border-radius: 10px;
-    border: 2px solid var(--accentBlueC);
-    padding: 10px;
 }
 #userList{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-    line-height: 25px;
+    line-height: 20px;
+
+    color: var(--breadFontC);
+    font-family: var(--instructionFont);
+    background-color: #7683f5c1; 
+    border-radius: 10px;
+    border: 7px double var(--accentBlueC);
+    padding: 10px;
 }
 .bottomStart{
     display:flex;
@@ -181,4 +181,8 @@ main{
     justify-content: center;
     align-items: center;
 
+}
+
+.userDIV {
+    font-size: 13px;
 }
