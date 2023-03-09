@@ -12,7 +12,7 @@ export function whackAMole(){
     const scoreBoard = document.querySelector('.userPoints');
     let timeUp = false;
     let userPoints = 0;
-    let gameTime = 20;
+    let gameTime = 200;
 
     document.querySelector("#startGame").addEventListener("click", () => {
         document.querySelector("#startGame").remove();
@@ -29,13 +29,15 @@ export function whackAMole(){
         }
         document.addEventListener('mousemove', onMouseMove);
 
-        //skon ska rotera när man klickar på mole
+        console.log(boot.style.background);
+        //skon ska rotera när man klickar på moles
         gameWrapper.addEventListener("click", () => {
-            console.log("click på grid");
+            console.log("klick på grid");
             boot.style.background = "url(assets/images/whack/bootRotated.png)";
             boot.style.backgroundSize = "cover";
 
             setTimeout(() => {
+                console.log("timeout");
                 boot.style.background = "url(assets/images/whack/boot.png)";
                 boot.style.backgroundSize = "cover";
             }, 300);
@@ -53,9 +55,20 @@ export function whackAMole(){
     }
 
     function peep() {
-        const time = randomTime(200, 1000);
+        const time = randomTime(200, 1200);
         const hole = randomHole(holes);
         hole.classList.add('up');
+
+        let creaturePopUps = ["monsterPurple", "monsterRed", "friendRed", "friendPurple"];
+        let randCreaturePopUps = creaturePopUps[Math.floor(Math.random()*creaturePopUps.length)];
+
+        //rensa "mole" elementet
+        holes.forEach(element => {
+            element.firstElementChild.removeAttribute("class");
+            element.firstElementChild.classList.add("mole");
+        })
+        hole.firstElementChild.classList.add(randCreaturePopUps);
+
         setTimeout(() => {
             hole.classList.remove('up');
             if (!timeUp) peep();
@@ -73,9 +86,11 @@ export function whackAMole(){
 
     moles.forEach(mole => mole.addEventListener('click', (e) => {
         if(!e.isTrusted) return; 
-        userPoints++;
         e.target.parentNode.classList.remove('up');
         scoreBoard.textContent = "Your Score: " + userPoints;
+        let creatureClick = e.target;
+        console.log("click mole");
+        giveOrTake(creatureClick, userPoints);
     }));   
     
     function timerDIV(){
@@ -93,7 +108,28 @@ export function whackAMole(){
         timeleft -= 1;
         }, 1000);
     }
+
+    function giveOrTake(element){
+        let overlay = document.querySelector(".turnPointsDIV");
+        let showPoints = document.createElement("div");
+        showPoints.classList.add("showPoints");
+        overlay.innerHTML = "";
+        //ge poäng
+        if (element.classList.contains("friendPurple")
+        || element.classList.contains("friendRed")){
+            userPoints = userPoints - 1
+            showPoints.innerHTML = "-1";
+        //ta poäng
+        }else if(element.classList.contains("monsterRed" 
+        || element.classList.contains("monsterPurple"))){
+            userPoints = userPoints + 1
+            showPoints.innerHTML = "+1";
+        }
+        overlay.append(showPoints);
+    }
 }
+
+
 
 
 

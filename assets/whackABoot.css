@@ -1,7 +1,3 @@
-*{
-    cursor: auto;
-}
-
 #topElements{
     height:25%;
 }
@@ -12,17 +8,16 @@
     align-items: center;
 }
 .boot{
-    height:100px;
-    width:100px;
+    height:150px;
+    width:150px;
     background: url("images/whack/boot.png");
     background-size: cover;
+    z-index: 10;
+    pointer-events: none;
 }
 .boot.floatBoot{
     position:absolute;
-    transform: translate(-120px,-200px);
-}
-.whacked{
-    background: url("images/whack/bootRotated.png");
+    transform: translate(-140px,-250px);
 }
 #gridWrapper{
     display:flex;
@@ -38,7 +33,6 @@
     grid-gap: 2px solid black;
 }
 .hole{
-    border-bottom: 2px solid black;
     overflow: hidden;
     position: relative;
 }
@@ -53,9 +47,8 @@
     z-index: 2;
     bottom: -30px;
 }
-.mole {
-    background: url('images/whack/monsterRed.svg') bottom center no-repeat;
-    background-size: 70%;
+.mole{
+    background-size: 50%;
     position: absolute;
     top: 100%;
     width: 100%;
@@ -63,16 +56,44 @@
     transition:all 0.4s ease;
     filter: saturate(0%);
 }
-.hole.up .mole {
-    top: 0;
-    filter: saturate(100%);
-}
-.friends{
-    background: url('images/whack/monster.png') bottom center no-repeat;
+/*ursäkta mig. det blev knas annars*/
+.monsterRed{
+    background: url('images/whack/monsterRed.svg') bottom center no-repeat;
     background-size: 50%;
     position: absolute;
     top: 100%;
     width: 100%;
     height: 100%;
     transition:all 0.4s ease;
+    filter: saturate(0%);}
+.monsterPurple{
+    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);}
+.friendRed{
+    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);}
+.friendPurple{
+    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);}
+.hole.up .mole {
+    top: 0;
+    filter: saturate(100%);
 }
