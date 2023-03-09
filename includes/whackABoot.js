@@ -1,4 +1,4 @@
-import { startPage, leaderboardDIV } from "./fillCup.js";
+import { startPage, theEnd } from "./fillCup.js";
 
 
 startPage("Whack A Boot",
@@ -11,29 +11,50 @@ export function whackAMole(){
     const moles = document.querySelectorAll('.mole');
     const scoreBoard = document.querySelector('.userPoints');
     let timeUp = false;
-    let score = 0;
+    let userPoints = 0;
+    let gameTime = 20;
 
     document.querySelector("#startGame").addEventListener("click", () => {
         document.querySelector("#startGame").remove();
         startGame();
+        timerDIV();
+
+        //skon följer användarens mus
+        let gameWrapper = document.querySelector("#gridWrapper")
+        document.querySelector(".boot").classList.add("floatBoot");
+        let boot = document.querySelector('.boot');
+        const onMouseMove = (e) =>{
+            boot.style.left = e.pageX + 'px';
+            boot.style.top = e.pageY + 'px';
+        }
+        document.addEventListener('mousemove', onMouseMove);
+
+        //skon ska rotera när man klickar på mole
+        gameWrapper.addEventListener("click", () => {
+            console.log("click på grid");
+            boot.style.background = "url(assets/images/whack/bootRotated.png)";
+            boot.style.backgroundSize = "cover";
+
+            setTimeout(() => {
+                boot.style.background = "url(assets/images/whack/boot.png)";
+                boot.style.backgroundSize = "cover";
+            }, 300);
+        })
     })
 
     function randomTime(min, max) { 
         return Math.round(Math.random() * (max - min) + min);
     }
 
-
     function randomHole(holes) {
         const idx = Math.floor(Math.random() * holes.length);
         const hole = holes[idx];
-        console.log(hole);
         return hole;
     }
 
     function peep() {
-        const time = randomTime(10000, 20000);
+        const time = randomTime(200, 1000);
         const hole = randomHole(holes);
-        console.log("hole: " + hole);
         hole.classList.add('up');
         setTimeout(() => {
             hole.classList.remove('up');
@@ -42,37 +63,39 @@ export function whackAMole(){
     }
 
     function startGame() {
-        scoreBoard.textContent = 0;
+        scoreBoard.textContent = "Your Score: " + 0;
         timeUp = false;
-        score = 0;
+        userPoints = 0;
         peep();
-        setTimeout(() => timeUp = true, 20000)
+        let realGameTime = `${gameTime}` + "000";
+        setTimeout(() => timeUp = true, realGameTime)
     }
 
     moles.forEach(mole => mole.addEventListener('click', (e) => {
-        console.log("hallå");
         if(!e.isTrusted) return; 
-        console.log("hej");
-        score++;
+        userPoints++;
         e.target.parentNode.classList.remove('up');
-        console.log(e.target);
-        scoreBoard.textContent = score;
-    }));
+        scoreBoard.textContent = "Your Score: " + userPoints;
+    }));   
     
-    //for (let index = 0; index < moles.length; index++) {
-    //    moles[index].addEventListener("click", (e) => {
-    //        e.stopPropagation();
-    //        if(!e.isTrusted) return; 
-    //        score++;
-    //        this.parentNode.classList.remove('up');
-    //        console.log(e.target);
-    //        scoreBoard.textContent = score;
-    //    })
-    //    
-    //}
-    
-    
+    function timerDIV(){
+        var timeleft = gameTime;
+        var downloadTimer = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(downloadTimer);
+            document.getElementById("timer").innerHTML = "Finished";
+            setTimeout(() => {
+                theEnd("Canada Boots Company", userPoints);
+            }, 3000);
+        } else {
+            document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+        }
+        timeleft -= 1;
+        }, 1000);
+    }
 }
+
+
 
 export function whackElementsDOM(){
     let fillAdvergameWrapper = document.querySelector(".fillAdvergameWrapper")
@@ -90,8 +113,9 @@ export function whackElementsDOM(){
             </div>
         </div>
         <div id="middleElements">
-            <img class="boot" src="assets/images/userPics/user5.png">
+            <div class="boot"></div>
             <button id="startGame">START</button>
+            <div id="timer"></div>
         </div>
         <div id="gridWrapper">
             <div id="holeWrapper">

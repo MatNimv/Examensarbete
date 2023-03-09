@@ -1,3 +1,7 @@
+*{
+    cursor: auto;
+}
+
 #topElements{
     height:25%;
 }
@@ -10,6 +14,15 @@
 .boot{
     height:100px;
     width:100px;
+    background: url("images/whack/boot.png");
+    background-size: cover;
+}
+.boot.floatBoot{
+    position:absolute;
+    transform: translate(-120px,-200px);
+}
+.whacked{
+    background: url("images/whack/bootRotated.png");
 }
 #gridWrapper{
     display:flex;
@@ -31,7 +44,7 @@
 }
 .hole:after {
     display: block;
-    background: url("images/Rectangle.svg") bottom center no-repeat;
+    background: url("images/whack/Rectangle.svg") bottom center no-repeat;
     background-size: contain;
     content: '';
     width: 100%;
@@ -41,22 +54,21 @@
     bottom: -30px;
 }
 .mole {
-    background: url('images/monster.png') bottom center no-repeat;
+    background: url('images/whack/monsterRed.svg') bottom center no-repeat;
     background-size: 70%;
     position: absolute;
     top: 100%;
     width: 100%;
     height: 100%;
     transition:all 0.4s ease;
+    filter: saturate(0%);
 }
 .hole.up .mole {
     top: 0;
-}
-.up{
-    z-index: 1000;
+    filter: saturate(100%);
 }
 .friends{
-    background: url('images/monster.png') bottom center no-repeat;
+    background: url('images/whack/monster.png') bottom center no-repeat;
     background-size: 50%;
     position: absolute;
     top: 100%;

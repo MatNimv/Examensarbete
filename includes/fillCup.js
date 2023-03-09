@@ -1,6 +1,7 @@
 import { whackAMole, whackElementsDOM } from "./whackABoot.js";
 //kod för advergamet fill the cup, eller fill thermos.
 
+
 let userPoints = 0;
 let whichTurn = 0;
 let clicks = 0;
@@ -180,6 +181,7 @@ function checkResults(fill, goal){
     let plusPoints = 0;
     let line = document.querySelector(".line");
     let lineNumber = line.style.bottom.replaceAll("px", "");
+    let filling = document.querySelector(".fill");
     goal = lineNumber;
 
         if(fill > goal){
@@ -189,16 +191,16 @@ function checkResults(fill, goal){
             plusPoints = 100;
             userMedals = userMedals + 1;
         }else if (difference >= 51){
-            plusPoints = 10;
+            plusPoints = -10;
         }else if (difference === 40){
-            plusPoints = 20;
+            plusPoints = 10;
         }else if (difference === 30){
-            plusPoints = 40;
+            plusPoints = 20;
         }else if (difference === 20){
-            plusPoints = 60;
+            plusPoints = 30;
         } 
         else if (difference === 10){
-            plusPoints = 80;
+            plusPoints = 50;
         } 
     } else{
         //fyllningen är mindre än linjen
@@ -219,6 +221,9 @@ function checkResults(fill, goal){
         else if (difference === 10){
             plusPoints = 80;
         } 
+    }
+    if (filling.offsetHeight === 270){
+        plusPoints = -100;
     }
     //uppdaterar användarens poäng
     userPoints = userPoints + plusPoints;
@@ -316,9 +321,8 @@ function nextTurn(){
     whichTurn = whichTurn + 1;
     if(whichTurn === 5){
         //ta fram leaderboard o sånt
-        theEnd();
+        theEnd("Cupcius", userPoints);
     } else {
-
         let nextBtn = document.createElement("button");
 
         nextBtn.classList.add("nextBtn");
@@ -333,12 +337,12 @@ function nextTurn(){
     }
 }
 
-function theEnd(){
+export function theEnd(title, points){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
 
     gameDIV.innerHTML = `
         <div class="topEnd">
-            <h2>MUG GAME</h2>
+            <h2>${title}</h2>
         </div>
         <div class="middleEnd">
             <h4>YOUR RESULTS</h4>
@@ -351,12 +355,20 @@ function theEnd(){
             <button id="sendName">ADD</button>
         </div>
         <div>
-            <h5>OR PLAY AGAIN</h5>
+            <h5>OR</h5>
             <button class="again">PLAY AGAIN</button>
         </div>
     `;
 
-    updateMedals(userMedals);
+    if (title == "Cupcius"){
+        updateMedals(userMedals);
+    } else {
+        //document.querySelector('.boot').remove();
+        //document.querySelector(".fillAdvergameWrapper").classList.remove("gameIsOn");
+        //document.querySelector(".fillAdvergameWrapper").classList.remove("whacked");
+
+    }
+
 
     document.querySelector("#sendName").addEventListener("click", () => {
         let empty = true;
@@ -364,9 +376,16 @@ function theEnd(){
 
         let oneUser = {
             userName: addName.value,
-            points: userPoints
+            points: points
         }
         users.push(oneUser);
+        if (title == "Cupcius"){
+            let fillGame = [];
+            fillGame.push(users);
+        }else {
+            let whackGame = [];
+            whackGame.push(users);
+        }
 
         if(addName.value.length <= 0){
             empty = true;
@@ -377,9 +396,18 @@ function theEnd(){
         if (empty === true){
             document.querySelector(".addName").style.border = "2px solid red";
             //ERROR kod för att inputen är tom
-
         }else {
-            const data = {users};
+            let data;
+            if (title == "Cupcius"){
+                let fillGame = [];
+                fillGame.push(users);
+                data = {fillGame};
+            }else {
+                let whackGame = [];
+                whackGame.push(users);
+                data = {whackGame};
+            }
+            
             const req = new Request("../db/server.php", {
             method: "POST",
             body: JSON.stringify(data),
@@ -389,21 +417,32 @@ function theEnd(){
         fetch(req).then(response => response);
 
         setTimeout(() => {
-            //väntar lite innan användaren skickas till startpage
-            startPage("Fill The Cup", 
-            "Fill the mug with enough ingredients and win points",
-            "cup"
+            if (title == "Cupcius"){
+                //väntar lite innan användaren skickas till startpage
+                startPage("Fill The Cup", 
+                "Fill the mug with enough ingredients and win points",
+                "cup"
             );
+            }else {
+                startPage("Whack A Boot",
+                "Stomp the invanders",
+                "boot");
+                }
         }, 2000);
         }
     })
 
     document.querySelector(".again").addEventListener("click", () => {
-        //kom till startsidan
-        startPage("Fill The Cup", 
-        "Fill the mug with enough ingredients and win points",
-        "cup"
-        );
+        if (title == "Cupcius"){
+            //kom till startsidan
+            startPage("Fill The Cup", 
+            "Fill the mug with enough ingredients and win points",
+            "cup");
+        } else {
+            startPage("Whack A Boot",
+            "Stomp the invanders",
+            "boot");
+        }
     })
 }
 
@@ -461,8 +500,8 @@ function sortByProperty(a, b){
 
 export function leaderboardDIV(){
     let userList = document.querySelector("#userList");
-
-    let sortedUsers = users.sort(sortByProperty);
+    let leaderBoardUsers = jsonarray;
+    let sortedUsers = leaderBoardUsers.sort(sortByProperty);
     
     for (let index = 1; index < 11; index++) {
         const element = sortedUsers[index];

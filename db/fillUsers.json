@@ -1,30 +1,18 @@
 [
     {
-        "userName": "sten",
-        "points": 30
-    },
-    {
-        "userName": "sven",
-        "points": 300
-    },
-    {
-        "userName": "stork",
+        "userName": "boot",
         "points": 326
     },
     {
-        "userName": "greg",
-        "points": 210
+        "userName": "a",
+        "points": 300
     },
     {
-        "userName": "Eddy",
-        "points": 150
+        "userName": "whack",
+        "points": 30
     },
     {
-        "userName": "Alic",
-        "points": 340
-    },
-    {
-        "userName": "Aliceeee",
-        "points": 340
+        "userName": "test",
+        "points": 50
     }
 ]
