@@ -1,12 +1,13 @@
+import { theEnd } from "./functions.js";
 //kod för advergamet fill the cup, eller fill thermos.
+
+console.log("fill");
 
 let userPoints = 0;
 let whichTurn = 0;
 let clicks = 0;
 let userMedals = 0;
-//från php
 let users = jsonarray;
-
 let turns = [
     {
         //superfart
@@ -50,9 +51,8 @@ let turns = [
 
 ]
 
-startPage();
 
-function pickTurn(){
+export function pickTurn(){
     //5 banor.
     let backupTurns = [
         {
@@ -186,6 +186,7 @@ function checkResults(fill, goal){
     let plusPoints = 0;
     let line = document.querySelector(".line");
     let lineNumber = line.style.bottom.replaceAll("px", "");
+    let filling = document.querySelector(".fill");
     goal = lineNumber;
 
         if(fill > goal){
@@ -195,16 +196,16 @@ function checkResults(fill, goal){
             plusPoints = 100;
             userMedals = userMedals + 1;
         }else if (difference >= 51){
-            plusPoints = 10;
+            plusPoints = -10;
         }else if (difference === 40){
-            plusPoints = 20;
+            plusPoints = 10;
         }else if (difference === 30){
-            plusPoints = 40;
+            plusPoints = 20;
         }else if (difference === 20){
-            plusPoints = 60;
+            plusPoints = 30;
         } 
         else if (difference === 10){
-            plusPoints = 80;
+            plusPoints = 50;
         } 
     } else{
         //fyllningen är mindre än linjen
@@ -226,13 +227,15 @@ function checkResults(fill, goal){
             plusPoints = 80;
         } 
     }
+    if (filling.offsetHeight === 270){
+        plusPoints = -100;
+    }
     //uppdaterar användarens poäng
     userPoints = userPoints + plusPoints;
     updateUserPoints(userPoints);
     showTurnPoints(plusPoints);
     updateProgressBar(userPoints);
     updateMedals(userMedals);
-
     return plusPoints;
 }
 
@@ -246,9 +249,10 @@ function updateUserPoints(userPoints){
     turnPointsDIV.append(userPointsSPAN);
 }
 
-function updateMedals(nmOfMedals){
+export function updateMedals(nmOfMedals){
     let medalContainer = document.querySelector("#medalContainer");
     medalContainer.innerHTML = "";
+    console.log(userMedals);
 
     if(userMedals === 4){
         //gör inget, högst 3 medaljer
@@ -284,7 +288,7 @@ function showTurnPoints(points){
 }
 
 //all base-elements in fillthecup advergame. not interactive
-function elementsDOM(){
+export function elementsDOM(){
     let fillAdvergameWrapper = document.querySelector(".fillAdvergameWrapper")
     fillAdvergameWrapper.innerHTML = "";
 
@@ -319,10 +323,9 @@ function nextTurn(){
     //avslutas spelet.
     whichTurn = whichTurn + 1;
     if(whichTurn === 5){
-        //ta fram leaderboard o sånt
-        theEnd();
+        //ta fram slutet o sånt
+        theEnd("Cupcius", userPoints);
     } else {
-
         let nextBtn = document.createElement("button");
 
         nextBtn.classList.add("nextBtn");
@@ -336,143 +339,4 @@ function nextTurn(){
         })
     }
 }
-
-function theEnd(){
-    let gameDIV = document.querySelector(".fillAdvergameWrapper");
-
-    gameDIV.innerHTML = `
-    <div class="endWrapper snowfall">
-        <div class="topEnd">
-            <h2 class="companyEndName">CUPCIUS</h2>
-            <p class="companyEndLink">Visit our site to buy our reusable cup LINK</p>
-        </div>
-        <div class="middleEnd">
-            <h4 class="yourResults">YOUR RESULTS</h4>
-            <div id="medalContainer">
-            </div>
-        </div>
-        <div class="bottomEnd">
-            <h5 class="enterNameText">JOIN THE LEADERBOARD</h5>
-            <input class="addName" type="text" placeholder="ENTER NAME HERE"> 
-            <button id="sendName">ADD</button>
-        </div>
-        <div>
-            <h5 class="orPlayAgain">OR</h5>
-            <button class="again">PLAY AGAIN</button>
-        </div>
-    </div>
-    `;
-
-    updateMedals(userMedals);
-
-    document.querySelector("#sendName").addEventListener("click", () => {
-        let empty = true;
-        let addName = document.querySelector(".addName");
-
-        let oneUser = {
-            userName: addName.value,
-            points: userPoints
-        }
-        users.push(oneUser);
-
-        if(addName.value.length <= 0){
-            empty = true;
-        } else {
-            empty = false;
-        }
-
-        if (empty === true){
-            document.querySelector(".addName").style.border = "2px solid red";
-            //ERROR kod för att inputen är tom
-
-        }else {
-            const data = {users};
-            const req = new Request("../db/server.php", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {"Content-type": "application/json"}
-        })
-
-        fetch(req).then(response => response);
-
-        setTimeout(() => {
-            //väntar lite innan användaren skickas till startpage
-            startPage();
-        }, 2000);
-        }
-    })
-
-    document.querySelector(".again").addEventListener("click", () => {
-        //kom till startsidan
-        startPage();
-    })
-}
-
-function startPage(){
-    let videoNGameDIV = document.querySelector("#videoNGame");
-    videoNGameDIV.innerHTML = "";
-    let fillAdvergameWrapper = document.createElement("div");
-    fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
-
-
-    fillAdvergameWrapper.innerHTML = "";
-    fillAdvergameWrapper.innerHTML = `
-        <div class="topStart">
-            <h2 class="mugGameTitle">FILL THERMOS</h2>
-            <h5 class="mugGameInstructions">Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!</h5>
-        </div>
-        <div class="middleStart">
-            <div id="leaderboardWrapper">
-                <h5 class="topten">TOP TEN PLAYERS</h5>
-                <div id="userList"></div>
-            </div>
-            <div id="cup"></div>
-            <div></div>
-        </div>
-        <div class="bottomStart">
-            <h3>PRESS <button id="start">HERE</button> TO START</h3>
-        </div>
-    `;
-
-    document.querySelector("#videoNGame").append(fillAdvergameWrapper);
-
-    leaderboardDIV();
-
-    //and so it begins
-    document.querySelector("#start").addEventListener("click", () => {
-        elementsDOM();
-        pickTurn();
-    })
-}
-
-function sortByProperty(a, b){
-    if ( a.points < b.points ){
-        return 1;
-      }
-      if ( a.points > b.points ){
-        return -1;
-      }
-      return 0;
-    }
-
-function leaderboardDIV(){
-    let userList = document.querySelector("#userList");
-
-    let sortedUsers = users.sort(sortByProperty);
-    
-    for (let index = 1; index < 11; index++) {
-        const element = sortedUsers[index];
-        
-        let userDIV = document.createElement("div");
-        userDIV.classList.add("userDIV");
-
-        if(element === undefined){
-            userDIV.innerHTML = `<span class="userName">${index}. </span><span class="userPoints"></span> `;
-        }else {
-            userDIV.innerHTML = `<span class="userName">${index}. ${element.userName}: </span class="userPoints"><span> ${element.points}</span>`; 
-        }
-        userList.append(userDIV);
-    }
-}
-
 

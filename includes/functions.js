@@ -31,4 +31,15 @@ export function isEven(n) {
    return n % 2 == 0;
 }
 
+export function skipAd(){
+    let skipDIV = document.createElement("div");
+    let overlay = document.createElement("div");
+    let videoNGame = document.querySelector("#videoNGame");
+    overlay.classList.add("overlay");
+    skipDIV.classList.add("skip");
 
+    skipDIV.innerHTML = "<div><span>Skip Ad</span><div></div></div>";
+
+    videoNGame.append(overlay);
+    overlay.append(skipDIV);
+}

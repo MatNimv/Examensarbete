@@ -1,0 +1,126 @@
+#topElements{
+    height:25%;
+}
+#middleElements{
+    height:10%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.boot{
+    height:150px;
+    width:150px;
+    background: url("images/whack/boot.png");
+    background-size: cover;
+    z-index: 10;
+    pointer-events: none;
+
+} #boot{
+    height:150px;
+    width:150px;
+    background: url("images/whack/boot.svg");
+    background-size: cover;
+    z-index: 10;
+    transform: translatey(0px);
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+    animation: float 6s ease-in-out infinite;
+}
+.boot.floatBoot{
+    position:absolute;
+    transform: translate(-140px,-250px);
+}
+#gridWrapper{
+    display:flex;
+    height:65%;
+    justify-content: center;
+    align-items: end;
+}
+#holeWrapper{
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 100px);
+    grid-gap: 2px solid black;
+}
+.hole{
+    overflow: hidden;
+    position: relative;
+}
+.hole:after {
+    display: block;
+    background: url("images/whack/Rectangle.svg") bottom center no-repeat;
+    background-size: contain;
+    content: '';
+    width: 100%;
+    height:70px;
+    position: absolute;
+    z-index: 2;
+    bottom: -30px;
+}
+
+.mole{
+    /*background: url('images/whack/monsterRed.svg') bottom center no-repeat;*/
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);
+}
+/*ursäkta mig. det blev knas annars
+.monsterRed{
+    background: url('images/whack/monsterRed.svg') bottom center no-repeat;
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);}
+.monsterPurple{
+    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);}
+.friendRed{
+    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);}
+.friendPurple{
+    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
+    background-size: 50%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.4s ease;
+    filter: saturate(0%);}*/
+.hole.up .mole {
+    top: 0;
+    filter: saturate(100%);
+}
+
+@keyframes float {
+    0% {
+        filter:drop-shadow(0 5px 15px 0px rgb(0 0 0 / 0.4));
+        transform: translatey(0px);
+    }
+    50% {
+        filter:drop-shadow(0 25px 15px 0px rgb(0 0 0 / 0.2));
+        transform: translatey(-20px);
+    }
+    100% {
+        filter:drop-shadow(0 5px 15px 0px rgb(0 0 0 / 0.4));
+        transform: translatey(0px);
+    }
+  }

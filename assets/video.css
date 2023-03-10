@@ -184,3 +184,43 @@ main{
 .userDIV {
     font-size: 13px;
 }
+
+.turnPointsDIV{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height:100%;
+    pointer-events: none;
+}
+.overlay{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    pointer-events: none;
+}
+.skip > div{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.skip > div > div{
+    background-image: url("images/misc/next.png");
+    width: 20px;
+    height: 20px;
+}
+.skip{
+
+}
