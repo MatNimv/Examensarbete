@@ -13,11 +13,13 @@ if (isset($_GET)){
         $whichGameCSS = '<link rel="stylesheet" href="/assets/fillCup.css">';
         $whichLinkToSend = 2;
         $users = loadJson("db/fillUsers.json");
+        echo $whichLinkToSend;
     } else {
         $whichGameJS = '<script type="module" src="includes/whackABoot.js"></script>';
         $whichGameCSS = '<link rel="stylesheet" href="/assets/whackABoot.css">';
         $whichLinkToSend = 1;
         $users = loadJson("db/whackUsers.json");
+        echo $whichLinkToSend;
     }
 }
 ?>

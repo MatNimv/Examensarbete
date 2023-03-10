@@ -1,13 +1,6 @@
-import { startPage, theEnd } from "./fillCup.js";
+import { theEnd } from "./functions.js";
 
-
-startPage("Whack A Boot",
-"Stomp the invanders",
-"boot");
-
-setTimeout(() => {
-    skipAd();
-}, 5000);
+console.log("whackJS");
 
 
 export function whackAMole(){
@@ -16,7 +9,7 @@ export function whackAMole(){
     const scoreBoard = document.querySelector('.userPoints');
     let timeUp = false;
     let userPoints = 0;
-    let gameTime = 200;
+    let gameTime = 2;
 
     document.querySelector("#startGame").addEventListener("click", () => {
         document.querySelector("#startGame").remove();
@@ -149,10 +142,6 @@ export function whackAMole(){
         return randCreaturePopUps;
     }
 }
-
-
-
-
 
 export function whackElementsDOM(){
     let fillAdvergameWrapper = document.querySelector(".fillAdvergameWrapper")
