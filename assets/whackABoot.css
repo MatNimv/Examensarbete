@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
 }
-.boot{
+.boot, #boot{
     height:150px;
     width:150px;
     background: url("images/whack/boot.png");
@@ -47,7 +47,9 @@
     z-index: 2;
     bottom: -30px;
 }
+
 .mole{
+    /*background: url('images/whack/monsterRed.svg') bottom center no-repeat;*/
     background-size: 50%;
     position: absolute;
     top: 100%;
@@ -56,7 +58,7 @@
     transition:all 0.4s ease;
     filter: saturate(0%);
 }
-/*ursäkta mig. det blev knas annars*/
+/*ursäkta mig. det blev knas annars
 .monsterRed{
     background: url('images/whack/monsterRed.svg') bottom center no-repeat;
     background-size: 50%;
@@ -92,7 +94,7 @@
     width: 100%;
     height: 100%;
     transition:all 0.4s ease;
-    filter: saturate(0%);}
+    filter: saturate(0%);}*/
 .hole.up .mole {
     top: 0;
     filter: saturate(100%);

@@ -362,13 +362,7 @@ export function theEnd(title, points){
 
     if (title == "Cupcius"){
         updateMedals(userMedals);
-    } else {
-        //document.querySelector('.boot').remove();
-        //document.querySelector(".fillAdvergameWrapper").classList.remove("gameIsOn");
-        //document.querySelector(".fillAdvergameWrapper").classList.remove("whacked");
-
     }
-
 
     document.querySelector("#sendName").addEventListener("click", () => {
         let empty = true;

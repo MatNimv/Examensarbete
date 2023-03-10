@@ -51,23 +51,20 @@ export function whackAMole(){
     function randomHole(holes) {
         const idx = Math.floor(Math.random() * holes.length);
         const hole = holes[idx];
+
+        //bestäm vilken bild som ska dyka upp
+        let element = hole.firstElementChild;
+        let randCreature = whichCreature(element);
+        element.style.background = `url(assets/images/whack/${randCreature}.svg) bottom center no-repeat`;
+        element.style.backgroundSize = "50%";
+
         return hole;
     }
 
     function peep() {
-        const time = randomTime(200, 1200);
+        const time = randomTime(700, 1500);
         const hole = randomHole(holes);
         hole.classList.add('up');
-
-        let creaturePopUps = ["monsterPurple", "monsterRed", "friendRed", "friendPurple"];
-        let randCreaturePopUps = creaturePopUps[Math.floor(Math.random()*creaturePopUps.length)];
-
-        //rensa "mole" elementet
-        holes.forEach(element => {
-            element.firstElementChild.removeAttribute("class");
-            element.firstElementChild.classList.add("mole");
-        })
-        hole.firstElementChild.classList.add(randCreaturePopUps);
 
         setTimeout(() => {
             hole.classList.remove('up');
@@ -126,6 +123,28 @@ export function whackAMole(){
             showPoints.innerHTML = "+1";
         }
         overlay.append(showPoints);
+    }
+
+    function whichCreature(element){
+        let creaturePopUps = ["monsterPurple", "monsterRed", "friendRed", "friendPurple"];
+        let randCreaturePopUps = creaturePopUps[Math.floor(Math.random()*creaturePopUps.length)];
+
+        if (element.classList.contains("friendPurple")){
+            element.classList.remove("friendPurple");
+        }
+        else if (element.classList.contains("friendRed")){
+            element.classList.remove("friendRed");
+        }
+        else if(element.classList.contains("monsterRed")){
+            element.classList.remove("monsterRed");
+        } 
+        else if(element.classList.contains("monsterPurple")){
+            element.classList.remove("monsterPurple");
+        }
+
+        element.classList.add(randCreaturePopUps);
+
+        return randCreaturePopUps;
     }
 }
 
