@@ -141,7 +141,6 @@ export function whackAMole(){
         else if(element.classList.contains("monsterPurple")){
             element.classList.remove("monsterPurple");
         }
-
         element.classList.add(randCreaturePopUps);
 
         return randCreaturePopUps;
