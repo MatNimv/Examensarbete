@@ -1,3 +1,4 @@
+import { skipAd } from "./functions.js";
 import { whackAMole, whackElementsDOM } from "./whackABoot.js";
 //kod för advergamet fill the cup, eller fill thermos.
 
@@ -51,6 +52,10 @@ startPage("Fill The Cup",
 "Fill the mug with enough ingredients and win points",
 "cup"
 );
+
+setTimeout(() => {
+    skipAd();
+}, 5000);
 
 function pickTurn(){
     //5 banor.

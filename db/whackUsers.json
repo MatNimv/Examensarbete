@@ -12,6 +12,10 @@
         "points": 30
     },
     {
+        "userName": "WHCKAMASTER",
+        "points": 10
+    },
+    {
         "userName": "whackMaster",
         "points": 0
     },
@@ -32,7 +36,23 @@
         "points": 0
     },
     {
-        "userName": "WHCKAMASTER",
-        "points": 10
+        "userName": "",
+        "points": 1
+    },
+    {
+        "userName": "",
+        "points": 1
+    },
+    {
+        "userName": "",
+        "points": 1
+    },
+    {
+        "userName": "",
+        "points": 1
+    },
+    {
+        "userName": "grg",
+        "points": 1
     }
 ]

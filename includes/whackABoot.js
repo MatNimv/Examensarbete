@@ -5,6 +5,10 @@ startPage("Whack A Boot",
 "Stomp the invanders",
 "boot");
 
+setTimeout(() => {
+    skipAd();
+}, 5000);
+
 
 export function whackAMole(){
     const holes = document.querySelectorAll('.hole');
@@ -29,7 +33,6 @@ export function whackAMole(){
         }
         document.addEventListener('mousemove', onMouseMove);
 
-        console.log(boot.style.background);
         //skon ska rotera när man klickar på moles
         gameWrapper.addEventListener("click", () => {
             console.log("klick på grid");
