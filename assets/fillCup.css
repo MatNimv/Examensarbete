@@ -95,16 +95,18 @@ font-family: 'Rubik Moonrocks', cursive;
     background-color: var(--accentBlueC);
 }
 #bottomElements{
-    height: 70%;
+    height: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 40px 309px;
+    grid-template-rows: 33px 340px;
     justify-items: center;
 }
 #cup{
-    width: 82%;
-    background-image: url(/assets/images/fill/cup.png);
-    background-size: cover;
+    width: 100%;
+    height: 84%;
+    background-image: url(/assets/images/fill/fillCup.png);
+    background-size: contain;
+    background-repeat: no-repeat;
     position: relative;
     grid-area: 2/2/2/2;
 }
@@ -112,14 +114,13 @@ font-family: 'Rubik Moonrocks', cursive;
     background-color: var(--baseBlueC);
     transition: height 0s linear 0s;
     transform-origin: 50% 0%;
-    width: 64%;
-    transform: scale(20);
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    width: 89%;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
 
     position:absolute;
-    bottom: 14px;
-    left: 45px;
+    bottom: 0px;
+    left: 17px;
     z-index: 99;
 }
 .line{
@@ -144,39 +145,21 @@ font-family: 'Rubik Moonrocks', cursive;
     position: absolute;
     left: 170px;
 
-    font-size: 30px;
+    font-size: 70px;
     font-family: 'Rubik Beastly', cursive;
     color: var(--breadFontC); 
-    animation: text 1.5s ease-in; /*FIXA BRA ANIMATION PÅ POÄNG SOM DYKER UPP HÄR*/
+    animation: fadeIn ease 5s;
+   
 }
-
-@keyframes text {
-    30% {
-        font-size: 35px;
+@keyframes fadeIn {
+    0% {
+      opacity:0;
     }
-    40% {
-        font-size: 40px;
+    10% {
+      opacity:1;
     }
-    50% { 
-        font-size: 45px;
-    }
-    60% { 
-        font-size: 50px;
-    }
-    70% { 
-        font-size: 55px;
-    }
-    80% { 
-        font-size: 60px;
-    }
-    90% { 
-        font-size: 65px;
-    }
-    100% {
-        font-size: 70px;
-    }
-
   }
+
 .userPoints{
     position:absolute;
     top: 30px;
@@ -188,7 +171,7 @@ font-family: 'Rubik Moonrocks', cursive;
     z-index: 100;
     pointer-events: all;
     position: absolute;
-    top: 150px;
+    top: 111px;
     background-color: var(--baseBlueC);
     font-size: 20px;
     font-family:'Rubik Mono One', sans-serif;
