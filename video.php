@@ -39,7 +39,9 @@ if (isset($_GET)){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Beastly&family=Rubik+Bubbles&family=Rubik+Dirt&family=Rubik+Mono+One&family=Rubik+Moonrocks&family=Rubik:wght@600&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Beastly&family=Rubik+Bubbles&family=Rubik+Dirt&family=Rubik+Mono+One&family=Rubik+Moonrocks&family=Rubik:wght@600&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/style.css" >
     <link rel="stylesheet" href="/assets/video.css" >
     <?php echo $whichGameCSS ?>

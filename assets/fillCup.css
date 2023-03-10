@@ -98,24 +98,28 @@ font-family: 'Rubik Moonrocks', cursive;
     height: 70%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 40px 309px;
     justify-items: center;
 }
 #cup{
-    width: 212px;
-    height: 100%;
+    width: 82%;
     background-image: url(/assets/images/fill/cup.png);
     background-size: cover;
     position: relative;
+    grid-area: 2/2/2/2;
 }
 .fill{
     background-color: var(--baseBlueC);
     transition: height 0s linear 0s;
     transform-origin: 50% 0%;
-    width: 100%;
+    width: 64%;
+    transform: scale(20);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 
     position:absolute;
-    bottom:0px;
+    bottom: 14px;
+    left: 45px;
     z-index: 99;
 }
 .line{

@@ -12,15 +12,15 @@ let turns = [
         //superfart
         speed: 20,
         goal: 200,
-        fillColor: "brown",
+        fillColor: "#734a28",
         fill: "coffee",
-        fillImage: "coffee.png"
+        fillImage: "beans.png"
     },
     {
         //långsam. tjock smörja
         speed: 50,
         goal: 100,
-        fillColor: "purple",
+        fillColor: "#944700",
         fill: "boba",
         fillImage: "boba.png"
     },
@@ -28,7 +28,7 @@ let turns = [
         //medelsnabb
         speed: 30,
         goal: 260,
-        fillColor: "beige",
+        fillColor: "#efedee",
         fill: "milk",
         fillImage: "milk.png"
     },
@@ -36,14 +36,14 @@ let turns = [
         //medelsnabb
         speed: 30,
         goal: 150,
-        fillColor: "bisque",
+        fillColor: "#cade7a",
         fill: "tea",
         fillImage: "tea-bag.png"
     },
     {
         speed: 20,
         goal: 90,
-        fillColor: "white",
+        fillColor: "#eceff1",
         fill: "sugar",
         fillImage: "sugar.png"
     },
@@ -133,7 +133,7 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
 
     //linjen av koppen
     fill.style.height = "0px";
-    fill.style.backgroundColor = fillColor;
+    fill.style.background = fillColor;
     line.style.bottom = "0px";
     line.style.bottom = goal + "px";
 
@@ -149,7 +149,7 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
 
         setTimeout(() => {
             nextTurn();
-        }, 3500);
+        }, 2500);
     })
 
         //stannar om vätskan blir mer än koppens höjd
