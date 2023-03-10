@@ -25,7 +25,6 @@ main{
     width: 30%;
 }
 #videoNGame{
-    background-color: var(--baseGreenC);
     width: 900px;
     height: 500px;
     display: flex;
@@ -180,9 +179,56 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .userDIV {
     font-size: 13px;
 }
+
+.snowfall{
+    background: url(https://i.imgur.com/T0mBFg2.png);
+    background-repeat: repeat;
+    animation:snowfall 5s linear forwards infinite; 
+    -webkit-animation:snowfall 5s linear forwards infinite; 
+  }
+
+  @keyframes snowfall{
+    0%{
+      background-position: 0 0;
+    }
+    20%{
+      background-position: 20px 20px;
+    }
+    40%{
+      background-position: 40px 40px;
+    }
+    60%{
+      background-position: 60px 60px;
+    }
+    80%{
+      background-position: 80px 80px;
+    }
+    100%{
+      background-position: 100px 100px;
+    }
+  }
+  @-webkit-keyframes snowfall{
+    0%{
+      background-position: 0 0;
+    }
+    20%{
+      background-position: 20px 20px;
+    }
+    40%{
+      background-position: 40px 40px;
+    }
+    60%{
+      background-position: 60px 60px;
+    }
+    80%{
+      background-position: 80px 80px;
+    }
+    100%{
+      background-position: 100px 100px;
+    }
+  }

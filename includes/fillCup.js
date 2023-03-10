@@ -120,7 +120,7 @@ function pickTurn(){
 //param3: färgen på vätskan som fylls på
 //param4: namnet på färgen/vätskan
 function fillTheCup(speed, goal, fillColor, fillText, fillImage){
-    let FILLbtn = document.querySelector("#cup");
+    let FILLbtn = document.querySelector(".cup");
     let fill = document.querySelector(".fill");
     let line = document.querySelector(".line");
     let intervalFill;
@@ -165,7 +165,7 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
         }, speed);
 
     FILLbtn.addEventListener("mouseup", (e) => {
-        let fillHeight = fill.offsetHeight;
+        let fillHeight = fill.offsetHeight -3;
         clearInterval(intervalFill);
         e.stopImmediatePropagation();
 
@@ -289,7 +289,7 @@ function elementsDOM(){
     fillAdvergameWrapper.innerHTML = "";
 
     fillAdvergameWrapper.innerHTML = `
-        <div class="turnPointsDIV"></div>
+        <div class="turnPointsDIV snowfall"></div>
         <div id="topElements">
             <div id="ingredients">
                 <span></span>
@@ -305,7 +305,7 @@ function elementsDOM(){
         <div id="bottomElements">
             <div class="btnContainer">
             </div>
-            <div id="cup">
+            <div class="cup">
                 <div class="fill"></div>
                 <div class="line"></div>
             </div>
@@ -353,7 +353,7 @@ function theEnd(){
         </div>
         <div class="bottomEnd">
             <h5 class="enterNameText">JOIN THE LEADERBOARD</h5>
-            <input class="addName" type="text" value="ENTER NAME HERE"> 
+            <input class="addName" type="text" placeholder="ENTER NAME HERE"> 
             <button id="sendName">ADD</button>
         </div>
         <div>
@@ -413,6 +413,7 @@ function startPage(){
     videoNGameDIV.innerHTML = "";
     let fillAdvergameWrapper = document.createElement("div");
     fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
+
 
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `

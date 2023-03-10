@@ -57,7 +57,7 @@ if (isset($_GET)){
 
     <main>
     <div id="mainVideo">
-        <div id="videoNGame"></div>
+        <div id="videoNGame" class="snowfall"></div>
         <div id="videoInfo">
             <h3>Title</h3>
             <div id="profile">
