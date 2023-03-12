@@ -152,6 +152,7 @@ font-family: 'Rubik Moonrocks', cursive;
     font-family: 'Rubik Beastly', cursive;
     color: var(--breadFontC); 
     animation: fadeIn ease 5s;
+    z-index: 100;
    
 }
 @keyframes fadeIn {

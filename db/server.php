@@ -14,7 +14,7 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
     var_dump($_POST);
-
+    
     if(isset($_POST["fillGame"])){
         saveJson("fillUsers.json", $_POST["fillGame"][0]);
     } else {

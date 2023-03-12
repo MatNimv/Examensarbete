@@ -1,8 +1,6 @@
 import { theEnd } from "./functions.js";
 //kod för advergamet fill the cup, eller fill thermos.
 
-console.log("fill");
-
 let userPoints = 0;
 let whichTurn = 0;
 let clicks = 0;
@@ -51,7 +49,6 @@ let turns = [
 
 ]
 
-
 export function pickTurn(){
     //5 banor.
     let backupTurns = [
@@ -65,7 +62,7 @@ export function pickTurn(){
         },
         {
             //långsam. tjock smörja
-            speed: 50,
+            speed: 15,
             goal: 100,
             fillColor: "purple",
             fill: "boba",
@@ -124,6 +121,7 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
     let fill = document.querySelector(".fill");
     let line = document.querySelector(".line");
     let intervalFill;
+    FILLbtn.style.pointerEvents = "all";
 
     //ingrediens
     let ingredientsDIV = document.querySelector("#ingredients");
@@ -155,17 +153,18 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
         //stannar om vätskan blir mer än koppens höjd
         //offsetheight ska ändras om koppens höjd ändras.
         setInterval(() => {
-            if(fill.offsetHeight === 270){
+            if(fill.offsetHeight >= 270){
                 clearInterval(intervalFill);
                 setTimeout(() => {
                     fill.style.height = "0px";
                 }, 2000);
+                showTurnPoints("OVERFLOW!!", "red", "");
             }
-            //OVERFLOW!!
         }, speed);
 
     FILLbtn.addEventListener("mouseup", (e) => {
-        let fillHeight = fill.offsetHeight -3;
+        FILLbtn.style.pointerEvents = "none";
+        let fillHeight = fill.offsetHeight -2;
         clearInterval(intervalFill);
         e.stopImmediatePropagation();
 
@@ -188,6 +187,8 @@ function checkResults(fill, goal){
     let lineNumber = line.style.bottom.replaceAll("px", "");
     let filling = document.querySelector(".fill");
     goal = lineNumber;
+    console.log("fill", fill);
+    console.log("goal", goal);
 
         if(fill > goal){
         //fyllningen är mer än linjen
@@ -195,6 +196,9 @@ function checkResults(fill, goal){
         if(difference === 0){
             plusPoints = 100;
             userMedals = userMedals + 1;
+        }else if(difference >= 100
+            || fill === 270){
+            plusPoints = -100;
         }else if (difference >= 51){
             plusPoints = -10;
         }else if (difference === 40){
@@ -214,6 +218,11 @@ function checkResults(fill, goal){
             //exakt på linjen. Högst poäng
             plusPoints = 100;
             userMedals = userMedals + 1;
+        //}else if(filling == 270){
+        //    plusPoints = -100;
+        }else if(difference >= 150
+            || fill === 270){
+            plusPoints = -100;
         }else if (difference >= 51){
             plusPoints = 10;
         }else if (difference === 40){
@@ -227,13 +236,16 @@ function checkResults(fill, goal){
             plusPoints = 80;
         } 
     }
-    if (filling.offsetHeight === 270){
-        plusPoints = -100;
+    if (plusPoints > 0){
+        showTurnPoints(plusPoints, "white", "+");
+    } else {
+        showTurnPoints(plusPoints, "red", "");
     }
+
+    console.log("pluspoints", plusPoints);
     //uppdaterar användarens poäng
     userPoints = userPoints + plusPoints;
     updateUserPoints(userPoints);
-    showTurnPoints(plusPoints);
     updateProgressBar(userPoints);
     updateMedals(userMedals);
     return plusPoints;
@@ -252,10 +264,9 @@ function updateUserPoints(userPoints){
 export function updateMedals(nmOfMedals){
     let medalContainer = document.querySelector("#medalContainer");
     medalContainer.innerHTML = "";
-    console.log(userMedals);
 
     if(userMedals === 4){
-        //gör inget, högst 3 medaljer
+        //gör inget, högst 3 medaljer :DDD
         return;
     } else {
         for (let index = 0; index < nmOfMedals; index++) {
@@ -270,21 +281,27 @@ export function updateMedals(nmOfMedals){
     }
 }
 
-function showTurnPoints(points){
+function showTurnPoints(points, textcolor, symbol){
     let oneTurnPoints = document.createElement("div");
     let turnPointsDIV = document.querySelector(".turnPointsDIV");
     oneTurnPoints.classList.add("oneTurnPoints");
     turnPointsDIV.classList.add("turnPointsDIV");
-
     oneTurnPoints.innerHTML = "";
-    oneTurnPoints.innerHTML = `+${points}`;
+    oneTurnPoints.style.color = textcolor;
 
+    if(points === "OVERFLOW!!"){
+        console.log("OVERFLOW!!");
+        oneTurnPoints.style.left = "220px";
+        oneTurnPoints.style.top = "100px";
+        oneTurnPoints.style.zIndex = "101";
+    }
+
+    oneTurnPoints.innerHTML = symbol + points;
     turnPointsDIV.append(oneTurnPoints);
 
     setTimeout(() => {
         oneTurnPoints.remove();
-    }, 1500);
-
+    }, 2500);    
 }
 
 //all base-elements in fillthecup advergame. not interactive
@@ -326,6 +343,7 @@ function nextTurn(){
         //ta fram slutet o sånt
         theEnd("Cupcius", userPoints);
     } else {
+        let FILLbtn = document.querySelector(".cup");
         let nextBtn = document.createElement("button");
 
         nextBtn.classList.add("nextBtn");

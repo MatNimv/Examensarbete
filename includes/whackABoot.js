@@ -1,15 +1,13 @@
 import { theEnd } from "./functions.js";
 
-console.log("whackJS");
-
-
 export function whackAMole(){
     const holes = document.querySelectorAll('.hole');
     const moles = document.querySelectorAll('.mole');
     const scoreBoard = document.querySelector('.userPoints');
     let timeUp = false;
     let userPoints = 0;
-    let gameTime = 2;
+    //in seconds
+    let gameTime = 20;
 
     document.querySelector("#startGame").addEventListener("click", () => {
         document.querySelector("#startGame").remove();
@@ -28,12 +26,10 @@ export function whackAMole(){
 
         //skon ska rotera när man klickar på moles
         gameWrapper.addEventListener("click", () => {
-            console.log("klick på grid");
             boot.style.background = "url(assets/images/whack/bootRotated.png)";
             boot.style.backgroundSize = "cover";
 
             setTimeout(() => {
-                console.log("timeout");
                 boot.style.background = "url(assets/images/whack/boot.png)";
                 boot.style.backgroundSize = "cover";
             }, 300);

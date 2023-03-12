@@ -4,15 +4,13 @@ import { whackElementsDOM, whackAMole } from "./whackABoot.js"
 let users = jsonarray;
 
 let link = linkToSend;
-console.log(link);
 if (link == 2){
-    console.log("cup");
     startPage("FILL THERMOS",
     "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
     "cup"
 );
 } else if (link == 1){
-    console.log("whack");
+
     startPage("Whack A Boot",
     "Stomp the invanders",
     "boot");
@@ -94,16 +92,12 @@ export function startPage(game, description, gameThing){
     document.querySelector("#videoNGame").append(fillAdvergameWrapper);
 
     leaderboardDIV();
-    let link = linkToSend;
-    console.log(link);
     //and so it begins
     document.querySelector("#start").addEventListener("click", () => {
         if (link == 2){
-            console.log("cup");
             elementsDOM();
             pickTurn();
         } else if (link == 1){
-            console.log("whack");
             whackElementsDOM();
             whackAMole();
         }
@@ -150,6 +144,7 @@ export function theEnd(title, points){
     }
 
     document.querySelector("#sendName").addEventListener("click", () => {
+        console.log(points);
         let empty = true;
         let addName = document.querySelector(".addName");
 
@@ -157,27 +152,27 @@ export function theEnd(title, points){
             userName: addName.value,
             points: points
         }
-        users.push(oneUser);
-        if (link === 2){
-            let fillGame = [];
-            fillGame.push(users);
-        }else {
-            let whackGame = [];
-            whackGame.push(users);
-        }
 
         if(addName.value.length <= 0){
             empty = true;
+            document.querySelector(".addName").style.border = "2px solid red";
         } else {
             empty = false;
+            document.querySelector(".addName").style.border = "none";
+
+            users.push(oneUser);
+            if (link === 2){
+                let fillGame = [];
+                fillGame.push(users);
+            }else {
+                let whackGame = [];
+                whackGame.push(users);
+            }
         }
 
-        if (empty === true){
-            document.querySelector(".addName").style.border = "2px solid red";
-            //ERROR kod för att inputen är tom
-        }else {
+        if (empty === false){
             let data;
-            if (title == "Cupcius"){
+            if (link === 2){
                 let fillGame = [];
                 fillGame.push(users);
                 data = {fillGame};
