@@ -62,11 +62,6 @@ if (isset($_GET)){
             <h3>Title</h3>
             <div id="profile">
                 <div id="user"></div>
-                <div>Subscribe</div>
-                <div>
-                    <div>LIKE</div>
-                    <div>NO LIKE</div>
-                </div>
             </div>
         </div>
         <div class="infoBox">

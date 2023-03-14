@@ -11,8 +11,8 @@ if (link == 2){
 );
 } else if (link == 1){
 
-    startPage("Whack A Boot",
-    "Stomp the invanders",
+    startPage("WHACK A BOOT",
+    "Hover the boot over the invaders and click and stomp them to earn points.",
     "boot");
 }
 
@@ -73,13 +73,13 @@ export function startPage(game, description, gameThing){
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
-            <h2 class="mugGameTitle">${game}</h2>
-            <h5 class="mugGameInstructions">${description}</h5>
+            <h2 class="gameTitle">${game}</h2>
+            <h5 class="gameInstructions">${description}</h5>
         </div>
         <div class="middleStart">
             <div id="leaderboardWrapper">
                 <h5 class="topten">TOP TEN PLAYERS</h5>
-                <div id="userList"></div>
+                <div class="userList"></div>
             </div>
             <div id="${gameThing}"></div>
             <div></div>
@@ -232,7 +232,7 @@ function sortByProperty(a, b){
     }
 
 export function leaderboardDIV(){
-    let userList = document.querySelector("#userList");
+    let userList = document.querySelector(".userList");
     let leaderBoardUsers = jsonarray;
     let sortedUsers = leaderBoardUsers.sort(sortByProperty);
     

@@ -9,8 +9,8 @@
 }
 
 main{
-    display:flex;
-    flex-direction: row;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
     margin: 50px 0px 0px 50px;
 }
 #mainVideo{
@@ -33,7 +33,7 @@ main{
 }
 .fillAdvergameWrapper{
     width: 100%;
-    height: 100%;
+    height: 500px;
     display:flex;
     flex-direction: column;
     position:relative;
@@ -45,16 +45,19 @@ main{
     gap: 20px;
 }.videoWrapper{
     display:flex;
-    flex-direction: row;
-    height: 150px;
+    flex-direction: column;
 }.thumbnail{
     height: 150px;
-    width: 303px;
+    width: 244px;
 }.thumbnail img{
     width: 100%;
     height: 100%;
 }.videoUser{
     display:none;
+}
+
+.userNtitle {
+    width: 244px;
 }
 
 #videoInfo, #profile div{
@@ -63,7 +66,7 @@ main{
     justify-content: space-between;
 }
 #videoInfo{
-    gap: 30px;
+    margin-top: 20px;
 }
 
 .active, .collapsible:hover {
@@ -128,20 +131,20 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items:center;
+
+    width: 237px;
     
 }
-#userList{
+.userList{
     display:flex;
     flex-direction: column;
     justify-content: center;
     line-height: 20px;
-    width: 200px;
+    width: 165px;
 
     color: var(--breadFontC);
     font-family: var(--instructionFont);
-    background-color: #7683f5c1; 
     border-radius: 10px;
-    border: 7px double var(--accentBlueC);
     padding: 10px;
 }
 .bottomStart{
@@ -150,24 +153,32 @@ main{
     align-items:center;
 
     color: white;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 25px;
+}
+
+#start {
+    border-radius: 5px;
+    color: white;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 27px;
 }
 
 .topten{
     margin: 5px;
     color: var(--breadFontC);
-    font-size: 20px;
+    font-size: 23px;
 }
 
-.mugGameInstructions {
+.gameInstructions {
     font-family: var(--instructionFont);
     font-size: 15px;
     color: var(--breadFontC);
     margin-top: 10px;
+    font-style: italic;
 }
 
 #sendName {
-    background-color: var(--baseBlueC);
-    border: 2px solid var(--accentBlueC);
     font-family:'Rubik Mono One', sans-serif;
     color: var(--breadFontC);
     border-radius: 5px;
@@ -190,11 +201,11 @@ main{
 
 .addName {
     border-radius: 5px;
+    font-family: var(--instructionFont);
+    padding: 8px;
 }
 
 .yourResults {
-    color: var(--breadFontC);
-    font-family:'Rubik Beastly', cursive;
     font-size: 32px;
     margin-top: 30px;
     margin-bottom: 5px;
@@ -251,29 +262,45 @@ main{
 .skip{
     pointer-events: all;
     width: 100px;
-    height: 50px;
     position: absolute;
     bottom: 10px;
-    right: 30px;
-    background-color: black;;
-    color: white;
-    border-radius: 10px;
+    right: 0px;
+    background-color: #ece9e9bf;
+    color: black;
+    font-family: 'Golos Text', sans-serif, medium;
+    border-radius: 1px;
     padding: 7px 5px 5px 5px;
+    border: solid 2px darkgray;
 }
+
 .skip > div{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    border: 3px solid white;
-    padding: 11px 0px;
-    border-radius: 5px;
+    padding: 6px 0px;
+}
+.skip:hover {
+    background-color: #fff4f4e3;
 }
 .skip > div > div{
     background-image: url("images/misc/next.png");
-    width: 20px;
-    height: 20px;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 15px;
     background-size: contain;
-    margin-left:5px;
+    margin-left:10px;
 }
 
+.bottomEnd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endWrapper {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

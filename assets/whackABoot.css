@@ -74,6 +74,102 @@
     background-repeat: no-repeat;
 }
 
+.gameTitle {
+    font-family: 'Rubik Bubbles', cursive;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+.userList {
+    background-color: #abbe67af;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    border: 7px double #18422C;
+}
+
+.topten {
+    color: #CED239;
+    font-family: 'Rubik Dirt', cursive;
+}
+
+#start {
+    border: solid 2px #18422C;
+    background-color: #abbe67;
+}
+
+#start:hover {
+    background-color: #18422C;
+    border: solid 2px #abbe67;
+}
+
+#startGame {
+    border: solid 2px #18422C;
+    background-color: #abbe67;
+    font-family: 'Rubik Mono One', sans-serif;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+#startGame:hover {
+    background-color: #18422C;
+    border: solid 2px #abbe67;
+}
+
+#yourProgress {
+    font-family:'Rubik Dirt', cursive;
+    font-size: 20px;
+    color: #CED239;
+}
+
+.companyEndName {
+    font-family: 'Rubik Bubbles', cursive;
+    color: white;
+    font-size: 35px;
+    margin-bottom: 0;
+}
+
+.yourResults {
+    font-family: 'Rubik Dirt', cursive;
+    color: #CED239;
+}
+
+.addName {
+    color: #18422C;
+}
+
+#sendName {
+    border: solid 2px #18422C;
+    background-color: #abbe67;
+}
+
+#sendName:hover {
+    background-color: #18422C;
+    border: solid 2px #abbe67;
+}
+
+.again {
+    border: solid 2px #18422C;
+    background-color: #abbe67;
+}
+
+.again:hover {
+    background-color: #18422C;
+    border: solid 2px #abbe67;
+}
+
+.userPoints {
+    font-family: 'Rubik Dirt', cursive;
+    color: white;
+    font-size: 30px;
+}
+
+#timer {
+    color: white;
+    font-family:'Rubik Mono One', sans-serif; ;
+    font-size: 15px;
+}
 /*ursäkta mig. det blev knas annars
 .monsterRed{
     background: url('images/whack/monsterRed.svg') bottom center no-repeat;

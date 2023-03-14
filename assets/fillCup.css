@@ -34,7 +34,7 @@ font-family: 'Rubik Moonrocks', cursive;
     background-size: cover;
 }
 
-.mugGameTitle {
+.gameTitle {
     font-family: var(--mainTitle);
     color: var(--baseBlueC);
     font-size: 50px;
@@ -125,7 +125,7 @@ font-family: 'Rubik Moonrocks', cursive;
     background-color: var(--baseBlueC);
     transition: height 0s linear 0s;
     transform-origin: 50% 0%;
-    width: 87%;
+    width: 84%;
     border-bottom-left-radius: 22px;
     border-bottom-right-radius: 22px;
 
@@ -171,6 +171,13 @@ font-family: 'Rubik Moonrocks', cursive;
     font-family: var(--mainTitle);
     font-size: 25px;
 }
+
+.userList {
+  background-color: #7683f5c1; 
+  border: 7px double var(--accentBlueC);
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+}
 .nextBtn{
     z-index: 100;
     pointer-events: all;
@@ -185,17 +192,14 @@ font-family: 'Rubik Moonrocks', cursive;
     padding: 5px;
 }
 
-.bottomStart {
-    font-family:'Rubik Mono One', sans-serif;
+#start {
+    background-color: var(--baseBlueC);
+    border: 2px solid var(--accentBlueC);
 }
 
-#start {
-    font-family:'Rubik Mono One', sans-serif;
-    color: white;
-    background-color: var(--baseBlueC);
-    font-size: 20px;
-    border: 2px solid var(--accentBlueC);
-    border-radius: 5px;
+#start:hover {
+  background-color: var(--accentBlueC);
+  border: 2px solid var(--baseBlueC); 
 }
 
 .topten {
@@ -230,14 +234,6 @@ font-family: 'Rubik Moonrocks', cursive;
     height: 10%;
 }
 
-.endWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
 .topEnd {
     text-align: center;
 }
@@ -249,26 +245,34 @@ font-family: 'Rubik Moonrocks', cursive;
     margin-top: 0px;
 }
 
-.bottomEnd {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .again {
     background-color: var(--baseBlueC);
     border: 2px solid var(--accentBlueC);
 }
-
+.again:hover {
+  background-color: var(--accentBlueC);
+  border: 2px solid var(--baseBlueC); 
+}
 .addName {
     border: 1px solid var(--baseBlueC);
     background-color: var(--objectsBlueC);
     color: var(--breadFontC);
-    font-family: var(--instructionFont);
-    padding: 8px;
 }
 
+.yourResults {
+  font-family:'Rubik Beastly', cursive;
+  color: var(--breadFontC);
+}
+#sendName {
+  background-color: var(--baseBlueC);
+  border: 2px solid var(--accentBlueC);
+}
 
+#sendName:hover {
+  background-color: var(--accentBlueC);
+  border: 2px solid var(--baseBlueC); 
+}
 @keyframes wiggle {
     0%, 7% {
       transform: rotateZ(0);

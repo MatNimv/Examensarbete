@@ -164,7 +164,7 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
 
     FILLbtn.addEventListener("mouseup", (e) => {
         FILLbtn.style.pointerEvents = "none";
-        let fillHeight = fill.offsetHeight -2;
+        let fillHeight = fill.offsetHeight -3;
         clearInterval(intervalFill);
         e.stopImmediatePropagation();
 

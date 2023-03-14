@@ -151,7 +151,7 @@ export function whackElementsDOM(){
             </div>
             <div id="progressContainer">
                 <div id="progressBar"></div>
-                <span>Your progress</span>
+                <span id="yourProgress">Your progress</span>
             </div>
         </div>
         <div id="middleElements">
