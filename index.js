@@ -51,6 +51,8 @@ let categories = [
     "Klick"
 ]
 
+console.log("index.js");
+
 
 //initialize alla videor på framsidan
 for (let index = 0; index < videoInfo.length; index++) {
