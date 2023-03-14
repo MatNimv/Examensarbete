@@ -157,8 +157,8 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
                 clearInterval(intervalFill);
                 setTimeout(() => {
                     fill.style.height = "0px";
-                }, 2000);
-                showTurnPoints("OVERFLOW!!", "red", "");
+                }, 1000);
+                showTurnPoints("OVERFLOW", "darkorange", "");
             }
         }, speed);
 
@@ -239,7 +239,7 @@ function checkResults(fill, goal){
     if (plusPoints > 0){
         showTurnPoints(plusPoints, "white", "+");
     } else {
-        showTurnPoints(plusPoints, "red", "");
+        showTurnPoints(plusPoints, "darkorange", "");
     }
 
     console.log("pluspoints", plusPoints);
@@ -289,8 +289,8 @@ function showTurnPoints(points, textcolor, symbol){
     oneTurnPoints.innerHTML = "";
     oneTurnPoints.style.color = textcolor;
 
-    if(points === "OVERFLOW!!"){
-        console.log("OVERFLOW!!");
+    if(points === "OVERFLOW"){
+        console.log("OVERFLOW");
         oneTurnPoints.style.left = "220px";
         oneTurnPoints.style.top = "100px";
         oneTurnPoints.style.zIndex = "101";
@@ -301,7 +301,7 @@ function showTurnPoints(points, textcolor, symbol){
 
     setTimeout(() => {
         oneTurnPoints.remove();
-    }, 2500);    
+    }, 1500);    
 }
 
 //all base-elements in fillthecup advergame. not interactive
@@ -347,7 +347,7 @@ function nextTurn(){
         let nextBtn = document.createElement("button");
 
         nextBtn.classList.add("nextBtn");
-        nextBtn.innerHTML = "NEXT LEVEL";
+        nextBtn.innerHTML = "NEXT LEVEL ->";
 
         document.querySelector(".turnPointsDIV").append(nextBtn);
 

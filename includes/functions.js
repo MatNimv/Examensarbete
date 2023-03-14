@@ -69,6 +69,7 @@ export function startPage(game, description, gameThing){
     videoNGameDIV.innerHTML = "";
     let fillAdvergameWrapper = document.createElement("div");
     fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
+    fillAdvergameWrapper.classList.add("snowfall");
 
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
@@ -108,7 +109,7 @@ export function theEnd(title, points){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
 
     gameDIV.innerHTML = `
-    <div class="endWrapper">
+    <div class="endWrapper snowfall">
         <div class="topEnd">
             <h2 class="companyEndName">${title}</h2>
         </div>
@@ -199,7 +200,7 @@ export function theEnd(title, points){
             );
             }else if (link == 1){
                 startPage("Whack A Boot",
-                "Stomp the invanders",
+                "Hover the boot over the invaders and click and stomp them to earn points",
                 "boot");
                 }
         }, 2000);
@@ -210,11 +211,11 @@ export function theEnd(title, points){
         if (link == 2){
             //kom till startsidan
             startPage("Fill The Cup", 
-            "Fill the mug with enough ingredients and win points",
+            "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
             "cup");
         } else if (link == 1) {
             startPage("Whack A Boot",
-            "Stomp the invanders",
+            "Hover the boot over the invaders and click and stomp them to earn points.",
             "boot");
         }
     })

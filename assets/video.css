@@ -156,12 +156,15 @@ main{
     font-family: 'Rubik Mono One', sans-serif;
     font-size: 25px;
 }
-
+.bottomStart > h3 {
+    margin-top: 10px;
+}
 #start {
     border-radius: 5px;
     color: white;
     font-family: 'Rubik Mono One', sans-serif;
     font-size: 27px;
+    padding: 5px;
 }
 
 .topten{
@@ -269,7 +272,7 @@ main{
     color: black;
     font-family: 'Golos Text', sans-serif, medium;
     border-radius: 1px;
-    padding: 7px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
     border: solid 2px darkgray;
 }
 
