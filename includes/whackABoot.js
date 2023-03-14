@@ -21,6 +21,7 @@ export function whackAMole(){
     const scoreBoard = document.querySelector('.userPoints');
     let timeUp = false;
     let userPoints = 0;
+    let lastHole;
     //in seconds
     let gameTime = 100;
 
@@ -58,21 +59,29 @@ export function whackAMole(){
     function randomHole(holes) {
         const idx = Math.floor(Math.random() * holes.length);
         const hole = holes[idx];
+        console.log(lastHole);
+
+        if (hole === lastHole){
+            return randomHole(holes);
+        }
+        lastHole = hole;
+
 
         //bestäm vilken bild som ska dyka upp
         let element = hole.firstElementChild;
         let randCreature = whichCreature(element);
         element.style.background = `url(assets/images/whack/${randCreature}.svg) bottom center no-repeat`;
         element.style.backgroundSize = "50%";
-
+        
         return hole;
+
     }
 
     function peep() {
         const time = randomTime(900, 1500);
-        const hole = randomHole(holes);
+        let hole = randomHole(holes);
         hole.classList.add('up');
-
+        
         setTimeout(() => {
             hole.classList.remove('up');
             if (!timeUp) peep();
@@ -95,7 +104,6 @@ export function whackAMole(){
         let creatureClick = e.target;
 
         if(hole.classList.contains("up")){
-            console.log("up");
             giveOrTake(creatureClick);
         }
         else{
@@ -137,7 +145,6 @@ export function whackAMole(){
         let overlay = document.querySelector(".turnPointsDIV");
         let showPoints = document.createElement("div");
         showPoints.classList.add("showPoints");
-        console.log(element);
         //ge poäng
         if (element.firstElementChild.classList.contains("friendPurple")
         || element.firstElementChild.classList.contains("friendRed")){

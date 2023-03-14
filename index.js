@@ -63,9 +63,9 @@ for (let index = 0; index < videoInfo.length; index++) {
 
     //varannan video ska ha en annorlunda länk
     if (checkEvenNum === true){
-        link = "video.php?link=1";
+        link = "video.php?link=1" + "&title=" + element.videoTitle;
     }else {
-        link = "video.php?link=2";
+        link = "video.php?link=2" + "&title=" + element.videoTitle;
     }
 
     videoDOM(element.videoTitle, 

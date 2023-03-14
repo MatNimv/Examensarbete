@@ -127,6 +127,6 @@
 
 .miss{
     position: absolute;
-    font-size: large;
+    font-size: larger;
     color:red;
 }

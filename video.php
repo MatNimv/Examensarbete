@@ -5,6 +5,7 @@ require_once "includes/functions.php";
 
 //beroende på vilken getparameter ska en av spelen laddas in på vardera sida
 if (isset($_GET)){
+    $title = $_GET["title"];
     $whichGameJS = "";
     $whichGameCSS = "";
     $whichLinkToSend = "";
@@ -28,6 +29,9 @@ if (isset($_GET)){
 <script>
     let linkToSend = <?php echo $whichLinkToSend; ?>
 </script>
+<script>
+    let titleOfVideo = <?php echo $title; ?>
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +54,7 @@ if (isset($_GET)){
 </head>
 <body>
 <header>
-        <div>MeTube</div>
+        <div><a href="index.php">MeTube</a></div>
         <div id="searchBar"></div>
         <div id="profile"></div>
     </header>
@@ -59,7 +63,7 @@ if (isset($_GET)){
     <div id="mainVideo">
         <div id="videoNGame" class="snowfall"></div>
         <div id="videoInfo">
-            <h3>Title</h3>
+            <h3> <?php echo $title; ?> </h3>
             <div id="profile">
                 <div id="user"></div>
                 <div>Subscribe</div>
