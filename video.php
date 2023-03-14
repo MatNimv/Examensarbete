@@ -30,7 +30,7 @@ if (isset($_GET)){
     let linkToSend = <?php echo $whichLinkToSend; ?>
 </script>
 <script>
-    let titleOfVideo = <?php echo $title; ?>
+    let titleOfVideo = "<?php echo $title; ?>"
 </script>
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ if (isset($_GET)){
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/style.css" >
     <link rel="stylesheet" href="/assets/video.css" >
-    <?php echo $whichGameCSS ?>
+    <?php echo $whichGameCSS; ?>
     
     <title>Metube</title>
 </head>

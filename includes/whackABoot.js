@@ -17,7 +17,6 @@ if (link == 2){
 
 export function whackAMole(){
     const holes = document.querySelectorAll('.hole');
-    const moles = document.querySelectorAll('.mole');
     const scoreBoard = document.querySelector('.userPoints');
     let timeUp = false;
     let userPoints = 0;
@@ -59,7 +58,6 @@ export function whackAMole(){
     function randomHole(holes) {
         const idx = Math.floor(Math.random() * holes.length);
         const hole = holes[idx];
-        console.log(lastHole);
 
         if (hole === lastHole){
             return randomHole(holes);
@@ -140,6 +138,31 @@ export function whackAMole(){
         timeleft -= 1;
         }, 1000);
     }
+    let userMedals = 0;
+
+    function updateMedals(){
+        let medalContainer = document.querySelector("#medalContainer");
+        medalContainer.innerHTML = "";
+        console.log("userPoints", userPoints);
+        
+        if (userPoints == 3){
+            userMedals = userMedals + 1;
+        } else if (userPoints == 2){
+            userMedals = userMedals + 1;
+        } else if(userPoints == 1){
+            userMedals = userMedals + 1;
+        }
+    
+        for (let index = 0; index < userMedals; index++) {
+            //annars lägg till en medalj
+            let oneMedal = document.createElement("div");
+        
+            oneMedal.innerHTML = "<img src='../assets/images/fill/star-medal.png' class='medalPic'>";
+            oneMedal.classList.add("oneMedal");
+        
+            medalContainer.append(oneMedal);
+            }
+        }
 
     function giveOrTake(element){
         let overlay = document.querySelector(".turnPointsDIV");
@@ -160,6 +183,8 @@ export function whackAMole(){
         setTimeout(() => {
             showPoints.remove();
         }, 1000);
+
+        updateMedals();
     }
 
     function whichCreature(element){
@@ -182,99 +207,9 @@ export function whackAMole(){
 
         return randCreaturePopUps;
     }
-}
 
-export function whackElementsDOM(){
-    let fillAdvergameWrapper = document.querySelector(".fillAdvergameWrapper")
-    fillAdvergameWrapper.innerHTML = "";
-
-    fillAdvergameWrapper.innerHTML = `
-        <div class="turnPointsDIV"></div>
-        <div id="topElements">
-            <div id="pointsDIV">
-                <span class="userPoints"></span>
-            </div>
-            <div id="progressContainer">
-                <div id="progressBar"></div>
-                <span>Your progress</span>
-            </div>
-        </div>
-        <div id="middleElements">
-            <div class="boot"></div>
-            <button id="startGame">START</button>
-            <div id="timer"></div>
-        </div>
-        <div id="gridWrapper">
-            <div id="holeWrapper">
-                <div class="hole hole1">
-                    <div class="mole"></div>
-                </div>
-                <div class="hole hole2">
-                    <div class="mole"></div>
-                </div>
-                <div class="hole hole3">
-                    <div class="mole"></div>
-                </div>
-                <div class="hole hole4">
-                    <div class="mole"></div>
-                </div>
-                <div class="hole hole5">
-                    <div class="mole"></div>
-                </div>
-                <div class="hole hole6">
-                    <div class="mole"></div>
-                </div>
-            </div>
-        </div>
-    `;
-
-}
-
-
-
-export function startPage(game, description, gameThing){
-    let videoNGameDIV = document.querySelector("#videoNGame");
-    videoNGameDIV.innerHTML = "";
-    let fillAdvergameWrapper = document.createElement("div");
-    fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
-
-    fillAdvergameWrapper.innerHTML = "";
-    fillAdvergameWrapper.innerHTML = `
-        <div class="topStart">
-            <h2 class="mugGameTitle">${game}</h2>
-            <h5 class="mugGameInstructions">${description}</h5>
-        </div>
-        <div class="middleStart">
-            <div id="leaderboardWrapper">
-                <h5 class="topten">TOP TEN PLAYERS</h5>
-                <div id="userList"></div>
-            </div>
-            <div id="${gameThing}"></div>
-            <div></div>
-        </div>
-        <div class="bottomStart">
-            <h3>LET'S GET <button id="start">STARTED</button></h3>
-        </div>
-    `;
-
-    document.querySelector("#videoNGame").append(fillAdvergameWrapper);
-
-    leaderboardDIV();
-    //and so it begins
-
-    document.querySelector("#start").addEventListener("click", () => {
-        let link = linkToSend;
-        if (link == 2){
-            elementsDOM();
-            pickTurn();
-        } else if (link == 1){
-            whackElementsDOM();
-            whackAMole();
-        }
-    })
-}
-
-export function theEnd(title, points){
+    
+    function theEnd(title, points){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
 
     gameDIV.innerHTML = `
@@ -310,6 +245,8 @@ export function theEnd(title, points){
         else if (points >= 200){
             userMedals = 3
         }
+        updateMedals(userMedals);
+    } else {
         updateMedals(userMedals);
     }
 
@@ -391,6 +328,103 @@ export function theEnd(title, points){
         }
     })
 }
+
+}
+
+
+export function whackElementsDOM(){
+    let fillAdvergameWrapper = document.querySelector(".fillAdvergameWrapper")
+    fillAdvergameWrapper.innerHTML = "";
+
+    fillAdvergameWrapper.innerHTML = `
+        <div class="turnPointsDIV"></div>
+        <div id="topElements">
+            <div id="pointsDIV">
+                <span class="userPoints"></span>
+            </div>
+            <div id="progressContainer">
+                <div id="progressBar"></div>
+                <span>Your progress</span>
+            </div>
+            <div id="medalContainer">
+                <span></span>
+            </div>
+        </div>
+        <div id="middleElements">
+            <div class="boot"></div>
+            <button id="startGame">START</button>
+            <div id="timer"></div>
+        </div>
+        <div id="gridWrapper">
+            <div id="holeWrapper">
+                <div class="hole hole1">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole hole2">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole hole3">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole hole4">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole hole5">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole hole6">
+                    <div class="mole"></div>
+                </div>
+            </div>
+        </div>
+    `;
+
+}
+
+
+
+export function startPage(game, description, gameThing){
+    let videoNGameDIV = document.querySelector("#videoNGame");
+    videoNGameDIV.innerHTML = "";
+    let fillAdvergameWrapper = document.createElement("div");
+    fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
+
+    fillAdvergameWrapper.innerHTML = "";
+    fillAdvergameWrapper.innerHTML = `
+        <div class="topStart">
+            <h2 class="mugGameTitle">${game}</h2>
+            <h5 class="mugGameInstructions">${description}</h5>
+        </div>
+        <div class="middleStart">
+            <div id="leaderboardWrapper">
+                <h5 class="topten">TOP TEN PLAYERS</h5>
+                <div id="userList"></div>
+            </div>
+            <div id="${gameThing}"></div>
+            <div></div>
+        </div>
+        <div class="bottomStart">
+            <h3>LET'S GET <button id="start">STARTED</button></h3>
+        </div>
+    `;
+
+    document.querySelector("#videoNGame").append(fillAdvergameWrapper);
+
+    leaderboardDIV();
+    //and so it begins
+
+    document.querySelector("#start").addEventListener("click", () => {
+        let link = linkToSend;
+        if (link == 2){
+            elementsDOM();
+            pickTurn();
+        } else if (link == 1){
+            whackElementsDOM();
+            whackAMole();
+        }
+    })
+}
+
 
 
 function sortByProperty(a, b){
