@@ -69,6 +69,12 @@ if (isset($_GET)){
                 </div>
             </div>
         </div>
+        <div class="infoBox">
+        <button type="button" class="collapsible">Information</button>
+                <div class="content">
+                    <p>Lorem ipsum...</p>
+                </div> 
+        </div>
     </div>
         <div id="allVideosWrapper"></div>
     </main>
