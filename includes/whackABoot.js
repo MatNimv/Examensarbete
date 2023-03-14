@@ -22,7 +22,7 @@ export function whackAMole(){
     let timeUp = false;
     let userPoints = 0;
     //in seconds
-    let gameTime = 20;
+    let gameTime = 100;
 
     document.querySelector("#startGame").addEventListener("click", () => {
         document.querySelector("#startGame").remove();
@@ -69,7 +69,7 @@ export function whackAMole(){
     }
 
     function peep() {
-        const time = randomTime(700, 1500);
+        const time = randomTime(900, 1500);
         const hole = randomHole(holes);
         hole.classList.add('up');
 
@@ -88,13 +88,33 @@ export function whackAMole(){
         setTimeout(() => timeUp = true, realGameTime)
     }
 
-    moles.forEach(mole => mole.addEventListener('click', (e) => {
+    holes.forEach(hole => hole.addEventListener('click', (e) => {
         if(!e.isTrusted) return; 
         e.target.parentNode.classList.remove('up');
         scoreBoard.textContent = "Your Score: " + userPoints;
         let creatureClick = e.target;
-        console.log("click mole");
-        giveOrTake(creatureClick, userPoints);
+
+        if(hole.classList.contains("up")){
+            console.log("up");
+            giveOrTake(creatureClick);
+        }
+        else{
+            //användaren ser att de missade
+            let overlay = document.querySelector(".turnPointsDIV");
+            let missAlert = document.createElement("span");
+            missAlert.classList.add("miss");
+            missAlert.innerHTML = "MISS!"
+            overlay.append(missAlert);
+
+            setTimeout(() => {
+                missAlert.remove();
+            }, 1000);
+
+            let floatBootPlace = document.querySelector(".floatBoot")
+            var rect = floatBootPlace.getBoundingClientRect();
+            missAlert.style.left = rect.left - 170 + "px";
+            missAlert.style.top = rect.top + "px";
+        }
     }));   
     
     function timerDIV(){
@@ -117,19 +137,22 @@ export function whackAMole(){
         let overlay = document.querySelector(".turnPointsDIV");
         let showPoints = document.createElement("div");
         showPoints.classList.add("showPoints");
-        overlay.innerHTML = "";
+        console.log(element);
         //ge poäng
-        if (element.classList.contains("friendPurple")
-        || element.classList.contains("friendRed")){
+        if (element.firstElementChild.classList.contains("friendPurple")
+        || element.firstElementChild.classList.contains("friendRed")){
             userPoints = userPoints - 1
             showPoints.innerHTML = "-1";
         //ta poäng
-        }else if(element.classList.contains("monsterRed" 
-        || element.classList.contains("monsterPurple"))){
+        }else if(element.firstElementChild.classList.contains("monsterRed" 
+        || element.firstElementChild.classList.contains("monsterPurple"))){
             userPoints = userPoints + 1
             showPoints.innerHTML = "+1";
         }
         overlay.append(showPoints);
+        setTimeout(() => {
+            showPoints.remove();
+        }, 1000);
     }
 
     function whichCreature(element){

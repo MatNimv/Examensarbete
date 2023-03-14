@@ -124,3 +124,9 @@
         transform: translatey(0px);
     }
   }
+
+.miss{
+    position: absolute;
+    font-size: large;
+    color:red;
+}
