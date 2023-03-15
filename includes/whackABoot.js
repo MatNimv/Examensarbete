@@ -22,7 +22,7 @@ export function whackAMole(){
     let userPoints = 0;
     let lastHole;
     //in seconds
-    let gameTime = 100;
+    let gameTime = 20;
 
     document.querySelector("#startGame").addEventListener("click", () => {
         document.querySelector("#startGame").remove();
@@ -143,14 +143,21 @@ export function whackAMole(){
     function updateMedals(){
         let medalContainer = document.querySelector("#medalContainer");
         medalContainer.innerHTML = "";
-        console.log("userPoints", userPoints);
         
-        if (userPoints == 3){
+        if (userPoints == 20){
             userMedals = userMedals + 1;
-        } else if (userPoints == 2){
+        } else if (userPoints == 14){
             userMedals = userMedals + 1;
-        } else if(userPoints == 1){
+        } else if(userPoints == 8){
             userMedals = userMedals + 1;
+        }
+
+        if(userPoints < 20 && userMedals === 3){
+            userMedals = userMedals - 1;
+        } else if(userPoints < 14 && userMedals === 2){
+            userMedals = userMedals - 1;
+        } else if (userPoints < 8 && userMedals === 1){
+            userMedals = userMedals - 1;
         }
     
         for (let index = 0; index < userMedals; index++) {
@@ -171,18 +178,20 @@ export function whackAMole(){
         //ge poäng
         if (element.firstElementChild.classList.contains("friendPurple")
         || element.firstElementChild.classList.contains("friendRed")){
-            userPoints = userPoints - 1
-            showPoints.innerHTML = "-1";
+            userPoints = userPoints - 4;
+            showPoints.innerHTML = "-4";
         //ta poäng
-        }else if(element.firstElementChild.classList.contains("monsterRed" 
-        || element.firstElementChild.classList.contains("monsterPurple"))){
-            userPoints = userPoints + 1
-            showPoints.innerHTML = "+1";
+        }else if(element.firstElementChild.classList.contains("monsterRed") 
+        || element.firstElementChild.classList.contains("monsterPurple")){
+            userPoints = userPoints + 2
+            showPoints.innerHTML = "+2";
         }
         overlay.append(showPoints);
         setTimeout(() => {
             showPoints.remove();
         }, 1000);
+
+
 
         updateMedals();
     }
@@ -437,7 +446,7 @@ function sortByProperty(a, b){
     return 0;
     }
 
-export function leaderboardDIV(){
+function leaderboardDIV(){
     let userList = document.querySelector("#userList");
     let leaderBoardUsers = jsonarray;
     let sortedUsers = leaderBoardUsers.sort(sortByProperty);

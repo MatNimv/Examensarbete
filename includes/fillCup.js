@@ -276,7 +276,7 @@ function updateUserPoints(userPoints){
     turnPointsDIV.append(userPointsSPAN);
 }
 
-export function updateMedals(nmOfMedals){
+function updateMedals(nmOfMedals){
     let medalContainer = document.querySelector("#medalContainer");
     medalContainer.innerHTML = "";
 
@@ -320,7 +320,7 @@ function showTurnPoints(points, textcolor, symbol){
 }
 
 //all base-elements in fillthecup advergame. not interactive
-export function elementsDOM(){
+function elementsDOM(){
     let fillAdvergameWrapper = document.querySelector(".fillAdvergameWrapper")
     fillAdvergameWrapper.innerHTML = "";
 
@@ -373,8 +373,7 @@ function nextTurn(){
     }
 }
 
-
-export function startPage(game, description, gameThing){
+function startPage(game, description, gameThing){
     let videoNGameDIV = document.querySelector("#videoNGame");
     videoNGameDIV.innerHTML = "";
     let fillAdvergameWrapper = document.createElement("div");
@@ -415,8 +414,7 @@ export function startPage(game, description, gameThing){
         }
     })
 }
-
-export function theEnd(title, points){
+function theEnd(title, points){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
 
     gameDIV.innerHTML = `
@@ -545,7 +543,7 @@ function sortByProperty(a, b){
     return 0;
     }
 
-export function leaderboardDIV(){
+    function leaderboardDIV(){
     let userList = document.querySelector("#userList");
     let leaderBoardUsers = jsonarray;
     let sortedUsers = leaderBoardUsers.sort(sortByProperty);

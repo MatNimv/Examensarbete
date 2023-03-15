@@ -115,3 +115,7 @@
 .oneMedal{
     width: 50px;
 }
+.showPoints{
+    position: absolute;
+    top: 100px;
+}
