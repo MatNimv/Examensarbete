@@ -1,18 +1,49 @@
-//import { theEnd } from "./functions.js";
+import { skipAd } from "./functions.js";
 
 console.log("whack.js");
+let seconds = 0;
+setInterval(() => {
+    seconds++
+}, 1000);
 
 let link = linkToSend;
 if (link == 2){
+
     startPage("FILL THERMOS",
     "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
-    "cup"
-);
+    "cup");
+
+    setTimeout(() => {
+        skipAd(link);
+    }, 5000);
+
 } else if (link == 1){
 
     startPage("Whack A Boot",
     "Stomp the invanders",
     "boot");
+
+    setTimeout(() => {
+        skipAd(link);
+
+        document.querySelector(".skip").addEventListener("click", () => {
+            document.querySelector(".skip").remove();
+            //när användaren skippar ska timern för hen avslutas.
+            console.log(seconds);
+            let data;
+            let whack = [];
+            whack.push(seconds);
+            data = {whack};
+    
+            const req = new Request("../db/server.php", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {"Content-type": "application/json"}
+            })
+    
+            fetch(req).then(response => response);
+            })
+    }, 5000);
 }
 
 export function whackAMole(){

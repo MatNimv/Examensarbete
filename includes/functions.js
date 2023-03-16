@@ -1,11 +1,3 @@
-//import { elementsDOM, pickTurn, updateMedals } from "./fillCup.js"
-//import { whackElementsDOM, whackAMole } from "./whackABoot.js"
-//gemensamma funktioner för index.php och video.php
-
-
-setTimeout(() => {
-    skipAd();
-}, 5000);
 
 export function videoDOM(title, thumbnail, user, link){
     let videoWrapper = document.createElement("div");
@@ -38,7 +30,7 @@ export function isEven(n) {
    return n % 2 == 0;
 }
 
-export function skipAd(){
+export function skipAd(link, seconds){
     let skipDIV = document.createElement("div");
     let overlay = document.createElement("div");
     let videoNGame = document.querySelector("#videoNGame");
