@@ -50,7 +50,7 @@ if (isset($_GET)){
 </head>
 <body>
 <header>
-        <div>MeTube</div>
+        <div></div>
         <div id="searchBar"></div>
         <div id="profile"></div>
     </header>

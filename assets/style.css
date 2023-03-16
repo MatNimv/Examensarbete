@@ -3,6 +3,8 @@ body{
     font-family: 'Golos Text', sans-serif, medium;
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    position: relative;
 }
 
 /*  font-family: 'Golos Text', sans-serif;
@@ -68,6 +70,19 @@ footer{
 
 a {
     text-decoration: none;
+}
+
+#thanksMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:100%;
+    margin: 0px;
+}
+#thanksFooter{
+    position: relative;
+    bottom:0;
 }
 
 
