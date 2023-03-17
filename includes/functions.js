@@ -105,9 +105,9 @@ export function startPage(game, description, gameThing){
     })
 }
 
-export function theEnd(title, points){
+export function theEnd(title, points, logo){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
-
+    /* lägga logo här??*/
     gameDIV.innerHTML = `
     <div class="endWrapper snowfall">
         <div class="topEnd">
@@ -127,6 +127,7 @@ export function theEnd(title, points){
             <h5 class="orPlayAgain">OR</h5>
             <button class="again">PLAY AGAIN</button>
         </div>
+        <div>${logo}</div> 
     </div>
     `;
     let link = linkToSend;

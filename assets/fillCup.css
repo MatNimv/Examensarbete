@@ -116,9 +116,9 @@ font-family: 'Rubik Moonrocks', cursive;
 }
 
 .cup {
-    width: 100%;
+    width: 78%;
     grid-area: 1/2/1/2;
-    background-image: url(/assets/images/fill/fillCup.png);
+    background-image: url(/assets/images/fill/cup.png);
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
@@ -129,19 +129,19 @@ font-family: 'Rubik Moonrocks', cursive;
     transition: height 0s linear 0s;
     transform-origin: 50% 0%;
     width: 84%;
-    border-bottom-left-radius: 22px;
-    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
 
     position:absolute;
     bottom: 0px;
-    left: 16px;
+    left: 5px;
     z-index: 99;
-    border-bottom: solid 3px #2E3192;
+    border-bottom: solid 3px #14174A;
 }
 .line{
     background-color: transparent;
     border-top: 2px solid var(--accentBlueC);
-    width: 100%;
+    width: 88%;
 
     position:absolute;
     bottom:0px;
