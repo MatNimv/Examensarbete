@@ -385,3 +385,7 @@ font-family: 'Rubik Moonrocks', cursive;
     bottom: 0;
     left: 18;
 }
+
+.companyEndName > span {
+  color: var(--accentBlueC)
+}

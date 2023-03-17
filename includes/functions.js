@@ -115,7 +115,7 @@ export function theEnd(title, points, logo){
     gameDIV.innerHTML = `
     <div class="endWrapper snowfall">
         <div class="topEnd">
-            <h2 class="companyEndName">Created for ${title}</h2>
+            <h2 class="companyEndName">Created for<span> ${title}</span></h2>
         </div>
         <div class="middleEnd">
             <h4 class="yourResults">YOUR RESULTS: ${points}</h4>

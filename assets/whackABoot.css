@@ -126,7 +126,7 @@
 .companyEndName {
     font-family: 'Rubik Bubbles', cursive;
     color: white;
-    font-size: 35px;
+    font-size: 26px;
     margin-bottom: 0;
 }
 
@@ -233,4 +233,8 @@
     position: absolute;
     bottom: 6;
     left: 14;
+}
+
+.companyEndName > span {
+    color: #abbe67;
 }
