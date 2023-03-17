@@ -167,7 +167,7 @@
 
 #timer {
     color: white;
-    font-family:'Rubik Mono One', sans-serif; ;
+    font-family:'Rubik Mono One', sans-serif; 
     font-size: 15px;
 }
 
@@ -209,8 +209,9 @@
 }
 .miss{
     position: absolute;
-    font-size: larger;
-    color:red;
+    font-family:'Rubik Mono One', sans-serif;
+    color:#CED239;
+    font-size: 30px;
 }
 
 #medalContainer{ /*FIXA KLART MEDALJERNA */
@@ -237,6 +238,9 @@
 .showPoints{
     position: absolute;
     top: 100px;
+    font-family: 'Rubik Bubbles', cursive;
+    color: white;
+    font-size: 45px;
 }
 
 
