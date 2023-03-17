@@ -89,7 +89,7 @@ export function whackAMole(){
             clearInterval(downloadTimer);
             document.getElementById("timer").innerHTML = "Finished";
             setTimeout(() => {
-                theEnd("Canada Boots Company", userPoints);
+                theEnd("Canada Boots Company", userPoints, "/assets/images/whack/canadabootsLogo.png");
             }, 3000);
         } else {
             document.getElementById("timer").innerHTML = timeleft + " seconds remaining";

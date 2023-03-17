@@ -341,7 +341,7 @@ function nextTurn(){
     whichTurn = whichTurn + 1;
     if(whichTurn === 5){
         //ta fram slutet o sånt
-        theEnd("Cupcius", userPoints);
+        theEnd("Cupcius", userPoints, "/assets/images/fill/cupciusLogo.png");
     } else {
         let FILLbtn = document.querySelector(".cup");
         let nextBtn = document.createElement("button");

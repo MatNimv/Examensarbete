@@ -109,13 +109,13 @@ export function startPage(game, description, gameThing){
     })
 }
 
-export function theEnd(title, points){
+export function theEnd(title, points, logo){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
-
+    /* lägga logo här??*/
     gameDIV.innerHTML = `
     <div class="endWrapper snowfall">
         <div class="topEnd">
-            <h2 class="companyEndName">${title}</h2>
+            <h2 class="companyEndName">Created for ${title}</h2>
         </div>
         <div class="middleEnd">
             <h4 class="yourResults">YOUR RESULTS: ${points}</h4>
@@ -130,6 +130,9 @@ export function theEnd(title, points){
         <div>
             <h5 class="orPlayAgain">OR</h5>
             <button class="again">PLAY AGAIN</button>
+        </div>
+        <div class="logoDiv">
+            <img class="logo" src="${logo}">
         </div>
     </div>
     `;

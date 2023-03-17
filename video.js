@@ -46,7 +46,7 @@ for (let index = 0; index < videoInfo.length; index++) {
     const element = videoInfo[index];
 
     videoDOM(element.videoTitle, `assets/images/thumbnails/thumb${index}.png`, 
-    `assets/images/userPics/user${index}.png`,
+    `assets/images/userPics/user.png`,
     `video.php?link=${whichLink}`);
     index + 1;
 }

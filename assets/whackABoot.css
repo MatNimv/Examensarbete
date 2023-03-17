@@ -226,3 +226,11 @@
         transform: translatey(0px);
     }
   }
+
+
+  .logoDiv {
+    width: 100%;
+    position: absolute;
+    bottom: 6;
+    left: 14;
+}
