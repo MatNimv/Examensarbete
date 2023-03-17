@@ -410,17 +410,18 @@ function startPage(game, description, gameThing){
     videoNGameDIV.innerHTML = "";
     let fillAdvergameWrapper = document.createElement("div");
     fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
+    fillAdvergameWrapper.classList.add("snowfall");
 
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
-            <h2 class="mugGameTitle">${game}</h2>
-            <h5 class="mugGameInstructions">${description}</h5>
+            <h2 class="gameTitle">${game}</h2>
+            <h5 class="gameInstructions">${description}</h5>
         </div>
         <div class="middleStart">
             <div id="leaderboardWrapper">
                 <h5 class="topten">TOP TEN PLAYERS</h5>
-                <div id="userList"></div>
+                <div class="userList"></div>
             </div>
             <div id="${gameThing}"></div>
             <div></div>
@@ -434,9 +435,7 @@ function startPage(game, description, gameThing){
 
     leaderboardDIV();
     //and so it begins
-
     document.querySelector("#start").addEventListener("click", () => {
-        let link = linkToSend;
         if (link == 2){
             elementsDOM();
             pickTurn();
@@ -446,13 +445,13 @@ function startPage(game, description, gameThing){
         }
     })
 }
-function theEnd(title, points){
+function theEnd(title, points, logo){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
-
+    /* lägga logo här??*/
     gameDIV.innerHTML = `
-    <div class="endWrapper">
+    <div class="endWrapper snowfall">
         <div class="topEnd">
-            <h2 class="companyEndName">${title}</h2>
+            <h2 class="companyEndName">Created for<span> ${title}</span></h2>
         </div>
         <div class="middleEnd">
             <h4 class="yourResults">YOUR RESULTS: ${points}</h4>
@@ -467,6 +466,9 @@ function theEnd(title, points){
         <div>
             <h5 class="orPlayAgain">OR</h5>
             <button class="again">PLAY AGAIN</button>
+        </div>
+        <div class="logoDiv">
+            <img class="logo" src="${logo}">
         </div>
     </div>
     `;
@@ -486,8 +488,6 @@ function theEnd(title, points){
     }
 
     document.querySelector("#sendName").addEventListener("click", () => {
-        let link = linkToSend;
-        let users = jsonarray;
         console.log(points);
         let empty = true;
         let addName = document.querySelector(".addName");
@@ -543,25 +543,25 @@ function theEnd(title, points){
             );
             }else if (link == 1){
                 startPage("Whack A Boot",
-                "Stomp the invanders",
+                "Hover the boot over the invaders and click and stomp them to earn points",
                 "boot");
                 }
         }, 2000);
         }
     })
 
-    document.querySelector(".again").addEventListener("click", () => {
-        if (link == 2){
-            //kom till startsidan
-            startPage("Fill The Cup", 
-            "Fill the mug with enough ingredients and win points",
-            "cup");
-        } else if (link == 1) {
-            startPage("Whack A Boot",
-            "Stomp the invanders",
-            "boot");
-        }
-    })
+document.querySelector(".again").addEventListener("click", () => {
+    if (link == 2){
+        //kom till startsidan
+        startPage("Fill The Cup", 
+        "Fill the mug with enough ingredients and win points",
+        "cup");
+    } else if (link == 1) {
+        startPage("Whack A Boot",
+        "Stomp the invanders",
+        "boot");
+    }
+})
 }
 
 
@@ -576,7 +576,7 @@ function sortByProperty(a, b){
     }
 
     function leaderboardDIV(){
-    let userList = document.querySelector("#userList");
+    let userList = document.querySelector(".userList");
     let leaderBoardUsers = jsonarray;
     let sortedUsers = leaderBoardUsers.sort(sortByProperty);
     

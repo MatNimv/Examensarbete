@@ -83,6 +83,28 @@ font-family: 'Rubik Moonrocks', cursive;
     height:100%;
     background-color: var(--accentBlueC);
 }
+
+#medalContainer{ /*FIXA KLART MEDALJERNA */
+  width: 150px;
+  height: 70px;
+  grid-area: 2/3/2/3;
+ 
+  position: relative;
+
+  display: flex;
+  grid-template-columns: repeat(3, 33%);
+}
+#medalContainer > span{
+  position:absolute;
+  top: 70px;
+  right: 20px;
+}
+.medalPic{
+  height: 100%;
+}
+.oneMedal{
+  width: 50px;
+}
 #bottomElements{
     height: 66%;
     display: grid;

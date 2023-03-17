@@ -249,111 +249,110 @@ export function whackAMole(){
     }
 
     
-    function theEnd(title, points){
-    let gameDIV = document.querySelector(".fillAdvergameWrapper");
-
-    gameDIV.innerHTML = `
-    <div class="endWrapper">
-        <div class="topEnd">
-            <h2 class="companyEndName">${title}</h2>
-        </div>
-        <div class="middleEnd">
-            <h4 class="yourResults">YOUR RESULTS: ${points}</h4>
-            <div id="medalContainer">
+    function theEnd(title, points, logo){
+        let gameDIV = document.querySelector(".fillAdvergameWrapper");
+        /* lägga logo här??*/
+        gameDIV.innerHTML = `
+        <div class="endWrapper snowfall">
+            <div class="topEnd">
+                <h2 class="companyEndName">Created for<span> ${title}</span></h2>
+            </div>
+            <div class="middleEnd">
+                <h4 class="yourResults">YOUR RESULTS: ${points}</h4>
+                <div id="medalContainer">
+                </div>
+            </div>
+            <div class="bottomEnd">
+                <h5 class="enterNameText">JOIN THE LEADERBOARD</h5>
+                <input class="addName" type="text" placeholder="ENTER NAME HERE"> 
+                <button id="sendName">ADD</button>
+            </div>
+            <div>
+                <h5 class="orPlayAgain">OR</h5>
+                <button class="again">PLAY AGAIN</button>
+            </div>
+            <div class="logoDiv">
+                <img class="logo" src="${logo}">
             </div>
         </div>
-        <div class="bottomEnd">
-            <h5 class="enterNameText">JOIN THE LEADERBOARD</h5>
-            <input class="addName" type="text" placeholder="ENTER NAME HERE"> 
-            <button id="sendName">ADD</button>
-        </div>
-        <div>
-            <h5 class="orPlayAgain">OR</h5>
-            <button class="again">PLAY AGAIN</button>
-        </div>
-    </div>
-    `;
-    let link = linkToSend;
-    let userMedals;
-    if (link === 2){
-        if (points >= 100){
-            userMedals = 1
-        }
-        else if (points >= 200){
-            userMedals = 2
-        }
-        else if (points >= 200){
-            userMedals = 3
-        }
-        updateMedals(userMedals);
-    } else {
-        updateMedals(userMedals);
-    }
-
-    document.querySelector("#sendName").addEventListener("click", () => {
+        `;
         let link = linkToSend;
-        let users = jsonarray;
-        console.log(points);
-        let empty = true;
-        let addName = document.querySelector(".addName");
-
-        let oneUser = {
-            userName: addName.value,
-            points: points
-        }
-
-        if(addName.value.length <= 0){
-            empty = true;
-            document.querySelector(".addName").style.border = "2px solid red";
-        } else {
-            empty = false;
-            document.querySelector(".addName").style.border = "none";
-
-            users.push(oneUser);
-            if (link === 2){
-                let fillGame = [];
-                fillGame.push(users);
-            }else {
-                let whackGame = [];
-                whackGame.push(users);
+        let userMedals;
+        if (link === 2){
+            if (points >= 100){
+                userMedals = 1
             }
-        }
-
-        if (empty === false){
-            let data;
-            if (link === 2){
-                let fillGame = [];
-                fillGame.push(users);
-                data = {fillGame};
-            }else {
-                let whackGame = [];
-                whackGame.push(users);
-                data = {whackGame};
+            else if (points >= 200){
+                userMedals = 2
             }
-            
-            const req = new Request("../db/server.php", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {"Content-type": "application/json"}
-        })
-
-        fetch(req).then(response => response);
-
-        setTimeout(() => {
-            if (link === 2){
-                //väntar lite innan användaren skickas till startpage
-                startPage("FILL THERMOS", 
-                "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
-                "cup"
-            );
-            }else if (link == 1){
-                startPage("Whack A Boot",
-                "Stomp the invanders",
-                "boot");
+            else if (points >= 200){
+                userMedals = 3
+            }
+            updateMedals(userMedals);
+        }
+    
+        document.querySelector("#sendName").addEventListener("click", () => {
+            console.log(points);
+            let empty = true;
+            let addName = document.querySelector(".addName");
+    
+            let oneUser = {
+                userName: addName.value,
+                points: points
+            }
+    
+            if(addName.value.length <= 0){
+                empty = true;
+                document.querySelector(".addName").style.border = "2px solid red";
+            } else {
+                empty = false;
+                document.querySelector(".addName").style.border = "none";
+    
+                users.push(oneUser);
+                if (link === 2){
+                    let fillGame = [];
+                    fillGame.push(users);
+                }else {
+                    let whackGame = [];
+                    whackGame.push(users);
                 }
-        }, 2000);
-        }
-    })
+            }
+    
+            if (empty === false){
+                let data;
+                if (link === 2){
+                    let fillGame = [];
+                    fillGame.push(users);
+                    data = {fillGame};
+                }else {
+                    let whackGame = [];
+                    whackGame.push(users);
+                    data = {whackGame};
+                }
+                
+                const req = new Request("../db/server.php", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {"Content-type": "application/json"}
+            })
+    
+            fetch(req).then(response => response);
+    
+            setTimeout(() => {
+                if (link === 2){
+                    //väntar lite innan användaren skickas till startpage
+                    startPage("FILL THERMOS", 
+                    "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
+                    "cup"
+                );
+                }else if (link == 1){
+                    startPage("Whack A Boot",
+                    "Hover the boot over the invaders and click and stomp them to earn points",
+                    "boot");
+                    }
+            }, 2000);
+            }
+        })
 
     document.querySelector(".again").addEventListener("click", () => {
         if (link == 2){
@@ -423,22 +422,23 @@ export function whackElementsDOM(){
 
 
 
-export function startPage(game, description, gameThing){
+function startPage(game, description, gameThing){
     let videoNGameDIV = document.querySelector("#videoNGame");
     videoNGameDIV.innerHTML = "";
     let fillAdvergameWrapper = document.createElement("div");
     fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
+    fillAdvergameWrapper.classList.add("snowfall");
 
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
-            <h2 class="mugGameTitle">${game}</h2>
-            <h5 class="mugGameInstructions">${description}</h5>
+            <h2 class="gameTitle">${game}</h2>
+            <h5 class="gameInstructions">${description}</h5>
         </div>
         <div class="middleStart">
             <div id="leaderboardWrapper">
                 <h5 class="topten">TOP TEN PLAYERS</h5>
-                <div id="userList"></div>
+                <div class="userList"></div>
             </div>
             <div id="${gameThing}"></div>
             <div></div>
@@ -452,9 +452,7 @@ export function startPage(game, description, gameThing){
 
     leaderboardDIV();
     //and so it begins
-
     document.querySelector("#start").addEventListener("click", () => {
-        let link = linkToSend;
         if (link == 2){
             elementsDOM();
             pickTurn();
@@ -478,7 +476,7 @@ function sortByProperty(a, b){
     }
 
 function leaderboardDIV(){
-    let userList = document.querySelector("#userList");
+    let userList = document.querySelector(".userList");
     let leaderBoardUsers = jsonarray;
     let sortedUsers = leaderBoardUsers.sort(sortByProperty);
     
