@@ -115,7 +115,7 @@ export function theEnd(title, points, logo){
     gameDIV.innerHTML = `
     <div class="endWrapper snowfall">
         <div class="topEnd">
-            <h2 class="companyEndName">${title}</h2>
+            <h2 class="companyEndName">Created for ${title}</h2>
         </div>
         <div class="middleEnd">
             <h4 class="yourResults">YOUR RESULTS: ${points}</h4>
@@ -131,7 +131,9 @@ export function theEnd(title, points, logo){
             <h5 class="orPlayAgain">OR</h5>
             <button class="again">PLAY AGAIN</button>
         </div>
-        <div>${logo}</div> 
+        <div class="logoDiv">
+            <img class="logo" src="${logo}">
+        </div>
     </div>
     `;
     let link = linkToSend;
