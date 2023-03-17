@@ -17,8 +17,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     
     if(isset($_POST["fillGame"])){
         saveJson("fillUsers.json", $_POST["fillGame"][0]);
-    } else {
+    } else if(isset($_POST["whackGame"])){
         saveJson("whackUsers.json", $_POST["whackGame"][0]);
+    } else if (isset($_POST["fill"])){
+        $secondsUsers = loadJson("skipUsers.json");
+        var_dump($secondsUsers);
+        array_push($secondsUsers[1]["fill"], $_POST["fill"][0]);
+
+        saveJson("skipUsers.json", $secondsUsers);
+    }else if (isset($_POST["whack"])){
+        $secondsUsers = loadJson("skipUsers.json");
+        array_push($secondsUsers[0]["whack"], $_POST["whack"][0]);
+
+        saveJson("skipUsers.json", $secondsUsers);
     }
 }
 

@@ -63,26 +63,8 @@ font-family: 'Rubik Moonrocks', cursive;
     right: 42px;
 }
 
-#medalContainer{ /*FIXA KLART MEDALJERNA */
-    width: 150px;
-    height: 70px;
-    grid-area: 2/3/2/3;
-   
-    position: relative;
-
-    display: grid;
-    grid-template-columns: repeat(3, 33%);
 
 
-}
-#medalContainer > span{
-    position:absolute;
-    top: 70px;
-    right: 20px;
-}
-.medalPic{
-    height: 100%;
-}
 #progressContainer{
     height:10px;
     width:500px;
@@ -245,9 +227,7 @@ font-family: 'Rubik Moonrocks', cursive;
     grid-area: 2/1/2/1;
 }
 
-.medalPic {
-    height: 10%;
-}
+
 
 .topEnd {
     text-align: center;

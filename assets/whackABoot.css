@@ -170,43 +170,7 @@
     font-family:'Rubik Mono One', sans-serif; ;
     font-size: 15px;
 }
-/*ursäkta mig. det blev knas annars
-.monsterRed{
-    background: url('images/whack/monsterRed.svg') bottom center no-repeat;
-    background-size: 50%;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 100%;
-    transition:all 0.4s ease;
-    filter: saturate(0%);}
-.monsterPurple{
-    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
-    background-size: 50%;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 100%;
-    transition:all 0.4s ease;
-    filter: saturate(0%);}
-.friendRed{
-    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
-    background-size: 50%;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 100%;
-    transition:all 0.4s ease;
-    filter: saturate(0%);}
-.friendPurple{
-    background: url('images/whack/monsterPurple.svg') bottom center no-repeat;
-    background-size: 50%;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 100%;
-    transition:all 0.4s ease;
-    filter: saturate(0%);}*/
+
 .hole.up .mole {
     top: 0;
     filter: saturate(100%);
@@ -237,4 +201,35 @@
 
 .companyEndName > span {
     color: #abbe67;
+}
+.miss{
+    position: absolute;
+    font-size: larger;
+    color:red;
+}
+
+#medalContainer{ /*FIXA KLART MEDALJERNA */
+    width: 150px;
+    height: 70px;
+    grid-area: 2/3/2/3;
+   
+    position: relative;
+
+    display: flex;
+    grid-template-columns: repeat(3, 33%);
+}
+#medalContainer > span{
+    position:absolute;
+    top: 70px;
+    right: 20px;
+}
+.medalPic{
+    height: 100%;
+}
+.oneMedal{
+    width: 50px;
+}
+.showPoints{
+    position: absolute;
+    top: 100px;
 }

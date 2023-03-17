@@ -34,6 +34,7 @@ $fillAttrs = [
 
 //beroende på vilken getparameter ska en av spelen laddas in på vardera sida
 if (isset($_GET)){
+    $title = $_GET["title"];
     $whichGameJS = "";
     $whichGameCSS = "";
     $whichLinkToSend = "";
@@ -60,6 +61,9 @@ if (isset($_GET)){
 <script>
     let linkToSend = <?php echo $whichLinkToSend; ?>
 </script>
+<script>
+    let titleOfVideo = "<?php echo $title; ?>"
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,13 +80,13 @@ if (isset($_GET)){
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/style.css" >
     <link rel="stylesheet" href="/assets/video.css" >
-    <?php echo $whichGameCSS ?>
+    <?php echo $whichGameCSS; ?>
     
     <title>Metube</title>
 </head>
 <body>
 <header>
-        <div>Metube</div>
+        <div><a href="index.php">MeTube</a></div>
         <div id="searchBar"></div>
         <div id="profile"></div>
     </header>
@@ -91,7 +95,7 @@ if (isset($_GET)){
     <div id="mainVideo">
         <div id="videoNGame"></div>
         <div id="videoInfo">
-            <h3>Title</h3>
+            <h3> <?php echo $title; ?> </h3>
             <div id="profile">
                 <div id="user"></div>
             </div>
