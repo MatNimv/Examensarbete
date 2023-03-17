@@ -1,0 +1,34 @@
+[
+    {
+        "whack": [
+            {
+                "linkClicks": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            {
+                "skipSeconds": []
+            }
+        ]
+    },
+    {
+        "fill": [
+            {
+                "linkClicks": [
+                    1,
+                    1,
+                    1
+                ]
+            },
+            {
+                "skipSeconds": []
+            }
+        ]
+    }
+]

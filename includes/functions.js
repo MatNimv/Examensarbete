@@ -62,6 +62,10 @@ export function skipAd(){
 
     videoNGame.append(overlay);
     overlay.append(skipDIV);
+
+    skipDIV.addEventListener("click", () => {
+        addVideo();
+    })
 }
 
 export function startPage(game, description, gameThing){
@@ -251,4 +255,24 @@ export function leaderboardDIV(){
         }
         userList.append(userDIV);
     }
+}
+
+function addVideo(){
+    //lägg in title från php
+    let title = "YOINK";
+    let videoNGame = document.querySelector("#videoNGame");
+    let videoWrap = document.createElement("video");
+    var source = document.createElement('source');
+
+    source.setAttribute('src', `assets/videos/${title}.mp4`);
+    source.setAttribute('type', 'video/mp4');
+    videoWrap.setAttribute("controls", "controls");
+
+    videoNGame.innerHTML = "";
+    videoWrap.appendChild(source);
+
+
+    videoNGame.append(videoWrap);
+
+
 }

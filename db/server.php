@@ -20,9 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     } else {
         saveJson("whackUsers.json", $_POST["whackGame"][0]);
     }
-
-    
-
 }
 
 ?>
