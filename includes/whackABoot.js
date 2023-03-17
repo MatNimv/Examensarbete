@@ -207,12 +207,16 @@ export function whackAMole(){
             userPoints = userPoints + 2
             showPoints.innerHTML = "+2";
         }
+
+        let floatBootPlace = document.querySelector(".floatBoot")
+        var rect = floatBootPlace.getBoundingClientRect();
+        showPoints.style.left = rect.left - 170 + "px";
+        showPoints.style.top = rect.top + "px";
+
         overlay.append(showPoints);
         setTimeout(() => {
             showPoints.remove();
         }, 1000);
-
-
 
         updateMedals();
     }

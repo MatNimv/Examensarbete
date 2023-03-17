@@ -87,8 +87,6 @@ let turns = [
 
 ]
 
-console.log("fillcup.js");
-
 export function pickTurn(){
     //5 banor.
     let backupTurns = [
@@ -224,10 +222,7 @@ function checkResults(fill, goal){
     let plusPoints = 0;
     let line = document.querySelector(".line");
     let lineNumber = line.style.bottom.replaceAll("px", "");
-    let filling = document.querySelector(".fill");
     goal = lineNumber;
-    console.log("fill", fill);
-    console.log("goal", goal);
 
         if(fill > goal){
         //fyllningen är mer än linjen
@@ -281,7 +276,6 @@ function checkResults(fill, goal){
         showTurnPoints(plusPoints, "darkorange", "");
     }
 
-    console.log("pluspoints", plusPoints);
     //uppdaterar användarens poäng
     userPoints = userPoints + plusPoints;
     updateUserPoints(userPoints);
@@ -329,7 +323,6 @@ function showTurnPoints(points, textcolor, symbol){
     oneTurnPoints.style.color = textcolor;
 
     if(points === "OVERFLOW"){
-        console.log("OVERFLOW");
         oneTurnPoints.style.left = "220px";
         oneTurnPoints.style.top = "100px";
         oneTurnPoints.style.zIndex = "101";
