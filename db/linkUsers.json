@@ -1,37 +1,9 @@
 [
     {
-        "whack": [
-            {
-                "linkClicks": [
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1,
-                    1
-                ]
-            },
-            {
-                "skipSeconds": []
+        "whack": {
+            "1": {
+                "skipSeconds": null
             }
-        ]
-    },
-    {
-        "fill": [
-            {
-                "linkClicks": [
-                    1,
-                    1,
-                    1,
-                    1
-                ]
-            },
-            {
-                "skipSeconds": []
-            }
-        ]
+        }
     }
 ]

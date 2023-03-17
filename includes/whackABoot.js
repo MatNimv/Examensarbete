@@ -32,7 +32,7 @@ if (link == 1){
     
             fetch(req).then(response => response);
             })
-    }, 7000);
+    }, 7500);
     
 }
 
@@ -165,19 +165,19 @@ export function whackAMole(){
         let medalContainer = document.querySelector("#medalContainer");
         medalContainer.innerHTML = "";
         
-        if (userPoints == 20){
+        if (userPoints == 12){
             userMedals = userMedals + 1;
-        } else if (userPoints == 14){
+        } else if (userPoints == 8){
             userMedals = userMedals + 1;
-        } else if(userPoints == 8){
+        } else if(userPoints == 4){
             userMedals = userMedals + 1;
         }
 
-        if(userPoints < 20 && userMedals === 3){
+        if(userPoints < 12 && userMedals === 3){
             userMedals = userMedals - 1;
-        } else if(userPoints < 14 && userMedals === 2){
+        } else if(userPoints < 8 && userMedals === 2){
             userMedals = userMedals - 1;
-        } else if (userPoints < 8 && userMedals === 1){
+        } else if (userPoints < 4 && userMedals === 1){
             userMedals = userMedals - 1;
         }
     
@@ -245,7 +245,7 @@ export function whackAMole(){
         gameDIV.innerHTML = `
         <div class="endWrapper snowfall">
             <div class="topEnd">
-                <h2 class="companyEndName">Created for<a href="thanks.php?advergame=${thanklink}">${title}</a></h2>
+                <h2 class="companyEndName">Created for <a href="thanks.php?advergame=${thanklink}">${title}</a></h2>
             </div>
             <div class="middleEnd">
                 <h4 class="yourResults">YOUR RESULTS: ${points}</h4>

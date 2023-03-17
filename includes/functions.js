@@ -30,7 +30,7 @@ export function isEven(n) {
    return n % 2 == 0;
 }
 
-export function skipAd(link, seconds){
+export function skipAd(){
     let skipDIV = document.createElement("div");
     let overlay = document.createElement("div");
     let videoNGame = document.querySelector("#videoNGame");

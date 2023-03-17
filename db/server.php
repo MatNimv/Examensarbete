@@ -20,16 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     } else if(isset($_POST["whackGame"])){
         saveJson("whackUsers.json", $_POST["whackGame"][0]);
     } else if (isset($_POST["fill"])){
-        $secondsUsers = loadJson("skipUsers.json");
+        $secondsUsers = loadJson("skipAndLink.json");
         var_dump($secondsUsers);
-        array_push($secondsUsers[1]["fill"], $_POST["fill"][0]);
+        array_push($secondsUsers[1]["fill"][1]["skipSeconds"], $_POST["fill"][0]);
 
-        saveJson("skipUsers.json", $secondsUsers);
+        saveJson("skipAndLink.json", $secondsUsers);
     }else if (isset($_POST["whack"])){
-        $secondsUsers = loadJson("skipUsers.json");
-        array_push($secondsUsers[0]["whack"], $_POST["whack"][0]);
+        $secondsUsers = loadJson("skipAndLink.json");
+        array_push($secondsUsers[0]["whack"][1]["skipSeconds"], $_POST["whack"][0]);
 
-        saveJson("skipUsers.json", $secondsUsers);
+        saveJson("skipAndLink.json", $secondsUsers);
     }
 }
 

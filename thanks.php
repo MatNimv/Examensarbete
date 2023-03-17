@@ -3,7 +3,7 @@ error_reporting(-1);
 
 require_once "includes/functions.php";
 
-$adverGamers = loadJson("db/linkUsers.json");
+$adverGamers = loadJson("db/skipAndLink.json");
 
 $oneClick = 1;
 //beroende på vilken getparameter ska en av spelen
@@ -14,12 +14,12 @@ if (isset($_GET)){
         //lägg till ett plus i skipUsers
 
         array_push($adverGamers[1]["fill"][0]["linkClicks"], $oneClick);
-        saveJson("db/linkUsers.json", $adverGamers);
+        saveJson("db/skipAndLink.json", $adverGamers);
 
     } else if($_GET["advergame"] == "whack"){
 
         array_push($adverGamers[0]["whack"][0]["linkClicks"], $oneClick);
-        saveJson("db/linkUsers.json", $adverGamers);
+        saveJson("db/skipAndLink.json", $adverGamers);
     }
 }
 ?>
