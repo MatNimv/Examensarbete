@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-        <div id="mainTitle">MeTube</div>
+        <div id="mainTitle"><a href="index.php">MeTube</a></div>
         <div id="searchBar">Search
             <div id="searchIcon"></div>
         </div>

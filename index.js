@@ -6,40 +6,40 @@ import { videoDOM, categoryDOM, isEven } from "./includes/functions.js";
 //alla videor med titel
 let videoInfo = [
     {
-        videoTitle: "How to play Horizon and not die all the time",
+        videoTitle: "A Wild Susuwatari Appeared",
     },
     {
-        videoTitle: "Meditate like Dobby",
+        videoTitle: "Biggest Showdown Of All Time",
     },
     {
-        videoTitle: "Clickers are the new influencers",
+        videoTitle: "Cutest Confusest Puppy",
     },
     {
-        videoTitle: "Clickers are the new influencers",
+        videoTitle: "Little Kitten Playing His Toy Mouse",
     },
     {
-        videoTitle: "Clickers are the new influencers",
+        videoTitle: "Mmmmm Refreshing",
     },
     {
-        videoTitle: "Clickers are the new influencers",
+        videoTitle: "Watch Puppy Get Wrecked",
     },
     {
-        videoTitle: "Clickers are the new influencers",
+        videoTitle: "A Wild Susuwatari Appeared",
     },
     {
-        videoTitle: "Clickers are the new influencers",
+        videoTitle: "Biggest Showdown Of All Time",
     },
     {
-        videoTitle: "Meditate like Voldemort",
+        videoTitle: "Cutest Confusest Puppy",
     },
     {
-        videoTitle: "Azkaban ASMR",
+        videoTitle: "Little Kitten Playing His Toy Mouse",
     },
     {
-        videoTitle: "How to build a website. pls.",
+        videoTitle: "Mmmmm Refreshing",
     },
     {
-        videoTitle: "Meditate like Aloy",
+        videoTitle: "Watch Puppy Get Wrecked",
     },
 ]
 let categories = [
@@ -68,9 +68,14 @@ for (let index = 0; index < videoInfo.length; index++) {
         link = "video.php?link=2" + "&title=" + element.videoTitle;
     }
 
+    let src = element.videoTitle;
+    src.replace(/ /g, '%20')
+
+    console.log(src);
+
     videoDOM(element.videoTitle, 
-        `assets/images/thumbnails/thumb${index}.png`, 
-        `assets/images/userPics/user${index}.png`,
+        `assets/images/thumbnails/${src}.png`, 
+        `assets/images/userPics/user.png`,
         link);
     index + 1;
 }

@@ -57,7 +57,7 @@ export function skipAd(link, seconds){
 
 export function addVideo(){
     //lägg in title från php
-    let title = "YOINK";
+    let title = titleOfVideo;
     let videoNGame = document.querySelector("#videoNGame");
     let videoWrap = document.createElement("video");
     var source = document.createElement('source');
@@ -68,7 +68,6 @@ export function addVideo(){
 
     videoNGame.innerHTML = "";
     videoWrap.appendChild(source);
-
 
     videoNGame.append(videoWrap);
 

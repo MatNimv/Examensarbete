@@ -15,9 +15,7 @@ if (link == 2){
 
     skipAd();
 
-    console.log(document.querySelector(".skipping"));
     setTimeout(() => {
-        console.log(document.querySelector(".skipping"));
         document.querySelector(".skipping").addEventListener("click", () => {
             document.querySelector(".skipping").remove();
             addVideo();
