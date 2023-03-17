@@ -38,7 +38,7 @@ export function skipAd(){
     skipDIV.classList.add("skip");
 
 
-    let timeleft = 5;
+    let timeleft = 8;
     let timer = setInterval(function(){
         if(timeleft <= 0){
             clearInterval(timer);

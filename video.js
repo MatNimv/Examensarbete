@@ -48,8 +48,6 @@ for (let index = 0; index < videoInfo.length; index++) {
     let src = element.videoTitle;
     src.replace(/ /g, '%20')
 
-    console.log(src);
-
     videoDOM(element.videoTitle, `assets/images/thumbnails/${src}.png`, 
     `assets/images/userPics/user.png`,
     `video.php?link=${whichLink}&title=${element.videoTitle}`);

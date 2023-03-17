@@ -9,7 +9,7 @@ let link = linkToSend;
 if (link == 1){
 
     startPage("Whack A Boot",
-    "Stomp the invanders",
+    "Hover the boot over the invaders and click and stomp them to earn points",
     "boot");
 
     skipAd();
@@ -32,7 +32,7 @@ if (link == 1){
     
             fetch(req).then(response => response);
             })
-    }, 7500);
+    }, 10000);
     
 }
 
@@ -352,7 +352,7 @@ export function whackAMole(){
             "cup");
         } else if (link == 1) {
             startPage("Whack A Boot",
-            "Stomp the invanders",
+            "Hover the boot over the invaders and click and stomp them to earn points",
             "boot");
         }
     })
@@ -373,7 +373,6 @@ export function whackElementsDOM(){
             </div>
             <div id="progressContainer">
                 <div id="progressBar"></div>
-                <span id="yourProgress">Your progress</span>
             </div>
             <div id="medalContainer">
                 <span></span>

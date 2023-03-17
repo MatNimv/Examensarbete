@@ -34,7 +34,7 @@ if (link == 2){
     
             fetch(req).then(response => response);
             })
-    }, 7500);
+    }, 10000);
     
 
 }
@@ -203,7 +203,7 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
 
     FILLbtn.addEventListener("mouseup", (e) => {
         FILLbtn.style.pointerEvents = "none";
-        let fillHeight = fill.offsetHeight -2;
+        let fillHeight = fill.offsetHeight;
         clearInterval(intervalFill);
         e.stopImmediatePropagation();
 
@@ -550,7 +550,7 @@ document.querySelector(".again").addEventListener("click", () => {
         "cup");
     } else if (link == 1) {
         startPage("Whack A Boot",
-        "Stomp the invanders",
+        "Hover the boot over the invaders and click and stomp them to earn points",
         "boot");
     }
 })
