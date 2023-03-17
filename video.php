@@ -11,7 +11,7 @@ $whackAttrs = [
     '<p class="oneAttr">Medal: <a href="https://www.flaticon.com/free-icons/prize" title="prize icons">Prize icons created by vectorsmarket15 - Flaticon</a></p>',
     '<p class="oneAttr">Avatar: <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by kmg design - Flaticon</a>
     </p>',
-    '<p class="oneAttr"><a href="https://www.flaticon.com/free-icons/next-button" title="next-button icons">Next-button icons created by inkubators - Flaticon</a></p>',
+    '<p class="oneAttr">Next-button: <a href="https://www.flaticon.com/free-icons/next-button" title="next-button icons"> icons created by inkubators - Flaticon</a></p>',
 ];
 $fillAttrs = [
     '<p class="oneAttr">Coffee package: <a href="https://www.flaticon.com/free-icons/coffee-bean" title="coffee bean icons">Coffee bean icons created by Freepik - Flaticon</a>
