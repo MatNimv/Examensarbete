@@ -262,9 +262,10 @@ main{
     height: 500px;
     pointer-events: none;
 }
-.skip{
+.skip,
+.skipping{
     pointer-events: all;
-    width: 100px;
+    width: 160px;
     position: absolute;
     bottom: 10px;
     right: 0px;
@@ -274,15 +275,17 @@ main{
     border-radius: 1px;
     padding: 5px 5px 5px 5px;
     border: solid 2px darkgray;
-}
+}.skipping{ width: 100px;}
 
-.skip > div{
+.skip > div, 
+.skipping > div{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 6px 0px;
 }
-.skip:hover {
+.skip:hover,
+.skipping:hover{
     background-color: #fff4f4e3;
 }
 .skip > div > div{

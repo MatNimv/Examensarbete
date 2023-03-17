@@ -1,35 +1,24 @@
-import { skipAd } from "./functions.js";
+import { skipAd, addVideo } from "./functions.js";
 
-console.log("whack.js");
 let seconds = 0;
 setInterval(() => {
     seconds++
 }, 1000);
 
 let link = linkToSend;
-if (link == 2){
-
-    startPage("FILL THERMOS",
-    "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
-    "cup");
-
-    setTimeout(() => {
-        skipAd(link);
-    }, 5000);
-
-} else if (link == 1){
+if (link == 1){
 
     startPage("Whack A Boot",
     "Stomp the invanders",
     "boot");
 
-    setTimeout(() => {
-        skipAd(link);
+    skipAd();
 
-        document.querySelector(".skip").addEventListener("click", () => {
-            document.querySelector(".skip").remove();
+    setTimeout(() => {
+        document.querySelector(".skipping").addEventListener("click", () => {
+            document.querySelector(".skipping").remove();
+            addVideo();
             //när användaren skippar ska timern för hen avslutas.
-            console.log(seconds);
             let data;
             let whack = [];
             whack.push(seconds);
@@ -43,7 +32,8 @@ if (link == 2){
     
             fetch(req).then(response => response);
             })
-    }, 5000);
+    }, 7000);
+    
 }
 
 export function whackAMole(){
@@ -161,7 +151,7 @@ export function whackAMole(){
             clearInterval(downloadTimer);
             document.getElementById("timer").innerHTML = "Finished";
             setTimeout(() => {
-                theEnd("Canada Boots Company", userPoints, "/assets/images/whack/canadabootsLogo.png");
+                theEnd("Canada Boots Company", userPoints, "/assets/images/whack/canadabootsLogo.png", "whack");
             }, 3000);
         } else {
             document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
@@ -249,13 +239,13 @@ export function whackAMole(){
     }
 
     
-    function theEnd(title, points, logo){
+    function theEnd(title, points, logo, thanklink){
         let gameDIV = document.querySelector(".fillAdvergameWrapper");
         /* lägga logo här??*/
         gameDIV.innerHTML = `
         <div class="endWrapper snowfall">
             <div class="topEnd">
-                <h2 class="companyEndName">Created for<span> ${title}</span></h2>
+                <h2 class="companyEndName">Created for<a href="thanks.php?advergame=${thanklink}">${title}</a></h2>
             </div>
             <div class="middleEnd">
                 <h4 class="yourResults">YOUR RESULTS: ${points}</h4>

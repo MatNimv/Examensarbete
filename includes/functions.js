@@ -37,17 +37,25 @@ export function skipAd(link, seconds){
     overlay.classList.add("overlay");
     skipDIV.classList.add("skip");
 
-    skipDIV.innerHTML = "<div><span>Skip Ad</span><div></div></div>";
+
+    let timeleft = 5;
+    let timer = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(timer);
+            skipDIV.classList.add("skipping");
+            skipDIV.classList.remove("skip");
+            skipDIV.innerHTML = "<div><span>Skip Ad</span><div></div></div>";
+        } else {
+            skipDIV.innerHTML = `<div><span>Skip Ad in ${timeleft}s...</span><div></div></div>`;
+        }
+        timeleft -= 1
+    }, 1000);
 
     videoNGame.append(overlay);
     overlay.append(skipDIV);
-
-    skipDIV.addEventListener("click", () => {
-        addVideo();
-    })
 }
 
-function addVideo(){
+export function addVideo(){
     //lägg in title från php
     let title = "YOINK";
     let videoNGame = document.querySelector("#videoNGame");

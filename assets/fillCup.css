@@ -391,3 +391,13 @@ font-family: 'Rubik Moonrocks', cursive;
 .companyEndName > span {
   color: var(--accentBlueC)
 }
+
+
+.companyEndName > a{
+  color: var(--accentBlueC);
+  text-decoration: none;
+}
+
+.companyEndName > a:hover{
+  color: var(--objectsBlueC);
+}

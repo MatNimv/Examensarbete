@@ -1,4 +1,4 @@
-import { skipAd } from "./functions.js";
+import { addVideo, skipAd } from "./functions.js";
 //kod för advergamet fill the cup, eller fill thermos.
 
 let seconds = 0;
@@ -13,13 +13,16 @@ if (link == 2){
     "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
     "cup");
 
-    setTimeout(() => {
-        skipAd(link);
+    skipAd();
 
-        document.querySelector(".skip").addEventListener("click", () => {
-            document.querySelector(".skip").remove();
+    console.log(document.querySelector(".skipping"));
+    setTimeout(() => {
+        console.log(document.querySelector(".skipping"));
+        document.querySelector(".skipping").addEventListener("click", () => {
+            document.querySelector(".skipping").remove();
+            addVideo();
+            
             //när användaren skippar ska timern för hen avslutas.
-            console.log(seconds);
             let data;
             let fill = [];
             fill.push(seconds);
@@ -33,17 +36,9 @@ if (link == 2){
     
             fetch(req).then(response => response);
             })
-    }, 5000);
+    }, 7000);
+    
 
-} else if (link == 1){
-
-    startPage("Whack A Boot",
-    "Stomp the invanders",
-    "boot");
-
-    setTimeout(() => {
-        skipAd(link, seconds);
-    }, 5000);
 }
 
 let userPoints = 0;
@@ -99,46 +94,45 @@ console.log("fillcup.js");
 export function pickTurn(){
     //5 banor.
     let backupTurns = [
-        {
-            //superfart
-            speed: 20,
-            goal: 200,
-            fillColor: "brown",
-            fill: "coffee",
-            fillImage: "coffee.png"
-        },
-        {
-            //långsam. tjock smörja
-            speed: 15,
-            goal: 100,
-            fillColor: "purple",
-            fill: "boba",
-            fillImage: "boba.png"
-        },
-        {
-            //medelsnabb
-            speed: 30,
-            goal: 260,
-            fillColor: "beige",
-            fill: "milk",
-            fillImage: "milk.png"
-        },
-        {
-            //medelsnabb
-            speed: 30,
-            goal: 150,
-            fillColor: "bisque",
-            fill: "tea",
-            fillImage: "tea-bag.png"
-        },
-        {
-            speed: 20,
-            goal: 90,
-            fillColor: "white",
-            fill: "sugar",
-            fillImage: "sugar.png"
-        },
-    
+            {
+                //superfart
+                speed: 20,
+                goal: 200,
+                fillColor: "#734a28",
+                fill: "coffee",
+                fillImage: "beans.png"
+            },
+            {
+                //långsam. tjock smörja
+                speed: 50,
+                goal: 100,
+                fillColor: "#944700",
+                fill: "boba",
+                fillImage: "boba.png"
+            },
+            {
+                //medelsnabb
+                speed: 30,
+                goal: 260,
+                fillColor: "#efedee",
+                fill: "milk",
+                fillImage: "milk.png"
+            },
+            {
+                //medelsnabb
+                speed: 30,
+                goal: 150,
+                fillColor: "#cade7a",
+                fill: "tea",
+                fillImage: "tea-bag.png"
+            },
+            {
+                speed: 20,
+                goal: 90,
+                fillColor: "#eceff1",
+                fill: "sugar",
+                fillImage: "sugar.png"
+            }
     ]
 
     //reseta allt
@@ -211,7 +205,7 @@ function fillTheCup(speed, goal, fillColor, fillText, fillImage){
 
     FILLbtn.addEventListener("mouseup", (e) => {
         FILLbtn.style.pointerEvents = "none";
-        let fillHeight = fill.offsetHeight -3;
+        let fillHeight = fill.offsetHeight -2;
         clearInterval(intervalFill);
         e.stopImmediatePropagation();
 
@@ -388,7 +382,7 @@ function nextTurn(){
     whichTurn = whichTurn + 1;
     if(whichTurn === 5){
         //ta fram slutet o sånt
-        theEnd("Cupcius", userPoints, "/assets/images/fill/cupciusLogo.png");
+        theEnd("Cupcius", userPoints, "/assets/images/fill/cupciusLogo.png", "fill");
     } else {
         let FILLbtn = document.querySelector(".cup");
         let nextBtn = document.createElement("button");
@@ -445,13 +439,13 @@ function startPage(game, description, gameThing){
         }
     })
 }
-function theEnd(title, points, logo){
+function theEnd(title, points, logo, thanklink){
     let gameDIV = document.querySelector(".fillAdvergameWrapper");
     /* lägga logo här??*/
     gameDIV.innerHTML = `
     <div class="endWrapper snowfall">
         <div class="topEnd">
-            <h2 class="companyEndName">Created for<span> ${title}</span></h2>
+            <h2 class="companyEndName">Created for <a href="thanks.php?advergame=${thanklink}"> ${title}</a></h2>
         </div>
         <div class="middleEnd">
             <h4 class="yourResults">YOUR RESULTS: ${points}</h4>
