@@ -2,12 +2,15 @@
     {
         "whack": [
             {
-                "linkClicks": []
+                "linkClicks": [
+                    1
+                ]
             },
             {
                 "skipSeconds": [
-                    38,
-                    11
+                    172,
+                    18,
+                    34
                 ]
             }
         ]
@@ -20,7 +23,9 @@
                 ]
             },
             {
-                "skipSeconds": []
+                "skipSeconds": [
+                    12
+                ]
             }
         ]
     }

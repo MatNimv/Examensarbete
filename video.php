@@ -32,6 +32,15 @@ $fillAttrs = [
     '<p class="oneAttr">Next-button: <a href="https://www.flaticon.com/free-icons/next-button" title="next-button icons"> icons created by inkubators - Flaticon</a></p>',
 ];
 
+$videoAttrs = [
+    '<p class="oneAttr">Biggest Showdown Of All Time: <a href="https://www.pexels.com/video/a-dog-fights-with-his-reflection-in-the-mirror-3042473">Link</a></p>',
+    '<p class="oneAttr">Little Kitten Playing His Toy Mouse: <a href="https://www.pexels.com/video/little-kitten-playing-his-toy-mouse-855282">Link</a></p>',
+    '<p class="oneAttr">Mmmmm Refreshing: <a href="https://www.pexels.com/video/a-dog-getting-wet-in-the-creek-5469090">Link</a></p>',
+    '<p class="oneAttr">Watch Puppy Get Wrecked: <a href="https://www.pexels.com/video/a-puppy-playing-tug-of-war-by-biting-its-collar-sling-3144446/">Link</a></p>',
+    '<p class="oneAttr">Cutest Confusest Puppy: <a href="https://www.pexels.com/video/video-of-a-puppy-on-the-grass-5764223">Link</a></p>',
+    '<p class="oneAttr">A Wild Susuwatari Appeared: <a href="https://www.pexels.com/video/a-pet-kitten-playing-with-a-blanket-in-the-sofa-3191250">Link</a></p>',
+];
+
 //beroende på vilken getparameter ska en av spelen laddas in på vardera sida
 if (isset($_GET)){
     $title = $_GET["title"];
@@ -52,7 +61,6 @@ if (isset($_GET)){
         $array = $whackAttrs;
     }
 }
-
 ?>
 
 <script>
@@ -103,8 +111,15 @@ if (isset($_GET)){
         <div class="infoBox">
         <button type="button" class="collapsible">Information</button>
                 <div class="content">
+                    <h5>Icons</h5>
                     <?php 
                         foreach($array as $value ) {
+                            echo $value;
+                        }
+                    ?>
+                    <h5>Videos</h5>
+                    <?php 
+                        foreach($videoAttrs as $value ) {
                             echo $value;
                         }
                     ?>

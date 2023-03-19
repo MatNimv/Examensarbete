@@ -1,18 +1,22 @@
 [
     {
-        "userName": "ERE",
-        "points": 440
+        "userName": "Lisa",
+        "points": 280
     },
     {
-        "userName": "matt",
-        "points": 390
+        "userName": "Katja",
+        "points": 260
     },
     {
-        "userName": "Aliceeeeeeeeeeeeee",
-        "points": 340
+        "userName": "Matt",
+        "points": 190
     },
     {
-        "userName": "Hejsan",
-        "points": -90
+        "userName": "Lisa",
+        "points": 10
+    },
+    {
+        "userName": "Set",
+        "points": 350
     }
 ]

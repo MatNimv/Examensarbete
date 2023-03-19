@@ -241,6 +241,7 @@
     font-family: 'Rubik Bubbles', cursive;
     color: white;
     font-size: 45px;
+    z-index: 100;
 }
 
 

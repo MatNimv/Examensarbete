@@ -275,6 +275,7 @@ main{
     border-radius: 1px;
     padding: 5px 5px 5px 5px;
     border: solid 2px darkgray;
+    z-index: 150;
 }.skipping{ width: 100px;}
 
 .skip > div, 

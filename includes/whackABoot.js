@@ -32,7 +32,7 @@ if (link == 1){
     
             fetch(req).then(response => response);
             })
-    }, 10000);
+    }, 11000);
     
 }
 
@@ -119,7 +119,6 @@ export function whackAMole(){
     holes.forEach(hole => hole.addEventListener('click', (e) => {
         if(!e.isTrusted) return; 
         e.target.parentNode.classList.remove('up');
-        scoreBoard.textContent = "Your Score: " + userPoints;
         let creatureClick = e.target;
 
         if(hole.classList.contains("up")){
@@ -165,17 +164,17 @@ export function whackAMole(){
         let medalContainer = document.querySelector("#medalContainer");
         medalContainer.innerHTML = "";
         
-        if (userPoints == 12){
+        if (userPoints == 14){
             userMedals = userMedals + 1;
-        } else if (userPoints == 8){
+        } else if (userPoints == 10){
             userMedals = userMedals + 1;
         } else if(userPoints == 4){
             userMedals = userMedals + 1;
         }
 
-        if(userPoints < 12 && userMedals === 3){
+        if(userPoints < 14 && userMedals === 3){
             userMedals = userMedals - 1;
-        } else if(userPoints < 8 && userMedals === 2){
+        } else if(userPoints < 10 && userMedals === 2){
             userMedals = userMedals - 1;
         } else if (userPoints < 4 && userMedals === 1){
             userMedals = userMedals - 1;
@@ -213,6 +212,8 @@ export function whackAMole(){
         showPoints.style.left = rect.left - 170 + "px";
         showPoints.style.top = rect.top + "px";
 
+        scoreBoard.textContent = "Your Score: " + userPoints;
+
         overlay.append(showPoints);
         setTimeout(() => {
             showPoints.remove();
@@ -245,14 +246,13 @@ export function whackAMole(){
     
     function theEnd(title, points, logo, thanklink){
         let gameDIV = document.querySelector(".fillAdvergameWrapper");
-        /* lägga logo här??*/
         gameDIV.innerHTML = `
         <div class="endWrapper snowfall">
             <div class="topEnd">
                 <h2 class="companyEndName">Created for <a href="thanks.php?advergame=${thanklink}">${title}</a></h2>
             </div>
             <div class="middleEnd">
-                <h4 class="yourResults">YOUR RESULTS: ${points}</h4>
+                <h4 class="yourResults">YOUR RESULTS: ${points} points!</h4>
                 <div id="medalContainer">
                 </div>
             </div>
@@ -266,27 +266,15 @@ export function whackAMole(){
                 <button class="again">PLAY AGAIN</button>
             </div>
             <div class="logoDiv">
-                <img class="logo" src="${logo}">
+                <a href="thanks.php?advergame=whack"><img class="logo" src="${logo}"></a>
             </div>
         </div>
         `;
         let link = linkToSend;
-        let userMedals;
-        if (link === 2){
-            if (points >= 100){
-                userMedals = 1
-            }
-            else if (points >= 200){
-                userMedals = 2
-            }
-            else if (points >= 200){
-                userMedals = 3
-            }
-            updateMedals(userMedals);
-        }
+        updateMedals();
     
         document.querySelector("#sendName").addEventListener("click", () => {
-            console.log(points);
+            let users = jsonarray;
             let empty = true;
             let addName = document.querySelector(".addName");
     
@@ -333,33 +321,21 @@ export function whackAMole(){
             fetch(req).then(response => response);
     
             setTimeout(() => {
-                if (link === 2){
-                    //väntar lite innan användaren skickas till startpage
-                    startPage("FILL THERMOS", 
-                    "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
-                    "cup"
-                );
-                }else if (link == 1){
                     startPage("Whack A Boot",
                     "Hover the boot over the invaders and click and stomp them to earn points",
                     "boot");
-                    }
+                    document.querySelector(".fillAdvergameWrapper").remove();
             }, 2000);
-            }
-        })
+    }
+})
 
     document.querySelector(".again").addEventListener("click", () => {
-        if (link == 2){
-            //kom till startsidan
-            startPage("Fill The Cup", 
-            "Fill the mug with enough ingredients and win points",
-            "cup");
-        } else if (link == 1) {
             startPage("Whack A Boot",
             "Hover the boot over the invaders and click and stomp them to earn points",
             "boot");
-        }
-    })
+            document.querySelector(".fillAdvergameWrapper").remove();
+        })
+
 }
 
 }
@@ -416,8 +392,6 @@ export function whackElementsDOM(){
 
 
 function startPage(game, description, gameThing){
-    let videoNGameDIV = document.querySelector("#videoNGame");
-    videoNGameDIV.innerHTML = "";
     let fillAdvergameWrapper = document.createElement("div");
     fillAdvergameWrapper.classList.add("fillAdvergameWrapper");
     fillAdvergameWrapper.classList.add("snowfall");
@@ -473,16 +447,18 @@ function leaderboardDIV(){
     let leaderBoardUsers = jsonarray;
     let sortedUsers = leaderBoardUsers.sort(sortByProperty);
     
-    for (let index = 1; index < 11; index++) {
+    for (let index = 0; index < 10; index++) {
         const element = sortedUsers[index];
         
+        let numb = index + 1;
+
         let userDIV = document.createElement("div");
         userDIV.classList.add("userDIV");
 
         if(element === undefined){
-            userDIV.innerHTML = `<span class="userName">${index}. </span><span class="userPoints"></span> `;
+            userDIV.innerHTML = `<span class="userName">${numb}. </span><span class="userPoints"></span> `;
         }else {
-            userDIV.innerHTML = `<span class="userName">${index}. ${element.userName}: </span class="userPoints"><span> ${element.points}</span>`; 
+            userDIV.innerHTML = `<span class="userName">${numb}. ${element.userName}: </span class="userPoints"><span> ${element.points}</span>`; 
         }
         userList.append(userDIV);
     }
