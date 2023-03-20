@@ -1,10 +1,10 @@
 import { addVideo, skipAd } from "./functions.js";
 //kod för advergamet fill the cup, eller fill thermos.
 
-let seconds = 0;
-setInterval(() => {
-    seconds++
-}, 1000);
+//let seconds = 0;
+//setInterval(() => {
+//    seconds++
+//}, 1000);
 
 let link = linkToSend;
 if (link == 2){
@@ -13,29 +13,29 @@ if (link == 2){
     "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
     "cup");
 
-    skipAd();
-
-    setTimeout(() => {
-        document.querySelector(".skipping").addEventListener("click", () => {
-            document.querySelector(".skipping").remove();
-            addVideo();
-            
-            //när användaren skippar ska timern för hen avslutas.
-            let data;
-            let fill = [];
-            fill.push(seconds);
-            data = {fill};
-    
-            const req = new Request("../db/server.php", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {"Content-type": "application/json"}
-            })
-    
-            fetch(req).then(response => response);
-            })
-    }, 11000);
-    
+//    skipAd();
+//
+//    setTimeout(() => {
+//        document.querySelector(".skipping").addEventListener("click", () => {
+//            document.querySelector(".skipping").remove();
+//            addVideo();
+//            
+//            //när användaren skippar ska timern för hen avslutas.
+//            let data;
+//            let fill = [];
+//            fill.push(seconds);
+//            data = {fill};
+//    
+//            const req = new Request("../db/server.php", {
+//                method: "POST",
+//                body: JSON.stringify(data),
+//                headers: {"Content-type": "application/json"}
+//            })
+//    
+//            fetch(req).then(response => response);
+//            })
+//    }, 11000);
+//    
 
 }
 

@@ -1,39 +1,39 @@
 import { skipAd, addVideo } from "./functions.js";
 
-let seconds = 0;
-setInterval(() => {
-    seconds++
-}, 1000);
-
-let link = linkToSend;
-if (link == 1){
+//let seconds = 0;
+//setInterval(() => {
+//    seconds++
+//}, 1000);
+//
+//let link = linkToSend;
+//if (link == 1){
 
     startPage("Whack A Boot",
     "Hover the boot over the invaders and click and stomp them to earn points",
     "boot");
 
-    skipAd();
-
-    setTimeout(() => {
-        document.querySelector(".skipping").addEventListener("click", () => {
-            document.querySelector(".skipping").remove();
-            addVideo();
-            //när användaren skippar ska timern för hen avslutas.
-            let data;
-            let whack = [];
-            whack.push(seconds);
-            data = {whack};
-    
-            const req = new Request("../db/server.php", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {"Content-type": "application/json"}
-            })
-    
-            fetch(req).then(response => response);
-            })
-    }, 11000);
-    
+    //skipAd();
+//
+    //setTimeout(() => {
+    //    document.querySelector(".skipping").addEventListener("click", () => {
+    //        document.querySelector(".skipping").remove();
+    //        addVideo();
+    //        //när användaren skippar ska timern för hen avslutas.
+    //        let data;
+    //        let whack = [];
+    //        whack.push(seconds);
+    //        data = {whack};
+    //
+    //        const req = new Request("../db/server.php", {
+    //            method: "POST",
+    //            body: JSON.stringify(data),
+    //            headers: {"Content-type": "application/json"}
+    //        })
+    //
+    //        fetch(req).then(response => response);
+    //        })
+    //}, 11000);
+    //
 }
 
 export function whackAMole(){
