@@ -1,22 +1,14 @@
 [
     {
         "userName": "Alaice",
-        "points": 8
-    },
-    {
-        "userName": "Boot",
         "points": 6
     },
     {
-        "userName": "Set",
+        "userName": "Matt",
         "points": 4
     },
     {
         "userName": "nope",
-        "points": 0
-    },
-    {
-        "userName": "nupe",
         "points": 0
     }
 ]

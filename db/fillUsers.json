@@ -1,11 +1,7 @@
 [
     {
-        "userName": "Lisa",
-        "points": 280
-    },
-    {
         "userName": "Katja",
-        "points": 260
+        "points": 220
     },
     {
         "userName": "Matt",
@@ -14,9 +10,5 @@
     {
         "userName": "Lisa",
         "points": 10
-    },
-    {
-        "userName": "Set",
-        "points": 350
     }
 ]

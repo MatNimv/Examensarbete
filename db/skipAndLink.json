@@ -2,30 +2,20 @@
     {
         "whack": [
             {
-                "linkClicks": [
-                    1
-                ]
+                "linkClicks": []
             },
             {
-                "skipSeconds": [
-                    172,
-                    18,
-                    34
-                ]
+                "skipSeconds": []
             }
         ]
     },
     {
         "fill": [
             {
-                "linkClicks": [
-                    1
-                ]
+                "linkClicks": []
             },
             {
-                "skipSeconds": [
-                    12
-                ]
+                "skipSeconds": []
             }
         ]
     }
