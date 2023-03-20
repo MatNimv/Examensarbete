@@ -95,7 +95,7 @@ if (isset($_GET)){
 <body>
 <header>
         <div><a href="index.php">MeTube</a></div>
-        <div id="searchBar"></div>
+        <div id="searchBar">Search</div>
         <div id="profile"></div>
     </header>
 

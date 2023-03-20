@@ -25,7 +25,9 @@
 
     <main>
         <div id="allCategoriesWrapper">
+            <div id="fold"></div>
             <h4>Categories</h4>
+            <div id="cat"></div>
         </div>
         <div id="allVideosWrapper"></div>
     </main>

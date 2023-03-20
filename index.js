@@ -1,4 +1,4 @@
-import { videoDOM, categoryDOM, isEven } from "./includes/functions.js";
+import { videoDOM, categoryDOM, isEven, folderDOM } from "./includes/functions.js";
 
 //kod för endast landingpage.
 
@@ -42,13 +42,21 @@ let videoInfo = [
         videoTitle: "Watch Puppy Get Wrecked",
     },
 ]
+let folders = [
+    "Home",
+    "Subscriptions",
+    "Your History",
+    "Your Videos",
+    "Watch Later",
+]
 let categories = [
-    "Hämnd",
-    "Musik",
-    "Shiet",
-    "Spel",
+    "Music",
+    "Gaming",
     "ASMR",
-    "Klick"
+    "Lego",
+    "Politics",
+    "Drama",
+    "Horror"
 ]
 
 console.log("index.js");
@@ -80,10 +88,22 @@ for (let index = 0; index < videoInfo.length; index++) {
     index + 1;
 }
 
-//initialize alla kategorier på framsidan
-for (let index = 0; index < categories.length; index++) {
-    const element = categories[index];
+leftMain();
 
-    categoryDOM(element);
-    index + 1;
+function leftMain(){
+    for (let index = 0; index < folders.length; index++) {
+        const element = folders[index];
+    
+        folderDOM(element);
+        index + 1;
+    }
+    
+    //initialize alla kategorier på framsidan
+    for (let index = 0; index < categories.length; index++) {
+        const element = categories[index];
+    
+        categoryDOM(element);
+        index + 1;
+    }
 }
+

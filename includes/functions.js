@@ -15,15 +15,26 @@ export function videoDOM(title, thumbnail, user, link){
     document.querySelector("#allVideosWrapper").append(videoWrapper);
 }
 
-export function categoryDOM(title){
-    let categoryWrapper = document.createElement("div");
-    categoryWrapper.classList.add("categoryWrapper");
+export function folderDOM(title){
+    let foldWrapper = document.querySelector("#fold");
+    let oneFold = document.createElement("div");
 
-    categoryWrapper.innerHTML = `
+    oneFold.innerHTML = `
         <span>${title}</span>
     `;
 
-    document.querySelector("#allCategoriesWrapper").append(categoryWrapper);
+    foldWrapper.append(oneFold);
+}
+
+export function categoryDOM(title){
+    let catWrapper = document.querySelector("#cat");
+    let oneCat = document.createElement("div");
+
+    oneCat.innerHTML = `
+        <span>${title}</span>
+    `;
+
+    catWrapper.append(oneCat);
 }
 
 export function isEven(n) {

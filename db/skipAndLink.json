@@ -2,7 +2,9 @@
     {
         "whack": [
             {
-                "linkClicks": []
+                "linkClicks": [
+                    1
+                ]
             },
             {
                 "skipSeconds": []
