@@ -88,6 +88,7 @@ if (isset($_GET)){
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="/assets/style.css" >
     <link rel="stylesheet" href="/assets/video.css" >
+    <link rel="icon" type="image/x-icon" href="/assets/images/misc/favicon.png">
     <?php echo $whichGameCSS; ?>
     
     <title>Metube</title>

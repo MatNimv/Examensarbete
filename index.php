@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/assets/style.css" >
     <link rel="stylesheet" href="/assets/landing.css" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="/assets/images/misc/favicon.png">
     <title>MeTube</title>
 </head>
 <body>

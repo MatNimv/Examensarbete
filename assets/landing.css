@@ -7,6 +7,7 @@ main{
     display:flex;
     flex-direction: column;
     width: 15%;
+    margin-right: 20px;
 }
 #allVideosWrapper{
     display: grid;
@@ -43,13 +44,6 @@ main{
 .userNtitle > span{
     margin: 10px 0px 0px 10px;
 }
-
-#allCategoriesWrapper{
-    display:flex;
-    font-size: 15px;
-    width: 143px;
-    margin-right: 20px;
-}
 #cat, #fold{
     display: flex;
     flex-direction: column;
@@ -61,6 +55,7 @@ main{
 h4{margin-top: 45px;}
 #allCategoriesWrapper > h4,
 #allCategoriesWrapper > div{margin-left: 20px;}
+#allategoriesWrapper > div { margin-bottom: 30px;}
 
 #mainTitle {
     font-family: 'Anton', sans-serif;
@@ -79,5 +74,9 @@ h4{margin-top: 45px;}
 
 a {
     text-decoration: none;
+}
+
+#categoryWrapper{
+    margin-bottom: 30px;
 }
 

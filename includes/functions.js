@@ -15,17 +15,6 @@ export function videoDOM(title, thumbnail, user, link){
     document.querySelector("#allVideosWrapper").append(videoWrapper);
 }
 
-export function folderDOM(title){
-    let foldWrapper = document.querySelector("#fold");
-    let oneFold = document.createElement("div");
-
-    oneFold.innerHTML = `
-        <span>${title}</span>
-    `;
-
-    foldWrapper.append(oneFold);
-}
-
 export function categoryDOM(title){
     let catWrapper = document.querySelector("#cat");
     let oneCat = document.createElement("div");

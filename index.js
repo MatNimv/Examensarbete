@@ -1,4 +1,4 @@
-import { videoDOM, categoryDOM, isEven, folderDOM } from "./includes/functions.js";
+import { videoDOM, categoryDOM, isEven } from "./includes/functions.js";
 
 //kod för endast landingpage.
 
@@ -59,9 +59,6 @@ let categories = [
     "Horror"
 ]
 
-console.log("index.js");
-
-
 //initialize alla videor på framsidan
 for (let index = 0; index < videoInfo.length; index++) {
     const element = videoInfo[index];
@@ -105,5 +102,17 @@ function leftMain(){
         categoryDOM(element);
         index + 1;
     }
+}
+
+
+function folderDOM(title){
+    let foldWrapper = document.querySelector("#fold");
+    let oneFold = document.createElement("div");
+
+    oneFold.innerHTML = `
+        <span>${title}</span>
+    `;
+
+    foldWrapper.append(oneFold);
 }
 
