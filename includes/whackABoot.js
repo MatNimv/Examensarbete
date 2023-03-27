@@ -44,6 +44,11 @@ export function whackAMole(){
     let lastHole;
     //in seconds
     let gameTime = 20;
+    let creaturePopUps = [
+        "monsterPurple","monsterPurple","monsterPurple","monsterPurple","monsterPurple",
+        "monsterRed","monsterRed","monsterRed","monsterRed","monsterRed",
+        "friendRed","friendRed","friendRed","friendRed","friendRed",
+        "friendPurple","friendPurple","friendPurple","friendPurple"];
 
     document.querySelector("#startGame").addEventListener("click", () => {
         document.querySelector("#startGame").remove();
@@ -209,7 +214,7 @@ export function whackAMole(){
 
         let floatBootPlace = document.querySelector(".floatBoot")
         var rect = floatBootPlace.getBoundingClientRect();
-        showPoints.style.left = rect.left - 170 + "px";
+        showPoints.style.left = rect.left - 110 + "px";
         showPoints.style.top = rect.top + "px";
 
         scoreBoard.textContent = "Your Score: " + userPoints;
@@ -223,7 +228,7 @@ export function whackAMole(){
     }
 
     function whichCreature(element){
-        let creaturePopUps = ["monsterPurple", "monsterRed", "friendRed", "friendPurple"];
+
         let randCreaturePopUps = creaturePopUps[Math.floor(Math.random()*creaturePopUps.length)];
 
         if (element.classList.contains("friendPurple")){
@@ -238,6 +243,11 @@ export function whackAMole(){
         else if(element.classList.contains("monsterPurple")){
             element.classList.remove("monsterPurple");
         }
+        
+
+        let specificCreat = creaturePopUps.findIndex(elem => (elem == randCreaturePopUps));
+        creaturePopUps.splice(specificCreat, 1);
+
         element.classList.add(randCreaturePopUps);
 
         return randCreaturePopUps;

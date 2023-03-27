@@ -58,6 +58,7 @@ let categories = [
     "Drama",
     "Horror"
 ]
+let times = ["3:27","21:17","15:01","2:08","5:41","19:33","1:49","11:28","6:32","3:49","16:12","3:18","5:03","8:27"];
 
 //initialize alla videor på framsidan
 for (let index = 0; index < videoInfo.length; index++) {
@@ -81,7 +82,7 @@ for (let index = 0; index < videoInfo.length; index++) {
     videoDOM(element.videoTitle, 
         `assets/images/thumbnails/${src}.png`, 
         `assets/images/userPics/user.png`,
-        link);
+        link, times[index]);
     index + 1;
 }
 

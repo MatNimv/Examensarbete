@@ -1,11 +1,13 @@
 
-export function videoDOM(title, thumbnail, user, link){
+export function videoDOM(title, thumbnail, user, link, time){
     let videoWrapper = document.createElement("div");
+
+ 
 
     videoWrapper.classList.add("videoWrapper");
 
     videoWrapper.innerHTML = `
-        <a href="${link}"><div class="thumbnail"><img src="${thumbnail}"></div></a>
+        <a href="${link}"><div class="thumbnail"><img src="${thumbnail}"></div><div class="displayMins">${time}</div></a>
         <div class="userNtitle">
             <div class="videoUser"><img src="${user}"></div>
             <a href="${link}"><span class="videoTitle">${title}</span></a>
