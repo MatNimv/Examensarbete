@@ -111,7 +111,15 @@ font-family: 'Rubik Moonrocks', cursive;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     justify-items: center;
-
+    position: relative;
+}
+#bottomElements .gameInstructions{
+  position: absolute;
+  bottom: 341px;
+  left: 180px;
+  font-size: larger;
+  width: 500px;
+  text-align: center;
 }
 #cup{
     width: 41%;
@@ -198,8 +206,8 @@ font-family: 'Rubik Moonrocks', cursive;
     z-index: 100;
     pointer-events: all;
     position: absolute;
-    top: 157px;
-    right: 60px;
+    top: 305px;
+    right: 341px;
     background-color: var(--baseBlueC);
     font-size: 20px;
     font-family:'Rubik Mono One', sans-serif;
@@ -263,6 +271,17 @@ font-family: 'Rubik Moonrocks', cursive;
     font-size: 26px;
     color: var(--baseBlueC);
     margin-top: 0px;
+}
+
+.companyEndName a {
+  animation: color-change 3s ease-in-out infinite;
+}
+
+@keyframes color-change {
+  0% { color: var(--baseBlueC); }
+  40% { color: var(--objectsBlueC); }
+  70% { color: var(--accentBlueC); }
+  100% { color: var(--baseBlueC); }
 }
 
 

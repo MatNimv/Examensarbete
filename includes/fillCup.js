@@ -10,7 +10,7 @@ let link = linkToSend;
 if (link == 2){
 
     startPage("FILL THERMOS",
-    "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
+    "",
     "cup");
 
     skipAd();
@@ -363,6 +363,7 @@ function elementsDOM(){
                 <div class="line"></div>
             </div>
             <div></div>
+            <div class="gameInstructions">Click and hold on the cup to fill it with ingredients, if you stop at the mark you get full points!</div>
         </div>
     `;
 }
@@ -518,7 +519,7 @@ function theEnd(title, points, logo, thanklink){
         setTimeout(() => {
                 //väntar lite innan användaren skickas till startpage
                 startPage("FILL THERMOS", 
-                "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
+                "",
                 "cup");
                 document.querySelector(".fillAdvergameWrapper").remove();
         }, 2000);
@@ -528,7 +529,7 @@ function theEnd(title, points, logo, thanklink){
 document.querySelector(".again").addEventListener("click", () => {
         //kom till startsidan
         startPage("Fill THERMOS", 
-        "Click and hold on the cup to fill it with ingredients, if you hit the mark you get full points!",
+        "",
         "cup");
         document.querySelector(".fillAdvergameWrapper").remove();
 })

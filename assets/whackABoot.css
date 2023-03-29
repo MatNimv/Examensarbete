@@ -6,6 +6,15 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    position:relative;
+}
+#middleElements .gameInstructions{
+    position: absolute;
+    bottom: 88px;
+    left: 202px;
+    font-size: larger;
+    width: 500px;
+    text-align: center;
 }
 .boot{
     height:150px;
@@ -26,7 +35,7 @@
 }
 .boot.floatBoot{
     position:absolute;
-    transform: translate(-140px,-220px);
+    transform: translate(-140px,-320px);
     cursor: none;
 }
 #gridWrapper{
@@ -59,7 +68,6 @@
 }
 
 .mole{
-    /*background: url('images/whack/monsterRed.svg') bottom center no-repeat;*/
     background-size: 50%;
     position: absolute;
     top: 100%;
@@ -129,7 +137,19 @@
     color: white;
     font-size: 26px;
     margin-bottom: 0;
+    
 }
+
+.companyEndName a{
+    animation: color-change 3s ease-in-out infinite;
+}
+
+@keyframes color-change {
+    0% { color: #abbe67; }
+    40% { color:  #ffe44c; }
+    70% { color:  #3f8924; }
+    100% { color:  #abbe67; }
+  }
 
 .yourResults {
     font-family: 'Rubik Dirt', cursive;

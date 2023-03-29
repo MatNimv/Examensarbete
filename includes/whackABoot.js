@@ -9,7 +9,7 @@ let link = linkToSend;
 if (link == 1){
 
     startPage("Whack A Boot",
-    "Hover the boot over the invaders and click and stomp them to earn points",
+    "",
     "boot");
 
     skipAd();
@@ -332,7 +332,7 @@ export function whackAMole(){
     
             setTimeout(() => {
                     startPage("Whack A Boot",
-                    "Hover the boot over the invaders and click and stomp them to earn points",
+                    "",
                     "boot");
                     document.querySelector(".fillAdvergameWrapper").remove();
             }, 2000);
@@ -341,7 +341,7 @@ export function whackAMole(){
 
     document.querySelector(".again").addEventListener("click", () => {
             startPage("Whack A Boot",
-            "Hover the boot over the invaders and click and stomp them to earn points",
+            "",
             "boot");
             document.querySelector(".fillAdvergameWrapper").remove();
         })
@@ -369,6 +369,7 @@ export function whackElementsDOM(){
             </div>
         </div>
         <div id="middleElements">
+            <div class="gameInstructions">Hover the boot over the invaders and click and stomp them to earn points!</div>
             <div class="boot"></div>
             <button id="startGame">START</button>
             <div id="timer"></div>

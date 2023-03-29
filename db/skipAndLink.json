@@ -14,7 +14,10 @@
     {
         "fill": [
             {
-                "linkClicks": []
+                "linkClicks": [
+                    1,
+                    1
+                ]
             },
             {
                 "skipSeconds": []
