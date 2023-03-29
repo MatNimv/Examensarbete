@@ -20,7 +20,9 @@
                 ]
             },
             {
-                "skipSeconds": []
+                "skipSeconds": [
+                    26
+                ]
             }
         ]
     }
