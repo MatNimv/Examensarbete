@@ -369,10 +369,11 @@ export function whackElementsDOM(){
             </div>
         </div>
         <div id="middleElements">
-            <div class="gameInstructions">Hover the boot over the invaders and click and stomp them to earn points!</div>
+            <div class="gameInstructions">Hover the boot over the invaders, click to stomp them and earn points! Be careful not to hit the friendly squirrels though.</div>
             <div class="boot"></div>
             <button id="startGame">START</button>
             <div id="timer"></div>
+            <div class="logoSecondPage"></div>
         </div>
         <div id="gridWrapper">
             <div id="holeWrapper">
@@ -410,6 +411,8 @@ function startPage(game, description, gameThing){
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
+            <div class="promoMsg">This game is created by Canada Boots Company</div>
+            <div class="logoFirstPage"></div>
             <h2 class="gameTitle">${game}</h2>
             <h5 class="gameInstructions">${description}</h5>
         </div>

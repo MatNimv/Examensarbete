@@ -117,7 +117,6 @@ font-family: 'Rubik Moonrocks', cursive;
   position: absolute;
   bottom: 341px;
   left: 180px;
-  font-size: larger;
   width: 500px;
   text-align: center;
 }
@@ -206,14 +205,13 @@ font-family: 'Rubik Moonrocks', cursive;
     z-index: 100;
     pointer-events: all;
     position: absolute;
-    top: 305px;
-    right: 341px;
+    top: 314px;
+    right: 352px;
     background-color: var(--baseBlueC);
-    font-size: 20px;
+    font-size: 19px;
     font-family:'Rubik Mono One', sans-serif;
     color: var(--breadFontC);
-    border-radius: 10px;
-    border: 1px solid var(--accentBlueC);
+    border: none;
     padding: 10px;
 }
 
@@ -422,4 +420,27 @@ font-family: 'Rubik Moonrocks', cursive;
 
 .companyEndName > a:hover{
   color: var(--objectsBlueC);
+}
+
+.logoFirstPage {
+  background-image: url(/assets/images/fill/cupciusLogo.png);
+  width: 105px;
+  height: 98px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position:absolute;
+  left: 15px;
+  top: 4px;
+}
+
+.promoMsg {
+  margin: 0;
+  color: white;
+  margin-top: 17px;
+  font-family: 'Rubik Beastly', regular;
+}
+
+.logoSecondPage {
+  background-image: url(/assets/images/fill/cupciusLogo.png);
+  top: 200px;
 }

@@ -328,13 +328,33 @@ video{
 }
 
 .logo {
-    width: 7%;
+    width: 14%;
 }
 h1,h2,h3,h4,h5,h6{
     text-decoration: none;
 }
 header:first-child a{
-    color: black;
+    color: white;
+}
+
+.logoFirstPage {
+    width: 105px;
+    height: 98px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    left: 15px;
+    top: 4px;
+}
+
+.logoSecondPage {
+    width: 105px;
+    height: 98px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: 15px;
+    top: -112px;
 }
 
 

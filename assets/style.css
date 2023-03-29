@@ -16,7 +16,8 @@ header{
     justify-content: space-between;
     height: 70px;
     align-items: center;
-    background-color: rgb(190, 190, 190);
+    background-color: #0F0521;
+    padding: 3px;
 }
 header > div:first-child{
     display: flex;
@@ -95,7 +96,7 @@ h1,h2,h3,h4,h5,h6{
     text-decoration: none;
 }
 header:first-child a{
-    color: black;
+    color: white;
 }
 
 

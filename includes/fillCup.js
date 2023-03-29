@@ -364,6 +364,7 @@ function elementsDOM(){
             </div>
             <div></div>
             <div class="gameInstructions">Click and hold on the cup to fill it with ingredients, if you stop at the mark you get full points!</div>
+            <div class="logoSecondPage"></div>
         </div>
     `;
 }
@@ -401,6 +402,8 @@ function startPage(game, description, gameThing){
     fillAdvergameWrapper.innerHTML = "";
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
+            <div class="promoMsg">This game is created by Cupcius</div>
+            <div class="logoFirstPage"></div>
             <h2 class="gameTitle">${game}</h2>
             <h5 class="gameInstructions">${description}</h5>
         </div>

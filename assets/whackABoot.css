@@ -12,7 +12,6 @@
     position: absolute;
     bottom: 88px;
     left: 202px;
-    font-size: larger;
     width: 500px;
     text-align: center;
 }
@@ -88,6 +87,7 @@
     color: white;
     font-size: 50px;
     margin-bottom: 0;
+    margin-top: 15px;
 }
 
 .userList {
@@ -266,4 +266,19 @@
     z-index: 100;
 }
 
+
+.logoFirstPage {
+    background-image: url(/assets/images/whack/canadabootsLogo.png);
+}
+
+.logoSecondPage {
+    background-image: url(/assets/images/whack/canadabootsLogo.png);
+}
+
+.promoMsg {
+    margin: 0;
+    color: #CED239;
+    margin-top: 17px;
+    font-family: 'Rubik Dirt', cursive;
+}
 
