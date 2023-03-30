@@ -373,7 +373,7 @@ export function whackElementsDOM(){
             <div class="boot"></div>
             <button id="startGame">START</button>
             <div id="timer"></div>
-            <div class="logoSecondPage"></div>
+            <a href="thanks.php?advergame=whack"><div class="logoSecondPage"></div></a>
         </div>
         <div id="gridWrapper">
             <div id="holeWrapper">
@@ -412,7 +412,7 @@ function startPage(game, description, gameThing){
     fillAdvergameWrapper.innerHTML = `
         <div class="topStart">
             <div class="promoMsg">This game is created by Canada Boots Company</div>
-            <div class="logoFirstPage"></div>
+            <a href="thanks.php?advergame=whack"><div class="logoFirstPage"></div></a>
             <h2 class="gameTitle">${game}</h2>
             <h5 class="gameInstructions">${description}</h5>
         </div>

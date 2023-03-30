@@ -50,7 +50,8 @@ header > div:first-child{
     background-size: contain;
 }
 footer{
-    background-color: rgb(190, 190, 190);
+    background-color: #0F0521;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
