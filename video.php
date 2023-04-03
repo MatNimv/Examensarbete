@@ -16,7 +16,7 @@ $whackAttrs = [
 $fillAttrs = [
     '<p class="oneAttr">Coffee package: <a href="https://www.flaticon.com/free-icons/coffee-bean" title="coffee bean icons">Coffee bean icons created by Freepik - Flaticon</a>
     </p>',
-    '<p class="oneAttr">Bubble boba jar: <a href="https://www.flaticon.com/free-icons/food" title="food icons">Food icons created by Freepik - Flaticon</a>
+    '<p class="oneAttr">Reusable Cup:<a href="https://www.flaticon.com/free-icons/plastic-cup" title="plastic cup icons">Plastic cup icons created by Freepik - Flaticon</a></a>
     </p>',
     '<p class="oneAttr">Coffee beans: <a href="https://www.flaticon.com/free-icons/drink" title="drink icons">Drink icons created by srip - Flaticon</a>
     </p>',
