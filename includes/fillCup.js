@@ -34,7 +34,7 @@ if (link == 2){
     
             fetch(req).then(response => response);
             })
-    }, 11000);
+    }, 7000);
     
 
 }

@@ -32,8 +32,7 @@ if (link == 1){
     
             fetch(req).then(response => response);
             })
-    }, 11000);
-    
+    }, 7000);
 }
 
 export function whackAMole(){
